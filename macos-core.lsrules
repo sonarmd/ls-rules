@@ -1,0 +1,172 @@
+{
+  "name": "macOS Core Daemons — Apple Infrastructure Only",
+  "description": "Locks essential macOS system daemons to Apple's IP ranges only. These daemons have no legitimate reason to connect outside Apple's infrastructure. A daemon in this list connecting to a non-Apple IP is a compromise indicator.",
+  "rules": [
+    {
+      "action": "allow",
+      "process": "/usr/libexec/trustd",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "trustd — TLS trust evaluation, OCSP stapling, certificate validation"
+    },
+    {
+      "action": "allow",
+      "process": "/usr/libexec/trustd",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "80",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "trustd — OCSP GET requests use HTTP (RFC 6960)"
+    },
+    {
+      "action": "deny",
+      "process": "/usr/libexec/trustd",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "trustd must never connect outside Apple infrastructure"
+    },
+    {
+      "action": "allow",
+      "process": "/usr/libexec/syspolicyd",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "syspolicyd — Gatekeeper notarization checks, XProtect updates"
+    },
+    {
+      "action": "deny",
+      "process": "/usr/libexec/syspolicyd",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "syspolicyd must never connect outside Apple infrastructure"
+    },
+    {
+      "action": "allow",
+      "process": "/System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/Support/akd",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "akd — Apple ID authentication and token refresh"
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/Support/akd",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "akd must only reach Apple auth servers"
+    },
+    {
+      "action": "allow",
+      "process": "/System/Library/PrivateFrameworks/ApplePushService.framework/apsd",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "apsd — Apple Push Notification Service (HTTPS fallback)"
+    },
+    {
+      "action": "allow",
+      "process": "/System/Library/PrivateFrameworks/ApplePushService.framework/apsd",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "5223",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "apsd — Apple Push Notification Service (primary port)"
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/ApplePushService.framework/apsd",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "apsd must never connect outside Apple infrastructure"
+    },
+    {
+      "action": "allow",
+      "process": "/usr/libexec/nsurlsessiond",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "nsurlsessiond — Background URL sessions for Apple services"
+    },
+    {
+      "action": "allow",
+      "process": "/usr/libexec/nsurlsessiond",
+      "remote-addresses": "139.178.128.0/18",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "nsurlsessiond — Apple edge/CDN range"
+    },
+    {
+      "action": "allow",
+      "process": "/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "softwareupdated — macOS and app software updates"
+    },
+    {
+      "action": "allow",
+      "process": "/System/Library/PrivateFrameworks/MobileSoftwareUpdate.framework/Support/softwareupdated",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "softwareupdated (MSU) — macOS updates via MobileSoftwareUpdate"
+    },
+    {
+      "action": "allow",
+      "process": "/System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "cloudd — CloudKit daemon, iCloud sync"
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "cloudd must never connect outside Apple infrastructure"
+    },
+    {
+      "action": "allow",
+      "process": "/System/Library/PrivateFrameworks/iCloudDriveCore.framework/Versions/A/Support/bird",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "bird — iCloud Drive sync"
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/iCloudDriveCore.framework/Versions/A/Support/bird",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "bird must never connect outside Apple infrastructure"
+    },
+    {
+      "action": "allow",
+      "process": "/System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/storedownloadd",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "storedownloadd — App Store downloads"
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/storedownloadd",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "storedownloadd must never connect outside Apple infrastructure"
+    }
+  ]
+}

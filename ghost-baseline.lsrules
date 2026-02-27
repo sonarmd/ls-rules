@@ -1,0 +1,171 @@
+{
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
+  "name": "Tony Fortress Ghost Baseline",
+  "description": "Outbound whitelist for hardened macOS endpoint; block known telemetry and LAN noise. Import in Little Snitch 6.2.x after PF is applied.",
+  "rules": [
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/libexec/configd",
+      "protocol": "udp",
+      "ports": [67, 68],
+      "remote": "AnyServer"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/sbin/mDNSResponder",
+      "protocol": "udp",
+      "ports": [53, 853],
+      "remote": "AnyServer"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/libexec/trustd",
+      "protocol": "tcp",
+      "ports": [80],
+      "remote": [
+        "17.248.0.0/15",
+        "17.250.0.0/16",
+        "17.253.0.0/16"
+      ]
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": [
+        "/usr/libexec/trustd",
+        "/usr/sbin/softwareupdated",
+        "/System/Library/PrivateFrameworks/CommerceKit.framework/Resources/storeaccountd",
+        "/System/Library/PrivateFrameworks/SoftwareUpdate.framework/Resources/softwareupdateservicesd"
+      ],
+      "protocol": "tcp",
+      "ports": [443],
+      "remote": "17.0.0.0/8"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/sbin/ntpd",
+      "protocol": "udp",
+      "ports": [123],
+      "remote": "AnyServer"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": [
+        "/usr/local/bin/brew",
+        "/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Renderer).app/Contents/MacOS/Code Helper (Renderer)",
+        "/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
+      ],
+      "protocol": "tcp",
+      "ports": [22, 443],
+      "remote": "AnyServer"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": [
+        "/usr/libexec/analyticsd",
+        "/usr/libexec/adprivacyd",
+        "/usr/libexec/coreduetd",
+        "/usr/libexec/contextstored",
+        "/usr/libexec/suggestd",
+        "/usr/libexec/rapportd",
+        "/usr/libexec/nearbyd",
+        "/usr/libexec/imagent",
+        "/usr/sbin/appleh16camerad",
+        "/usr/libexec/mobileactivationd",
+        "/System/Library/CoreServices/TimeMachine/backupd-helper",
+        "/usr/libexec/ContinuityCaptureAgent",
+        "/usr/libexec/networkserviceproxy",
+        "/usr/libexec/containermanagerd",
+        "/System/Library/ExtensionKit/Extensions/Bluetooth.appex/Contents/MacOS/Bluetooth",
+        "/usr/libexec/biomesyncd",
+        "/usr/libexec/remoted",
+        "/usr/libexec/opendirectoryd",
+        "/usr/libexec/mobileassetd",
+        "/usr/libexec/findmybeaconingd",
+        "/System/Library/CoreServices/TimeMachine/backupd",
+        "/usr/libexec/cameracaptured",
+        "/usr/libexec/audioanalyticsd",
+        "/usr/libexec/intelligentroutingd",
+        "/usr/libexec/wifip2pd",
+        "/usr/libexec/findmylocateagent",
+        "/usr/libexec/replayd",
+        "/System/Library/PrivateFrameworks/CalendarDaemon.framework/Support/calaccessd",
+        "/System/Library/PrivateFrameworks/SyncedDefaults.framework/Support/syncdefaultsd",
+        "/System/Library/PrivateFrameworks/HearingCore.framework/heard",
+        "/System/Library/PrivateFrameworks/FamilyCircle.framework/Versions/A/Resources/familycircled",
+        "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd",
+        "/System/Library/PrivateFrameworks/SoftwareUpdate.framework/Resources/SoftwareUpdateNotificationManager.app/Contents/MacOS/SoftwareUpdateNotificationManager",
+        "/usr/libexec/sharingd",
+        "/System/Library/Image Capture/Support/icdd",
+        "/usr/libexec/gamepolicyd",
+        "/usr/libexec/mobilerepaird",
+        "/usr/libexec/siriknowledged",
+        "/System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd",
+        "/System/Library/Frameworks/NetFS.framework/Versions/A/XPCServices/PlugInLibraryService.xpc/Contents/MacOS/PlugInLibraryService",
+        "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd",
+        "/System/Library/PrivateFrameworks/iTunesCloud.framework/Support/itunescloudd",
+        "/usr/libexec/wifianalyticsd",
+        "/usr/libexec/loginitemregisterd",
+        "/usr/sbin/bluetoothd",
+        "/System/Applications/Journal.app/Contents/PlugIns/JournalWidgets.appex/Contents/MacOS/JournalWidgets",
+        "/System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/XPCServices/SetStoreUpdateService.xpc/Contents/MacOS/SetStoreUpdateService",
+        "/usr/libexec/remindd",
+        "/usr/libexec/eligibilityd",
+        "/usr/libexec/nsurlsessiond",
+        "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed",
+        "/usr/libexec/smd",
+        "/usr/libexec/usermanagerd",
+        "/usr/libexec/aslmanager",
+        "/System/Library/PrivateFrameworks/MobileAccessoryUpdater.framework/Support/accessoryupdaterd",
+        "/usr/libexec/triald_system",
+        "/usr/bin/ssh",
+        "/usr/bin/git",
+        "/usr/bin/curl"
+      ],
+      "remote": "AnyServer"
+    },
+    {
+      "action": "deny",
+      "direction": "both",
+      "process": "AnyProcess",
+      "remote": "local-net"
+    },
+    {
+      "action": "deny",
+      "direction": "both",
+      "process": "AnyProcess",
+      "protocol": "icmp",
+      "remote": "AnyServer"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "AnyProcess",
+      "remote": [
+        "224.0.0.0/4",
+        "239.0.0.0/8",
+        "ff00::/8",
+        "169.254.0.0/16",
+        "17.0.0.0/8"
+      ]
+    },
+    {
+      "action": "deny",
+      "direction": "incoming",
+      "process": "AnyProcess",
+      "remote": "AnyServer"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "AnyProcess",
+      "remote": "AnyServer"
+    }
+  ]
+}

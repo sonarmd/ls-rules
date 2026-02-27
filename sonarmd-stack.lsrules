@@ -1,0 +1,114 @@
+{
+  "name": "SonarMD Stack — Project Infrastructure",
+  "description": "Allow connections to SonarMD's project infrastructure: Atlassian (Jira/Confluence), MongoDB Atlas, CircleCI, GitHub sonarmd org, and Docker. These are broad-process allow rules — the destination is the control, not the process.",
+  "rules": [
+    {
+      "action": "allow",
+      "process": "any",
+      "remote-domains": "atlassian.net",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Atlassian — Jira (sonarmd.atlassian.net), Confluence"
+    },
+    {
+      "action": "allow",
+      "process": "any",
+      "remote-domains": "atlassian.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Atlassian — account, admin, downloads"
+    },
+    {
+      "action": "allow",
+      "process": "any",
+      "remote-domains": "mongodb.net",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "MongoDB Atlas — cluster connections (HTTPS API)"
+    },
+    {
+      "action": "allow",
+      "process": "any",
+      "remote-domains": "mongodb.net",
+      "ports": "27017",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "MongoDB Atlas — native wire protocol port"
+    },
+    {
+      "action": "allow",
+      "process": "any",
+      "remote-domains": "mongodb.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "MongoDB — Atlas UI, documentation, downloads"
+    },
+    {
+      "action": "allow",
+      "process": "any",
+      "remote-domains": "circleci.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "CircleCI — CI/CD pipeline, webhooks, API"
+    },
+    {
+      "action": "allow",
+      "process": "any",
+      "remote-domains": "github.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "GitHub — sonarmd org repos, PR reviews, Actions"
+    },
+    {
+      "action": "allow",
+      "process": "any",
+      "remote-addresses": "185.199.108.0/22",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "GitHub Pages/CDN (raw.githubusercontent.com, GitHub assets)"
+    },
+    {
+      "action": "allow",
+      "process": "com.docker.docker",
+      "remote-domains": "docker.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Docker Desktop → Docker Hub, registry"
+    },
+    {
+      "action": "allow",
+      "process": "com.docker.docker",
+      "remote-domains": "docker.io",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Docker Desktop → registry.docker.io (image pulls)"
+    },
+    {
+      "action": "allow",
+      "process": "com.docker.docker",
+      "remote-addresses": "17.0.0.0/8",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Docker Desktop → Apple notarization, updates"
+    },
+    {
+      "action": "allow",
+      "process": "com.docker.docker",
+      "remote-domains": "amazonaws.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Docker Desktop → Docker Hub CDN (stored on S3)"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "name": "Dev Tools — Scoped Destinations",
+  "description": "Allow dev tools to reach their specific, known destinations. git/gh are IP-pinned to GitHub's published ASes. brew, npm, docker, terraform, gcloud, aws use domain rules. Volta shim covers all Node/npm/yarn traffic.",
+  "rules": [
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/git",
+      "remote-addresses": "140.82.112.0/20",
+      "ports": "22",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "git SSH → GitHub AS36459 primary range"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/git",
+      "remote-addresses": "192.30.252.0/22",
+      "ports": "22",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "git SSH → GitHub AS36459 secondary range"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/git",
+      "remote-addresses": "143.55.64.0/20",
+      "ports": "22",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "git SSH → GitHub Actions/Packages range"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/git",
+      "remote-addresses": "140.82.112.0/20",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "git HTTPS → GitHub"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/git",
+      "remote-addresses": "192.30.252.0/22",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "git HTTPS → GitHub secondary"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/gh",
+      "remote-addresses": "140.82.112.0/20",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "gh CLI → GitHub API"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/gh",
+      "remote-addresses": "192.30.252.0/22",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "gh CLI → GitHub API secondary"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin/ruby",
+      "remote-domains": "github.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Homebrew Ruby → GitHub (formula/tap updates)"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin/ruby",
+      "remote-domains": "ghcr.io",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Homebrew Ruby → GitHub Container Registry (bottle downloads)"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin/ruby",
+      "remote-domains": "formulae.brew.sh",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Homebrew Ruby → Homebrew formula API"
+    },
+    {
+      "action": "allow",
+      "process": "/usr/bin/curl",
+      "remote-domains": "ghcr.io",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "curl used by Homebrew for bottle downloads from GitHub Container Registry"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/opt/volta/bin/volta-shim",
+      "remote-domains": "registry.npmjs.org",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Node/npm/yarn (via Volta shim) → npm registry"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/opt/volta/bin/volta-shim",
+      "remote-domains": "nodejs.org",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Volta → Node.js download mirror"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/opt/volta/bin/volta-shim",
+      "remote-domains": "yarnpkg.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Volta → Yarn package registry"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/terraform",
+      "remote-domains": "registry.terraform.io",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Terraform → provider registry"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/terraform",
+      "remote-domains": "releases.hashicorp.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Terraform → HashiCorp release downloads"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/terraform",
+      "remote-domains": "checkpoint-api.hashicorp.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Terraform → version check (can disable with CHECKPOINT_DISABLE=1)"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/gcloud",
+      "remote-domains": "googleapis.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "gcloud → Google Cloud APIs"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/gcloud",
+      "remote-domains": "google.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "gcloud → Google auth endpoints"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/aws",
+      "remote-domains": "amazonaws.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "AWS CLI → AWS service endpoints"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/aws",
+      "remote-domains": "aws.amazon.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "AWS CLI → AWS management console/SSO"
+    }
+  ]
+}
