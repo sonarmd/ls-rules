@@ -1,0 +1,252 @@
+{
+  "name": "SonarMD Hardened Rules",
+  "description": "Hardened Little Snitch rule set for avespoli@sonarmd.com. Covers browsers, dev tools, Microsoft 365, Docker, IT management, credential managers, and telemetry blocking. DNS encryption and CLI lockout enforced via globalDefaults separately. Threat intel (ThreatFox, URLHaus, PhishingArmy, HaGeZi Pro) handled by separate subscription groups.",
+  "rules": [
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "direction": "incoming",
+      "remote": "any",
+      "notes": "Chrome: block all incoming — browsers do not serve connections"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Chrome: HTTPS browsing"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome",
+      "direction": "outgoing",
+      "ports": "80",
+      "remote": "any",
+      "notes": "Chrome: HTTP (initial requests; HSTS auto-upgrades to HTTPS)"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.Terminal",
+      "direction": "incoming",
+      "remote": "any",
+      "notes": "Terminal: block all incoming — shell does not accept connections"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.Terminal",
+      "direction": "outgoing",
+      "remote": "any",
+      "notes": "Terminal: allow all outgoing — dev shell (SSH/22, HTTPS/443, brew, npm, etc.)"
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.teams2",
+      "direction": "incoming",
+      "remote": "any",
+      "notes": "Teams: block incoming — relay-based media, no direct inbound needed"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.teams2",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Teams: HTTPS for chat, API, and web endpoints"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.teams2",
+      "direction": "outgoing",
+      "ports": "3478",
+      "protocol": "udp",
+      "remote": "any",
+      "notes": "Teams media: STUN/TURN port 3478 UDP — audio/video calls"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.teams2",
+      "direction": "outgoing",
+      "ports": "3479",
+      "protocol": "udp",
+      "remote": "any",
+      "notes": "Teams media: STUN/TURN alt port 3479 UDP"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.teams2",
+      "direction": "outgoing",
+      "ports": "3480",
+      "protocol": "udp",
+      "remote": "any",
+      "notes": "Teams media: TURN media port 3480 UDP"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.teams2",
+      "direction": "outgoing",
+      "ports": "3481",
+      "protocol": "udp",
+      "remote": "any",
+      "notes": "Teams media: TURN media port 3481 UDP"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.teams2.agent",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Teams background agent: HTTPS for background sync"
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.Outlook",
+      "direction": "incoming",
+      "remote": "any",
+      "notes": "Outlook: block incoming — email clients do not serve connections"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.Outlook",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Outlook: Microsoft 365 HTTPS for mail/calendar/contacts"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.Safari",
+      "direction": "incoming",
+      "remote": "any",
+      "notes": "Safari: block incoming — browsers do not serve connections"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.Safari",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Safari: HTTPS-only browsing (no HTTP/80 — force secure connections)"
+    },
+    {
+      "action": "deny",
+      "process": "com.docker.docker",
+      "direction": "incoming",
+      "remote": "any",
+      "notes": "Docker: deny external incoming — daemon must never be network-exposed"
+    },
+    {
+      "action": "allow",
+      "process": "com.docker.docker",
+      "direction": "incoming",
+      "remote-addresses": "127.0.0.1",
+      "notes": "Docker: allow incoming from localhost only — container<>daemon loopback"
+    },
+    {
+      "action": "allow",
+      "process": "com.docker.docker",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Docker: HTTPS outgoing — pull images from registries (Docker Hub, GHCR, ECR)"
+    },
+    {
+      "action": "allow",
+      "process": "com.centrastage.tray",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Centrastage (Datto RMM): HTTPS for IT management by Medicus IT MSP"
+    },
+    {
+      "action": "allow",
+      "process": "com.anthropic.claudefordesktop",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Claude Desktop: HTTPS for Anthropic API (claude.ai, api.anthropic.com)"
+    },
+    {
+      "action": "allow",
+      "process": "com.1password.1password",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "1Password: HTTPS for vault sync and biometric auth (sonarmd.1password.com)"
+    },
+    {
+      "action": "allow",
+      "process": "com.keepersecurity.passwordmanager",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Keeper Security: HTTPS for password manager sync"
+    },
+    {
+      "action": "deny",
+      "process": "com.jetbrains.WebStorm",
+      "direction": "outgoing",
+      "remote": "any",
+      "notes": "WebStorm: block all outgoing — IDE telemetry and plugin downloads blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.sublimetext.4",
+      "direction": "outgoing",
+      "remote": "any",
+      "notes": "Sublime Text: block all outgoing — text editors should not phone home"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.Word",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Word: HTTPS for Microsoft 365 cloud features and document sync"
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.autoupdate.fba",
+      "direction": "outgoing",
+      "remote": "any",
+      "notes": "Microsoft AutoUpdate: blocked — software updates managed by IT via Centrastage"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.ap.promotedcontentd",
+      "direction": "outgoing",
+      "remote": "any",
+      "notes": "ap.promotedcontentd: block — Apple advertising/recommendation delivery daemon"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.weather.widget",
+      "direction": "outgoing",
+      "remote": "any",
+      "notes": "com.apple.weather.widget: block — telemetry and location data blocked"
+    },
+    {
+      "action": "allow",
+      "process": "at.obdev.littlesnitch.networkextension",
+      "direction": "outgoing",
+      "remote": "any",
+      "notes": "Little Snitch NE: allow outgoing — required for LS daemon, blocklist updates, cert validation"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/Cellar/dnscrypt-proxy/*/sbin/dnscrypt-proxy",
+      "direction": "outgoing",
+      "ports": "443",
+      "remote": "any",
+      "notes": "dnscrypt-proxy: DoH (DNS-over-HTTPS, port 443) — encrypted DNS resolution"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/Cellar/dnscrypt-proxy/*/sbin/dnscrypt-proxy",
+      "direction": "outgoing",
+      "ports": "853",
+      "remote": "any",
+      "notes": "dnscrypt-proxy: DoT (DNS-over-TLS, port 853) — encrypted DNS resolution"
+    }
+  ]
+}
