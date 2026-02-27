@@ -1377,6 +1377,15 @@
       "direction": "outgoing",
       "ports": "853",
       "notes": "dnscrypt-proxy: DoT (DNS-over-TLS, port 853) — encrypted DNS resolution"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.mDNSResponder",
+      "direction": "incoming",
+      "protocol": "udp",
+      "ports": "5353",
+      "remote-addresses": "192.168.1.23",
+      "notes": "mDNS: allow incoming UDP 5353 from 192.168.1.23 (local network Bonjour/service discovery)"
     }
   ]
 }
