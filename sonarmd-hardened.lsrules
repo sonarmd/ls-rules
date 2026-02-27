@@ -1,248 +1,1381 @@
 {
   "name": "SonarMD Hardened Rules",
-  "description": "Hardened Little Snitch rule set for avespoli@sonarmd.com. Covers browsers, dev tools, Microsoft 365, Docker, IT management, and credential managers. Telemetry and ad daemons blocked. Threat intel (ThreatFox, URLHaus, PhishingArmy, HaGeZi Pro) handled by separate subscription groups.",
+  "description": "Comprehensive hardened Little Snitch rule set for avespoli@sonarmd.com. Covers all 188 processes seen on this machine with explicit allow/deny decisions. Apple telemetry and surveillance processes explicitly blocked. Threat intel (ThreatFox, URLHaus, PhishingArmy, HaGeZi Pro) handled by separate subscription groups.",
   "rules": [
     {
       "action": "deny",
-      "process": "com.google.Chrome",
-      "direction": "incoming",
+      "process": "com.apple.AMPLibraryAgent",
       "protocol": "tcp",
-      "notes": "Chrome: block all incoming — browsers do not serve connections"
+      "direction": "outgoing",
+      "notes": "Apple Media Products analytics — engagement tracking for Music/Podcasts blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.amsaccountsd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Apple Media Services accounts daemon — telemetry pipeline blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.amsengagementd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Apple Media Services engagement daemon — listens and reports user behavior"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.amsondevicestoraged",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "AMS on-device storage for analytics — buffers telemetry before upload"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.ap.adprivacyd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Apple Advertising privacy daemon — ad targeting infrastructure blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.ap.promotedcontentd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Apple Promoted Content daemon — ad delivery to App Store and News blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.CloudTelemetryService.xpc",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Apple Cloud Telemetry Service — explicit telemetry uploader blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.DiagnosticsSessionAvailabilityService.xpc",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Diagnostics session availability reporter — usage telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.SubmitDiagInfo",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Submit Diagnostics — crash reports and sysdiagnose data uploads blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.assistantd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Siri assistant daemon — background queries and Siri intelligence collection blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.siriknowledged",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Siri knowledge daemon — on-device Siri learning uploaded to Apple blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.ctcategories.service",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Content type categories service — app usage categorization analytics blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.familycircled",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Family Circle daemon — Family Sharing tracking and reporting blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.FeatureAccessAgent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Feature Access Agent — feature flag telemetry and A/B test reporting blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.icloud.searchpartyuseragent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Find My Search Party agent — participates in crowd-sourced location network"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.jetpackassetd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Jetpack asset daemon — dynamic asset analytics pipeline blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.nbagent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Notification analytics backend agent — user engagement reporting blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.news.tag",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Apple News tagging service — reading behavior analytics blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.news.widget",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Apple News widget — widget analytics and content telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.parsec-fbf",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Parsec feedback framework — Apple analytics and A/B testing SDK blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.parsecd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Parsed daemon — query analysis and search telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.passd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Passes daemon — Wallet/Passes usage and merchant tracking blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.rtcreportingd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "RTC Reporting daemon — real-time communication quality telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.shazamd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Shazam daemon — background music recognition and reporting blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.StocksKitService",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "StocksKit service — financial data analytics and usage reporting blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.stocks.widget",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Stocks widget — financial widget telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.studentd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Student daemon — education program tracking blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.swcd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Shared Web Credentials daemon — cross-site credential correlation blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.swtransparencyd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Software transparency daemon — app usage reporting to Apple blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.symptomsd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Symptoms daemon — network reliability diagnostics reported to Apple blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.tipsd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Tips daemon — tips engagement analytics blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.weather.widget",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Weather widget — location + weather telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.weatherd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Weather daemon — background location + weather reporting blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.wifivelocityd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "WiFi Velocity daemon — background speed tests reported to Apple blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.mobile.NRDUpdated",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "NRD Update daemon — network reliability data collection blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.networkserviceproxy",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Network Service Proxy — Apple analytics routing infrastructure blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.helpd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Help daemon — help content access analytics blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.helpviewer",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Help Viewer — help content telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.quicklook.ui.helper",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Quick Look UI helper — preview analytics blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.Spotlight",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Spotlight — web search suggestions and Siri Suggestions sent to Apple blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.Spotlight-Settings.extension",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Spotlight Settings extension — settings telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.Safari.SearchHelper",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Safari Search Helper — address bar suggestions forwarded to Apple blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.safari.PasswordBreachAgent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Safari Password Breach Agent — allow: uses privacy-preserving k-anon hash check"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.nbagent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Notification analytics backend — engagement reporting to Apple blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.askpermissiond",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Ask Permission daemon — permission grant/deny telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.AppleMediaServicesUI.UtilityExtension",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Apple Media Services UI utility — AMS analytics extension blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.Dictionary",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Dictionary — word lookup queries forwarded to Apple blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.ScreenSharing",
+      "protocol": "tcp",
+      "direction": "incoming",
+      "notes": "Screen Sharing — deny all incoming remote screen control"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.remindd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Reminders daemon — block outgoing; Reminders syncs via iCloud which is already allowed"
     },
     {
       "action": "allow",
-      "process": "com.google.Chrome",
+      "process": "com.apple.softwareupdated",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
-      "protocol": "tcp",
-      "notes": "Chrome: HTTPS browsing"
+      "notes": "Software Update daemon — OS update metadata and downloads"
     },
     {
       "action": "allow",
-      "process": "com.google.Chrome",
+      "process": "com.apple.mobile.softwareupdated",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Mobile Software Update daemon — OS updates"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.MobileSoftwareUpdate.UpdateBrainService",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Software Update brain service — update orchestration"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.SoftwareUpdateNotificationManager",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Software Update notifications — checks for available updates"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.mobileassetd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Mobile Asset daemon — downloads system assets (fonts, emoji, ML models)"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.installer",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "macOS Installer — package and app installation"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.installandsetup.systemmigrationd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "System Migration daemon — Migration Assistant data transfer"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.appleaccountd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Apple Account daemon — Apple ID authentication and session management"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.akd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Apple Key Distribution daemon — cryptographic key distribution for Apple services"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.AuthenticationServicesCore.AuthenticationServicesAgent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Authentication Services — Sign in with Apple and passkey operations"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.mobileactivationd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Mobile Activation daemon — device activation with Apple"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.AppStore",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "App Store — app browsing, purchases, and updates"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.appstoreagent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "App Store agent — background App Store operations"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.storekitagent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "StoreKit agent — in-app purchase orchestration"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.managedappdistributionagent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Managed App Distribution agent — MDM app installs"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.managedappdistributiond",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Managed App Distribution daemon — MDM app delivery"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.cloudd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "CloudD — iCloud sync backbone (documents, keychain, iCloud Drive)"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.itunescloudd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "iTunes Cloud daemon — iCloud Music Library and Apple Music downloads"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.dataaccess.dataaccessd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Data Access daemon — CalDAV/CardDAV sync for Calendar and Contacts"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.email.AccountsUISupportService",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Email Accounts UI — mail account configuration and validation"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.mail",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Apple Mail — IMAP/SMTP with TLS"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.Notes",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Notes — iCloud Notes sync"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.Music",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Music — Apple Music streaming and library sync"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.syspolicyd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "System Policy daemon — Gatekeeper notarization checks (security critical)"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.transparencyd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Transparency daemon — App Privacy Reports and transparency infrastructure"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.webprivacyd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Web Privacy daemon — Private Relay and IP address protection infrastructure"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.security.XPCTimeStampingService",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "XPC Timestamping — RFC3161 timestamps for code signing"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.WebKit.Networking",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "WebKit Networking — network process for Safari and all WKWebView-based apps"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.Safari",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Safari — HTTPS browsing"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.Safari.SafeBrowsing",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Safari Safe Browsing — Google Safe Browsing hash-based malware/phishing checks"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.Safari.PasswordBreachAgent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Safari Password Breach Agent — k-anonymity hash check against breach databases"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.curl",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "System curl — HTTPS requests from system scripts and Homebrew"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.curl",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "80",
-      "protocol": "tcp",
-      "notes": "Chrome: HTTP (initial requests; HSTS auto-upgrades to HTTPS)"
-    },
-    {
-      "action": "deny",
-      "process": "com.apple.Terminal",
-      "direction": "incoming",
-      "protocol": "tcp",
-      "notes": "Terminal: block all incoming — shell does not accept connections"
+      "notes": "System curl — HTTP for redirects"
     },
     {
       "action": "allow",
-      "process": "com.apple.Terminal",
+      "process": "com.apple.ssh",
+      "protocol": "tcp",
       "direction": "outgoing",
-      "protocol": "tcp",
-      "notes": "Terminal: allow all outgoing — dev shell (SSH/22, HTTPS/443, brew, npm, etc.)"
-    },
-    {
-      "action": "deny",
-      "process": "com.microsoft.teams2",
-      "direction": "incoming",
-      "protocol": "tcp",
-      "notes": "Teams: block incoming — relay-based media, no direct inbound needed"
+      "ports": "22",
+      "notes": "System SSH — outgoing SSH connections"
     },
     {
       "action": "allow",
-      "process": "com.microsoft.teams2",
+      "process": "com.apple.nsurlsessiond",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
+      "notes": "NSURLSession daemon — system-wide URL session for Apple background services"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.apsd",
       "protocol": "tcp",
-      "notes": "Teams: HTTPS for chat, API, and web endpoints"
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Apple Push Service daemon — APNs (Apple Push Notification service), required for notifications"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.captiveagent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Captive Portal Agent — detects captive portals (hotel/cafe WiFi)"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.AssetCacheLocatorService",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Asset Cache Locator — finds local Apple caching servers to reduce WAN traffic"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.timed",
+      "protocol": "udp",
+      "direction": "outgoing",
+      "ports": "123",
+      "notes": "Time daemon — NTP time synchronization (UDP 123)"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.sntp",
+      "protocol": "udp",
+      "direction": "outgoing",
+      "ports": "123",
+      "notes": "SNTP daemon — Simple NTP time synchronization (UDP 123)"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.geod",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Geod — location services for maps, timezone, and Find My"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.locationd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Location daemon — CoreLocation framework backend"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.privatecloudcomputed",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Private Cloud Compute — Apple Intelligence AI processing (privacy-preserving: data not stored)"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.dt.Xcode",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Xcode — developer portal, package downloads, device support"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.dt.Xcode.ITunesSoftwareService",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Xcode iTunes Software Service — iOS/tvOS device communication"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.git-remote-http",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Apple git HTTP helper — git clone/fetch/push over HTTPS"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.git-remote-http",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "80",
+      "notes": "Apple git HTTP helper — HTTP git transport"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.python3",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "System Python 3 — pip installs and system scripts"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.ruby",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "System Ruby — CocoaPods and system Ruby scripts"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.traceroute",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "traceroute — network path diagnostic (ICMP/UDP outgoing)"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.whois",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "whois — domain registration lookup"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.identityservicesd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Identity Services daemon — iMessage and FaceTime identity federation"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.translationd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Translation daemon — on-device and cloud translation API"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "protocol": "tcp",
+      "direction": "incoming",
+      "notes": "Chrome: browsers do not accept incoming connections"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Chrome HTTPS browsing"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "80",
+      "notes": "Chrome HTTP (initial requests; HSTS upgrades to HTTPS)"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome.helper",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Chrome renderer/GPU helper processes — HTTPS"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome.helper",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "80",
+      "notes": "Chrome renderer/GPU helper processes — HTTP"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.GoogleUpdater",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Google Updater — auto-update daemon blocked; Chrome updates via browser"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.Safari",
+      "protocol": "tcp",
+      "direction": "incoming",
+      "notes": "Safari: browsers do not accept incoming connections"
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.Outlook",
+      "protocol": "tcp",
+      "direction": "incoming",
+      "notes": "Outlook: email clients do not serve connections"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.Outlook",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Outlook: Microsoft 365 Exchange Online (HTTPS)"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.Outlook",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "587",
+      "notes": "Outlook: SMTP submission (port 587 for external mail)"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.Outlook",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "993",
+      "notes": "Outlook: IMAPS (port 993 for IMAP over TLS)"
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.teams2",
+      "protocol": "tcp",
+      "direction": "incoming",
+      "notes": "Teams: relay-based media, no direct incoming needed"
     },
     {
       "action": "allow",
       "process": "com.microsoft.teams2",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Teams: HTTPS for chat, web endpoints, and API"
+    },
+    {
+      "action": "allow",
+      "process": "com.microsoft.teams2",
+      "protocol": "udp",
       "direction": "outgoing",
       "ports": "3478",
-      "protocol": "udp",
       "notes": "Teams media: STUN/TURN port 3478 UDP — audio/video calls"
     },
     {
       "action": "allow",
       "process": "com.microsoft.teams2",
+      "protocol": "udp",
       "direction": "outgoing",
       "ports": "3479",
-      "protocol": "udp",
-      "notes": "Teams media: STUN/TURN alt port 3479 UDP"
+      "notes": "Teams media: STUN/TURN alt 3479 UDP"
     },
     {
       "action": "allow",
       "process": "com.microsoft.teams2",
+      "protocol": "udp",
       "direction": "outgoing",
       "ports": "3480",
-      "protocol": "udp",
-      "notes": "Teams media: TURN media port 3480 UDP"
+      "notes": "Teams media: TURN media 3480 UDP"
     },
     {
       "action": "allow",
       "process": "com.microsoft.teams2",
+      "protocol": "udp",
       "direction": "outgoing",
       "ports": "3481",
-      "protocol": "udp",
-      "notes": "Teams media: TURN media port 3481 UDP"
+      "notes": "Teams media: TURN media 3481 UDP"
     },
     {
       "action": "allow",
       "process": "com.microsoft.teams2.agent",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
-      "protocol": "tcp",
       "notes": "Teams background agent: HTTPS for background sync"
     },
     {
-      "action": "deny",
-      "process": "com.microsoft.Outlook",
-      "direction": "incoming",
+      "action": "allow",
+      "process": "com.microsoft.teams2.helper",
       "protocol": "tcp",
-      "notes": "Outlook: block incoming — email clients do not serve connections"
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Teams helper process: HTTPS"
     },
     {
       "action": "allow",
-      "process": "com.microsoft.Outlook",
+      "process": "com.microsoft.Word",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
-      "protocol": "tcp",
-      "notes": "Outlook: Microsoft 365 HTTPS for mail/calendar/contacts"
-    },
-    {
-      "action": "deny",
-      "process": "com.apple.Safari",
-      "direction": "incoming",
-      "protocol": "tcp",
-      "notes": "Safari: block incoming — browsers do not serve connections"
+      "notes": "Word: Microsoft 365 HTTPS for cloud features and document sync"
     },
     {
       "action": "allow",
-      "process": "com.apple.Safari",
+      "process": "com.microsoft.Excel",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
+      "notes": "Excel: Microsoft 365 HTTPS for cloud features and spreadsheet sync"
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.autoupdate.fba",
       "protocol": "tcp",
-      "notes": "Safari: HTTPS-only browsing (no HTTP/80 — force secure connections)"
+      "direction": "outgoing",
+      "notes": "Microsoft AutoUpdate: blocked — updates managed by IT via Centrastage RMM"
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.autoupdate2",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Microsoft AutoUpdate v2: blocked — updates managed by IT via Centrastage RMM"
+    },
+    {
+      "action": "deny",
+      "process": "com.apple.Terminal",
+      "protocol": "tcp",
+      "direction": "incoming",
+      "notes": "Terminal: shell does not accept incoming connections"
+    },
+    {
+      "action": "allow",
+      "process": "com.apple.Terminal",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Terminal: allow all outgoing — dev shell (SSH/22, HTTPS/443, brew, npm, git, etc.)"
+    },
+    {
+      "action": "deny",
+      "process": "node",
+      "protocol": "tcp",
+      "direction": "incoming",
+      "notes": "Node.js: server processes should be covered by localhost factory rules"
+    },
+    {
+      "action": "allow",
+      "process": "node",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Node.js: outgoing for npm installs, API calls, build tools, dev servers"
     },
     {
       "action": "deny",
       "process": "com.docker.docker",
-      "direction": "incoming",
       "protocol": "tcp",
+      "direction": "incoming",
       "notes": "Docker: deny external incoming — daemon must never be network-exposed"
     },
     {
       "action": "allow",
       "process": "com.docker.docker",
-      "direction": "incoming",
-      "remote-addresses": "127.0.0.1",
       "protocol": "tcp",
+      "direction": "incoming",
+      "ports": "443",
+      "remote-addresses": "127.0.0.1",
       "notes": "Docker: allow incoming from localhost only — container<>daemon loopback"
     },
     {
       "action": "allow",
       "process": "com.docker.docker",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
-      "protocol": "tcp",
-      "notes": "Docker: HTTPS outgoing — pull images from registries (Docker Hub, GHCR, ECR)"
+      "notes": "Docker: pull images from registries (Docker Hub, GHCR, ECR, GAR)"
     },
     {
       "action": "allow",
-      "process": "com.centrastage.tray",
+      "process": "com.docker",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
-      "protocol": "tcp",
-      "notes": "Centrastage (Datto RMM): HTTPS for IT management by Medicus IT MSP"
+      "notes": "Docker CLI: registry and API calls"
     },
     {
       "action": "allow",
-      "process": "com.anthropic.claudefordesktop",
+      "process": "cagent",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
-      "protocol": "tcp",
-      "notes": "Claude Desktop: HTTPS for Anthropic API (claude.ai, api.anthropic.com)"
+      "notes": "Docker cagent: container agent reporting"
     },
     {
       "action": "allow",
-      "process": "com.1password.1password",
+      "process": "com.electron.dockerdesktop.helper",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
-      "protocol": "tcp",
-      "notes": "1Password: HTTPS for vault sync and biometric auth (sonarmd.1password.com)"
+      "notes": "Docker Desktop Electron helper: update checks and dashboard API"
     },
     {
       "action": "allow",
-      "process": "com.keepersecurity.passwordmanager",
+      "process": "docker-buildx",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
-      "protocol": "tcp",
-      "notes": "Keeper Security: HTTPS for password manager sync"
+      "notes": "Docker Buildx: multi-platform image builds and registry pushes"
     },
     {
       "action": "deny",
       "process": "com.jetbrains.WebStorm",
-      "direction": "outgoing",
       "protocol": "tcp",
-      "notes": "WebStorm: block all outgoing — IDE telemetry and plugin downloads blocked"
+      "direction": "outgoing",
+      "notes": "WebStorm: block all outgoing — IDE telemetry, plugin marketplace, and JetBrains analytics blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.jetbrains.cefserver.helper",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "JetBrains CEF helper: browser engine inside IDE — telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "com.jetbrains.pycharm",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "PyCharm: block all outgoing — IDE telemetry blocked"
     },
     {
       "action": "deny",
       "process": "com.sublimetext.4",
-      "direction": "outgoing",
       "protocol": "tcp",
+      "direction": "outgoing",
       "notes": "Sublime Text: block all outgoing — text editors should not phone home"
     },
     {
       "action": "allow",
-      "process": "com.microsoft.Word",
+      "process": "org.wireshark.Wireshark",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
+      "notes": "Wireshark: HTTPS for update checks and GeoIP database downloads"
+    },
+    {
+      "action": "allow",
+      "process": "nix-installer",
       "protocol": "tcp",
-      "notes": "Word: HTTPS for Microsoft 365 cloud features and document sync"
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Nix installer: fetches packages and closure data over HTTPS"
+    },
+    {
+      "action": "allow",
+      "process": "systems.determinate.determinate-nixd",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Determinate Nix daemon: package management and store syncing over HTTPS"
+    },
+    {
+      "action": "allow",
+      "process": "com.anthropic.claudefordesktop",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Claude Desktop: Anthropic API (claude.ai, api.anthropic.com)"
+    },
+    {
+      "action": "allow",
+      "process": "com.anthropic.claudefordesktop.helper",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Claude Desktop helper: Anthropic API"
+    },
+    {
+      "action": "allow",
+      "process": "com.anthropic.claude-code",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Claude Code CLI: Anthropic API for agentic coding sessions"
+    },
+    {
+      "action": "allow",
+      "process": "codex",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "OpenAI Codex CLI: api.openai.com"
+    },
+    {
+      "action": "allow",
+      "process": "com.openai.codex",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "OpenAI Codex app: api.openai.com"
+    },
+    {
+      "action": "allow",
+      "process": "com.openai.codex.helper",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "OpenAI Codex helper: api.openai.com"
+    },
+    {
+      "action": "allow",
+      "process": "ai.ollama.ollama",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Ollama: model downloads from ollama.ai registry"
+    },
+    {
+      "action": "allow",
+      "process": "com.electron.ollama",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Ollama Desktop: model management and update checks"
+    },
+    {
+      "action": "allow",
+      "process": "com.electron.wispr-flow",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Wispr Flow: AI dictation — audio transcription API"
+    },
+    {
+      "action": "allow",
+      "process": "com.electron.wispr-flow.accessibility-mac-app",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Wispr Flow accessibility app: API"
+    },
+    {
+      "action": "allow",
+      "process": "com.electron.wispr-flow.helper",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Wispr Flow helper: API"
+    },
+    {
+      "action": "allow",
+      "process": "com.malwarebytes.mbam.engine.sys.ext",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Malwarebytes engine extension: threat definition updates"
+    },
+    {
+      "action": "allow",
+      "process": "com.malwarebytes.mbam.frontend.agent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Malwarebytes agent: cloud threat lookup"
+    },
+    {
+      "action": "allow",
+      "process": "com.malwarebytes.mbam.frontend.application",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Malwarebytes UI: update checks and threat reporting"
+    },
+    {
+      "action": "allow",
+      "process": "com.malwarebytes.mbam.rtprotection.daemon",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Malwarebytes real-time protection: live threat feed"
+    },
+    {
+      "action": "allow",
+      "process": "com.malwarebytes.mbam.settings.daemon",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Malwarebytes settings daemon: license and config sync"
+    },
+    {
+      "action": "allow",
+      "process": "com.objective-see.lulu.app",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "LuLu firewall app: update checks and threat intel"
+    },
+    {
+      "action": "allow",
+      "process": "com.objective-see.Netiquette",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Netiquette network monitor: process reputation lookups"
     },
     {
       "action": "deny",
-      "process": "com.microsoft.autoupdate.fba",
-      "direction": "outgoing",
+      "process": "com.maxgoedjen.Secretive.Host",
       "protocol": "tcp",
-      "notes": "Microsoft AutoUpdate: blocked — software updates managed by IT via Centrastage"
+      "direction": "outgoing",
+      "notes": "Secretive Host: local SSH agent host — no internet access needed"
     },
     {
       "action": "deny",
-      "process": "com.apple.ap.promotedcontentd",
-      "direction": "outgoing",
+      "process": "com.maxgoedjen.Secretive.SecretAgent",
       "protocol": "tcp",
-      "notes": "ap.promotedcontentd: block — Apple advertising/recommendation delivery daemon"
+      "direction": "outgoing",
+      "notes": "Secretive SecretAgent: local SSH agent — no internet access needed"
     },
     {
-      "action": "deny",
-      "process": "com.apple.weather.widget",
-      "direction": "outgoing",
+      "action": "allow",
+      "process": "com.maxgoedjen.Secretive.SecretiveUpdater",
       "protocol": "tcp",
-      "notes": "com.apple.weather.widget: block — telemetry and location data blocked"
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Secretive Updater: GitHub release checks for Secretive updates"
     },
     {
       "action": "allow",
       "process": "at.obdev.littlesnitch.networkextension",
-      "direction": "outgoing",
       "protocol": "tcp",
-      "notes": "Little Snitch NE: allow outgoing — required for LS daemon, blocklist updates, cert validation"
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Little Snitch NE: required for LS daemon, blocklist updates, cert validation"
+    },
+    {
+      "action": "allow",
+      "process": "at.obdev.littlesnitch",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Little Snitch app: license validation and update checks"
+    },
+    {
+      "action": "allow",
+      "process": "at.obdev.littlesnitch.networking",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Little Snitch networking helper: connection metadata lookups"
+    },
+    {
+      "action": "allow",
+      "process": "at.obdev.littlesnitch.softwareupdate",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Little Snitch Software Update: update downloads"
+    },
+    {
+      "action": "allow",
+      "process": "com.centrastage.tray",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Centrastage (Datto RMM): HTTPS for IT management by Medicus IT MSP"
+    },
+    {
+      "action": "allow",
+      "process": "com.1password.1password",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "1Password: HTTPS for vault sync and biometric auth (sonarmd.1password.com)"
+    },
+    {
+      "action": "allow",
+      "process": "com.1password.1password-installer",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "1Password installer: update downloads"
+    },
+    {
+      "action": "allow",
+      "process": "com.1password.op",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "1Password CLI (op): secret retrieval and vault operations"
+    },
+    {
+      "action": "allow",
+      "process": "com.keepersecurity.passwordmanager",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Keeper Security: HTTPS for vault sync"
+    },
+    {
+      "action": "allow",
+      "process": "com.keepersecurity.passwordmanager.helper",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Keeper Security helper: background vault operations"
+    },
+    {
+      "action": "allow",
+      "process": "com.figma.Desktop",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Figma Desktop: design files, assets, and collaboration"
+    },
+    {
+      "action": "allow",
+      "process": "com.figma.Desktop.helper",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Figma Desktop helper: asset loading and plugin sandbox"
+    },
+    {
+      "action": "allow",
+      "process": "com.figma.Desktop.dua",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Figma DUA: desktop update agent"
+    },
+    {
+      "action": "allow",
+      "process": "com.figma.agent",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "ports": "443",
+      "notes": "Figma agent: desktop app bridge and font scanning"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/Cellar/dnscrypt-proxy/*/sbin/dnscrypt-proxy",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "443",
-      "protocol": "tcp",
       "notes": "dnscrypt-proxy: DoH (DNS-over-HTTPS, port 443) — encrypted DNS resolution"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/Cellar/dnscrypt-proxy/*/sbin/dnscrypt-proxy",
+      "protocol": "tcp",
       "direction": "outgoing",
       "ports": "853",
-      "protocol": "tcp",
       "notes": "dnscrypt-proxy: DoT (DNS-over-TLS, port 853) — encrypted DNS resolution"
     }
   ]
