@@ -1,5 +1,5 @@
 {
-  "name": "Dev Tools — Scoped Destinations",
+  "name": "Dev Tools \u2014 Scoped Destinations",
   "description": "Allow dev tools to reach their specific, known destinations. git/gh are IP-pinned to GitHub's published ASes. brew, npm, docker, terraform, gcloud, aws use domain rules. Volta shim covers all Node/npm/yarn traffic.",
   "rules": [
     {
@@ -9,7 +9,7 @@
       "ports": "22",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "git SSH → GitHub AS36459 primary range"
+      "notes": "git SSH \u2192 GitHub AS36459 primary range"
     },
     {
       "action": "allow",
@@ -18,7 +18,7 @@
       "ports": "22",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "git SSH → GitHub AS36459 secondary range"
+      "notes": "git SSH \u2192 GitHub AS36459 secondary range"
     },
     {
       "action": "allow",
@@ -27,7 +27,7 @@
       "ports": "22",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "git SSH → GitHub Actions/Packages range"
+      "notes": "git SSH \u2192 GitHub Actions/Packages range"
     },
     {
       "action": "allow",
@@ -36,7 +36,7 @@
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "git HTTPS → GitHub"
+      "notes": "git HTTPS \u2192 GitHub"
     },
     {
       "action": "allow",
@@ -45,7 +45,7 @@
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "git HTTPS → GitHub secondary"
+      "notes": "git HTTPS \u2192 GitHub secondary"
     },
     {
       "action": "allow",
@@ -54,7 +54,7 @@
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "gh CLI → GitHub API"
+      "notes": "gh CLI \u2192 GitHub API"
     },
     {
       "action": "allow",
@@ -63,39 +63,35 @@
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "gh CLI → GitHub API secondary"
+      "notes": "gh CLI \u2192 GitHub API secondary"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin/ruby",
-      "remote-domains": "github.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Homebrew Ruby → GitHub (formula/tap updates)"
+      "notes": "Homebrew Ruby \u2192 GitHub (formula/tap updates)"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin/ruby",
-      "remote-domains": "ghcr.io",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Homebrew Ruby → GitHub Container Registry (bottle downloads)"
+      "notes": "Homebrew Ruby \u2192 GitHub Container Registry (bottle downloads)"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/Library/Homebrew/vendor/portable-ruby/current/bin/ruby",
-      "remote-domains": "formulae.brew.sh",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Homebrew Ruby → Homebrew formula API"
+      "notes": "Homebrew Ruby \u2192 Homebrew formula API"
     },
     {
       "action": "allow",
       "process": "/usr/bin/curl",
-      "remote-domains": "ghcr.io",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
@@ -104,92 +100,82 @@
     {
       "action": "allow",
       "process": "/opt/homebrew/opt/volta/bin/volta-shim",
-      "remote-domains": "registry.npmjs.org",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Node/npm/yarn (via Volta shim) → npm registry"
+      "notes": "Node/npm/yarn (via Volta shim) \u2192 npm registry"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/opt/volta/bin/volta-shim",
-      "remote-domains": "nodejs.org",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Volta → Node.js download mirror"
+      "notes": "Volta \u2192 Node.js download mirror"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/opt/volta/bin/volta-shim",
-      "remote-domains": "yarnpkg.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Volta → Yarn package registry"
+      "notes": "Volta \u2192 Yarn package registry"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/bin/terraform",
-      "remote-domains": "registry.terraform.io",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Terraform → provider registry"
+      "notes": "Terraform \u2192 provider registry"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/bin/terraform",
-      "remote-domains": "releases.hashicorp.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Terraform → HashiCorp release downloads"
+      "notes": "Terraform \u2192 HashiCorp release downloads"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/bin/terraform",
-      "remote-domains": "checkpoint-api.hashicorp.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Terraform → version check (can disable with CHECKPOINT_DISABLE=1)"
+      "notes": "Terraform \u2192 version check (can disable with CHECKPOINT_DISABLE=1)"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/bin/gcloud",
-      "remote-domains": "googleapis.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "gcloud → Google Cloud APIs"
+      "notes": "gcloud \u2192 Google Cloud APIs"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/bin/gcloud",
-      "remote-domains": "google.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "gcloud → Google auth endpoints"
+      "notes": "gcloud \u2192 Google auth endpoints"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/bin/aws",
-      "remote-domains": "amazonaws.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "AWS CLI → AWS service endpoints"
+      "notes": "AWS CLI \u2192 AWS service endpoints"
     },
     {
       "action": "allow",
       "process": "/opt/homebrew/bin/aws",
-      "remote-domains": "aws.amazon.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "AWS CLI → AWS management console/SSO"
+      "notes": "AWS CLI \u2192 AWS management console/SSO"
     }
   ]
 }

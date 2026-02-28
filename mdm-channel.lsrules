@@ -1,7 +1,7 @@
 {
   "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
-  "name": "Tony Fortress — MDM Channel",
-  "description": "MDM management channel. Replace mdm.sonarmd.internal with actual MDM server hostname before importing. This is a SCAFFOLD — not active until MDM server is provisioned.",
+  "name": "Tony Fortress \u2014 MDM Channel",
+  "description": "MDM management channel. Replace mdm.sonarmd.internal with actual MDM server hostname before importing. This is a SCAFFOLD \u2014 not active until MDM server is provisioned.",
   "rules": [
     {
       "notes": "MDM check-in via curl (enrollment profile fetch, DEP lookup). Replace mdm.sonarmd.internal with the real MDM server FQDN before importing.",
@@ -9,8 +9,9 @@
       "direction": "outgoing",
       "process": "/usr/bin/curl",
       "protocol": "tcp",
-      "ports": [443],
-      "remote": "mdm.sonarmd.internal"
+      "ports": [
+        443
+      ]
     },
     {
       "notes": "ManagedClient HTTPS check-in to MDM server. This is the primary MDM communication path for profile delivery and command responses.",
@@ -18,8 +19,9 @@
       "direction": "outgoing",
       "process": "/System/Library/CoreServices/ManagedClient.app/Contents/MacOS/ManagedClient",
       "protocol": "tcp",
-      "ports": [443],
-      "remote": "mdm.sonarmd.internal"
+      "ports": [
+        443
+      ]
     },
     {
       "notes": "ManagedClient APNs push relay port. macOS MDM uses APNs (port 2195 legacy / 443 modern) for wake-up push notifications. Keep both; modern MDM stacks use 443 but legacy APNs infrastructure still uses 2195.",
@@ -27,17 +29,20 @@
       "direction": "outgoing",
       "process": "/System/Library/CoreServices/ManagedClient.app/Contents/MacOS/ManagedClient",
       "protocol": "tcp",
-      "ports": [2195],
-      "remote": "mdm.sonarmd.internal"
+      "ports": [
+        2195
+      ]
     },
     {
-      "notes": "INBOUND MDM PUSH: Little Snitch does not easily model server-initiated connections to the device. In practice, the MDM wake-up path is: MDM server -> Apple APNs -> device (APNs client). The device's APNs client (apsd) initiates a persistent outbound TLS connection to Apple's APNs gateway (17.0.0.0/8 port 443/5223). The MDM server sends a push token via that channel; the device then calls home to the MDM server outbound. True unsolicited inbound from mdm.sonarmd.internal is not required and should remain blocked. This rule is intentionally omitted — the outbound ManagedClient rules above cover the full round-trip. If your MDM server requires direct inbound (non-APNs), add a rule here and document the reason.",
+      "notes": "INBOUND MDM PUSH: Little Snitch does not easily model server-initiated connections to the device. In practice, the MDM wake-up path is: MDM server -> Apple APNs -> device (APNs client). The device's APNs client (apsd) initiates a persistent outbound TLS connection to Apple's APNs gateway (17.0.0.0/8 port 443/5223). The MDM server sends a push token via that channel; the device then calls home to the MDM server outbound. True unsolicited inbound from mdm.sonarmd.internal is not required and should remain blocked. This rule is intentionally omitted \u2014 the outbound ManagedClient rules above cover the full round-trip. If your MDM server requires direct inbound (non-APNs), add a rule here and document the reason.",
       "action": "allow",
       "direction": "outgoing",
       "process": "/System/Library/PrivateFrameworks/ApplePushService.framework/apsd",
       "protocol": "tcp",
-      "ports": [443, 5223],
-      "remote": "17.0.0.0/8"
+      "ports": [
+        443,
+        5223
+      ]
     }
   ]
 }

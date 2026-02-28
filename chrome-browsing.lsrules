@@ -1,6 +1,6 @@
 {
-  "name": "Google Chrome — Browser Traffic",
-  "description": "Chrome network access in two layers: (1) Chrome's own Google infrastructure regardless of what you browse — Quad9 DoH resolver, Safe Browsing, update checks, certificate revocation, connectivity probes; (2) General web browsing — any HTTPS/HTTP destination. Scoped to com.google.Chrome process. Quad9 IPs are address-based to avoid DNS bootstrapping dependency.",
+  "name": "Google Chrome \u2014 Browser Traffic",
+  "description": "Chrome network access in two layers: (1) Chrome's own Google infrastructure regardless of what you browse \u2014 Quad9 DoH resolver, Safe Browsing, update checks, certificate revocation, connectivity probes; (2) General web browsing \u2014 any HTTPS/HTTP destination. Scoped to com.google.Chrome process. Quad9 IPs are address-based to avoid DNS bootstrapping dependency.",
   "rules": [
     {
       "action": "allow",
@@ -9,7 +9,7 @@
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Quad9 DoH — primary resolver. IP-pinned: dns.quad9.net is pinned to 9.9.9.9 in /etc/hosts so this never needs DNS to resolve."
+      "notes": "Quad9 DoH \u2014 primary resolver. IP-pinned: dns.quad9.net is pinned to 9.9.9.9 in /etc/hosts so this never needs DNS to resolve."
     },
     {
       "action": "allow",
@@ -18,7 +18,7 @@
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Quad9 DoH — secondary resolver. IP-pinned same as above."
+      "notes": "Quad9 DoH \u2014 secondary resolver. IP-pinned same as above."
     },
     {
       "action": "allow",
@@ -27,12 +27,11 @@
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Chrome DoH environment probe — Chrome tests if 8.8.8.8 supports DoH even when a resolver is explicitly configured. Port 443 only (not 53 — we don't allow plaintext DNS fallback to Google)."
+      "notes": "Chrome DoH environment probe \u2014 Chrome tests if 8.8.8.8 supports DoH even when a resolver is explicitly configured. Port 443 only (not 53 \u2014 we don't allow plaintext DNS fallback to Google)."
     },
     {
       "action": "allow",
       "process": "com.google.Chrome",
-      "remote-domains": "googleapis.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
@@ -41,56 +40,50 @@
     {
       "action": "allow",
       "process": "com.google.Chrome",
-      "remote-domains": "gstatic.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Chrome connectivity checks (connectivitycheck.gstatic.com/generate_204) — Chrome probes this to detect captive portals and determine online status. Also fonts and static Chrome resources."
+      "notes": "Chrome connectivity checks (connectivitycheck.gstatic.com/generate_204) \u2014 Chrome probes this to detect captive portals and determine online status. Also fonts and static Chrome resources."
     },
     {
       "action": "allow",
       "process": "com.google.Chrome",
-      "remote-domains": "google.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Google — accounts.google.com (sync/sign-in), clients.google.com (update), plus general google.com browsing."
+      "notes": "Google \u2014 accounts.google.com (sync/sign-in), clients.google.com (update), plus general google.com browsing."
     },
     {
       "action": "allow",
       "process": "com.google.Chrome",
-      "remote-domains": "gvt1.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Google Video Technology CDN — Chrome binary updates and component downloads."
+      "notes": "Google Video Technology CDN \u2014 Chrome binary updates and component downloads."
     },
     {
       "action": "allow",
       "process": "com.google.Chrome",
-      "remote-domains": "pki.goog",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Google PKI — OCSP and CRL certificate revocation checks. Required by EnableOnlineRevocationChecks: true in Chrome policy."
+      "notes": "Google PKI \u2014 OCSP and CRL certificate revocation checks. Required by EnableOnlineRevocationChecks: true in Chrome policy."
     },
     {
       "action": "allow",
       "process": "com.google.Chrome",
-      "remote": "any",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "General HTTPS browsing — Chrome must reach any web server. Process-scoped to com.google.Chrome only."
+      "notes": "General HTTPS browsing \u2014 Chrome must reach any web server. Process-scoped to com.google.Chrome only."
     },
     {
       "action": "allow",
       "process": "com.google.Chrome",
-      "remote": "any",
       "ports": "80",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "General HTTP — needed for redirect responses (HTTP 301/302 → HTTPS) even with HttpsOnlyMode enforced in policy."
+      "notes": "General HTTP \u2014 needed for redirect responses (HTTP 301/302 \u2192 HTTPS) even with HttpsOnlyMode enforced in policy."
     }
   ]
 }

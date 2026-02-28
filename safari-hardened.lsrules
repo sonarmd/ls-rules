@@ -1,6 +1,6 @@
 {
   "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
-  "name": "Tony Fortress — Safari Hardened",
+  "name": "Tony Fortress \u2014 Safari Hardened",
   "description": "Safari network hardening. Allows HTTPS/HTTP browsing and essential Apple services. Blocks analytics, telemetry, iCloud sync, Siri suggestions, and ad networks.",
   "rules": [
     {
@@ -9,7 +9,7 @@
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
       "protocol": "tcp",
       "ports": "80,443",
-      "notes": "Safari — general HTTPS/HTTP browsing"
+      "notes": "Safari \u2014 general HTTPS/HTTP browsing"
     },
     {
       "action": "allow",
@@ -17,107 +17,57 @@
       "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
       "protocol": "tcp",
       "ports": "80,443",
-      "notes": "WebKit networking XPC — page loads and resource fetching"
+      "notes": "WebKit networking XPC \u2014 page loads and resource fetching"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
-      "remote-domains": ["www.apple.com", "updates.apple.com", "swscan.apple.com"],
       "protocol": "tcp",
       "ports": "443",
-      "notes": "Safari — essential Apple update endpoints only"
+      "notes": "Safari \u2014 essential Apple update endpoints only"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
-      "remote-domains": [
-        "bag.itunes.apple.com",
-        "safebrowsing.apple.com",
-        "swcd.apple.com",
-        "xp.apple.com",
-        "feedbackws.apple.com"
-      ],
-      "notes": "Safari — block Apple telemetry and feedback endpoints"
+      "notes": "Safari \u2014 block Apple telemetry and feedback endpoints"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
-      "remote-domains": [
-        "api.smoot.apple.com",
-        "suggestions.siri.apple.com",
-        "guzzoni.apple.com"
-      ],
-      "notes": "Safari — block Siri suggestions and cloud intelligence"
+      "notes": "Safari \u2014 block Siri suggestions and cloud intelligence"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
-      "remote-domains": [
-        "p19-buy.itunes.apple.com",
-        "p72-buy.itunes.apple.com",
-        "commerce.apple.com"
-      ],
-      "notes": "Safari — block iCloud commerce and buy endpoints"
+      "notes": "Safari \u2014 block iCloud commerce and buy endpoints"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
-      "remote-domains": [
-        "*.google-analytics.com",
-        "*.googletagmanager.com",
-        "*.doubleclick.net",
-        "*.googlesyndication.com"
-      ],
-      "notes": "Safari — block Google tracking and ad infrastructure"
+      "notes": "Safari \u2014 block Google tracking and ad infrastructure"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
-      "remote-domains": [
-        "*.segment.com",
-        "*.mixpanel.com",
-        "*.amplitude.com",
-        "*.hotjar.com",
-        "*.heap.io",
-        "*.fullstory.com",
-        "*.logrocket.com"
-      ],
-      "notes": "Safari — block third-party analytics and session recording"
+      "notes": "Safari \u2014 block third-party analytics and session recording"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
-      "remote-domains": [
-        "*.criteo.com",
-        "*.criteo.net",
-        "*.amazon-adsystem.com",
-        "*.moatads.com",
-        "*.casalemedia.com",
-        "*.pubmatic.com",
-        "*.rubiconproject.com",
-        "*.openx.net",
-        "*.adnxs.com"
-      ],
-      "notes": "Safari — block ad exchanges and retargeting networks"
+      "notes": "Safari \u2014 block ad exchanges and retargeting networks"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
-      "remote-domains": [
-        "*.facebook.com",
-        "*.facebook.net",
-        "connect.facebook.net",
-        "graph.facebook.com"
-      ],
-      "notes": "Safari — block Facebook tracking pixels and graph API"
+      "notes": "Safari \u2014 block Facebook tracking pixels and graph API"
     }
   ]
 }
