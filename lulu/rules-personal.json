@@ -1,0 +1,69 @@
+{
+  "_meta": {
+    "profile": "personal",
+    "description": "Personal / off-hours use — relaxed but still security-conscious",
+    "created": "2026-02-23",
+    "author": "tony",
+    "notes": "For 2am weekend sessions and personal projects. Still blocks telemetry."
+  },
+  "rules": [
+    {
+      "_comment": "=== INHERITS work-hipaa ALLOWS, plus: ==="
+    },
+    {
+      "path": "/Applications/Ollama.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "ALLOW during personal time for model pulls and experimentation. Monitor with Netiquette."
+    },
+    {
+      "path": "/Applications/Spotify.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Music streaming."
+    },
+    {
+      "path": "/Applications/Discord.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Community/personal comms."
+    },
+    {
+      "path": "/Applications/Firefox.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Secondary browser for personal browsing."
+    },
+    {
+      "_comment": "=== STILL BLOCKED (even personal) ==="
+    },
+    {
+      "path": "*",
+      "endpoint": "*.doubleclick.net",
+      "action": "block",
+      "scope": "process",
+      "notes": "Global block: ad tracking never allowed."
+    },
+    {
+      "path": "*",
+      "endpoint": "*.facebook.com",
+      "action": "block",
+      "scope": "process",
+      "notes": "Global block: Meta tracking."
+    },
+    {
+      "path": "*",
+      "endpoint": "*.app-measurement.com",
+      "action": "block",
+      "scope": "process",
+      "notes": "Global block: Firebase/Google analytics."
+    },
+    {
+      "path": "*",
+      "endpoint": "*.crashlytics.com",
+      "action": "block",
+      "scope": "process",
+      "notes": "Global block: crash reporting telemetry."
+    }
+  ]
+}

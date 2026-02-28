@@ -1,0 +1,212 @@
+{
+  "_meta": {
+    "profile": "work-hipaa",
+    "description": "SonarMD platform engineering — HIPAA/SOC2 compliant egress control",
+    "created": "2026-02-23",
+    "author": "tony",
+    "notes": "App-level delegation layer. Little Snitch handles IP/port/CIDR enforcement."
+  },
+  "rules": [
+    {
+      "_comment": "=== SECURITY & AUTH TOOLS ===",
+      "_tier": "critical-allow"
+    },
+    {
+      "path": "/Applications/1Password.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Vault sync — AWS-backed infrastructure. Verify codesign: Developer ID Application: AgileBits Inc."
+    },
+    {
+      "path": "/Applications/1Password.app/Contents/Frameworks/1Password*.framework",
+      "action": "allow",
+      "scope": "process",
+      "notes": "1Password helper frameworks (browser extension bridge, etc.)"
+    },
+    {
+      "path": "/Applications/Keeper Password Manager.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Secondary password manager — AWS + CloudFront backed."
+    },
+    {
+      "_comment": "=== DEVELOPMENT TOOLS ===",
+      "_tier": "dev-allow"
+    },
+    {
+      "path": "/Applications/WebStorm.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "JetBrains IDE — license validation + plugin updates via AWS/CloudFront."
+    },
+    {
+      "path": "/Applications/Visual Studio Code.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "VS Code — marketplace, extension updates, settings sync."
+    },
+    {
+      "path": "/usr/bin/git",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Git CLI — GitHub, remote repos."
+    },
+    {
+      "path": "/usr/local/bin/git",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Homebrew-installed git."
+    },
+    {
+      "path": "/opt/homebrew/bin/git",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Apple Silicon Homebrew git."
+    },
+    {
+      "path": "/usr/local/bin/node",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Node.js runtime — npm registry, API calls."
+    },
+    {
+      "path": "/opt/homebrew/bin/node",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Apple Silicon Homebrew Node.js."
+    },
+    {
+      "path": "/usr/local/bin/npm",
+      "action": "allow",
+      "scope": "process",
+      "notes": "npm package manager."
+    },
+    {
+      "path": "/opt/homebrew/bin/npm",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Apple Silicon npm."
+    },
+    {
+      "_comment": "=== CLOUD & INFRASTRUCTURE ===",
+      "_tier": "infra-allow"
+    },
+    {
+      "path": "/usr/local/bin/aws",
+      "action": "allow",
+      "scope": "process",
+      "notes": "AWS CLI — SonarMD infrastructure management."
+    },
+    {
+      "path": "/opt/homebrew/bin/aws",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Apple Silicon AWS CLI."
+    },
+    {
+      "path": "/usr/local/bin/ansible",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Ansible — configuration management for EC2 fleet."
+    },
+    {
+      "path": "/opt/homebrew/bin/ansible",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Apple Silicon Ansible."
+    },
+    {
+      "path": "/usr/local/bin/ansible-playbook",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Ansible playbook runner."
+    },
+    {
+      "path": "/usr/bin/ssh",
+      "action": "allow",
+      "scope": "process",
+      "notes": "SSH — encrypted connections to EC2 instances."
+    },
+    {
+      "path": "/usr/bin/scp",
+      "action": "allow",
+      "scope": "process",
+      "notes": "SCP — encrypted file transfers."
+    },
+    {
+      "path": "/usr/local/bin/docker",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Docker CLI."
+    },
+    {
+      "path": "/Applications/Docker.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Docker Desktop — registry pulls, build context."
+    },
+    {
+      "_comment": "=== COMMUNICATION ===",
+      "_tier": "comms-allow"
+    },
+    {
+      "path": "/Applications/Microsoft Teams.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Teams — Azure-backed. Includes Edge Helper subprocesses."
+    },
+    {
+      "path": "/Applications/Slack.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Slack — team communication."
+    },
+    {
+      "_comment": "=== BROWSERS (CONTROLLED) ===",
+      "_tier": "browser-allow"
+    },
+    {
+      "path": "/Applications/Google Chrome.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Chrome — primary browser. WARNING: Chrome helpers run with user privs, see bypass notes in README."
+    },
+    {
+      "path": "/Applications/Safari.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Safari — Apple-signed, lower risk profile."
+    },
+    {
+      "_comment": "=== BLOCKED BY DEFAULT ===",
+      "_tier": "block"
+    },
+    {
+      "path": "/Applications/Ollama.app",
+      "action": "block",
+      "scope": "process",
+      "notes": "BLOCK: Local LLM runtime should not phone home. Allow temporarily only for `ollama pull`."
+    },
+    {
+      "path": "*",
+      "endpoint": "*.doubleclick.net",
+      "action": "block",
+      "scope": "process",
+      "notes": "Global block: Google ad tracking."
+    },
+    {
+      "path": "*",
+      "endpoint": "*.facebook.com",
+      "action": "block",
+      "scope": "process",
+      "notes": "Global block: Meta tracking pixels/SDKs."
+    },
+    {
+      "path": "*",
+      "endpoint": "*.app-measurement.com",
+      "action": "block",
+      "scope": "process",
+      "notes": "Global block: Firebase/Google analytics."
+    }
+  ]
+}

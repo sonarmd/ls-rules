@@ -1,0 +1,59 @@
+# LuLu Domain Blocklist
+# Use via: LuLu Settings → Lists → Block List → Add Local/Remote
+# One domain per line. LuLu matches base domains too (www.example.com → example.com)
+#
+# === AD TRACKING & ANALYTICS ===
+doubleclick.net
+googleadservices.com
+googlesyndication.com
+google-analytics.com
+app-measurement.com
+crashlytics.com
+firebase-settings.crashlytics.com
+pagead2.googlesyndication.com
+adservice.google.com
+ads.yahoo.com
+advertising.apple.com
+adsserver.org
+
+# === META / FACEBOOK ===
+facebook.com
+facebook.net
+fbcdn.net
+connect.facebook.net
+pixel.facebook.com
+graph.facebook.com
+
+# === MICROSOFT TELEMETRY ===
+# Block telemetry, NOT functional endpoints
+# Teams/Office functional endpoints are allowed by process rules
+vortex.data.microsoft.com
+telemetry.microsoft.com
+settings-win.data.microsoft.com
+watson.telemetry.microsoft.com
+dc.services.visualstudio.com
+browser.events.data.microsoft.com
+self.events.data.microsoft.com
+
+# === KNOWN TELEMETRY COLLECTORS ===
+data.flurry.com
+metrics.icloud.com
+xp.apple.com
+weather-analytics-events.apple.com
+notes-analytics-events.apple.com
+books-analytics-events.apple.com
+
+# === TRACKING PIXELS / FINGERPRINTING ===
+bat.bing.com
+scorecardresearch.com
+quantserve.com
+demdex.net
+omtrdc.net
+bluekai.com
+addthis.com
+sharethis.com
+
+# === KNOWN BAD / SUSPICIOUS DNS ===
+# Chinese resolver that was misrepresented as Quad9
+# Reference: Previous investigation found 114DNS (114.114.114.114) falsely labeled
+114dns.com

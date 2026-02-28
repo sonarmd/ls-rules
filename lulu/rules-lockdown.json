@@ -1,0 +1,97 @@
+{
+  "_meta": {
+    "profile": "lockdown",
+    "description": "Incident response / SOC2 audit mode — deny-all with surgical exceptions",
+    "created": "2026-02-23",
+    "author": "tony",
+    "notes": "Use when investigating incidents or during compliance audits. ONLY critical infrastructure tools allowed."
+  },
+  "rules": [
+    {
+      "_comment": "=== ABSOLUTE MINIMUM FOR INCIDENT RESPONSE ===",
+      "_tier": "critical-only"
+    },
+    {
+      "path": "/usr/bin/ssh",
+      "action": "allow",
+      "scope": "process",
+      "notes": "SSH — needed to access EC2 instances during incident."
+    },
+    {
+      "path": "/usr/local/bin/aws",
+      "action": "allow",
+      "scope": "process",
+      "notes": "AWS CLI — CloudWatch, EC2, security group management."
+    },
+    {
+      "path": "/opt/homebrew/bin/aws",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Apple Silicon AWS CLI."
+    },
+    {
+      "path": "/Applications/1Password.app",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Credential access during incident response."
+    },
+    {
+      "path": "/usr/bin/curl",
+      "action": "allow",
+      "scope": "process",
+      "notes": "curl — API diagnostics. Little Snitch restricts destinations."
+    },
+    {
+      "path": "/usr/bin/dig",
+      "action": "allow",
+      "scope": "process",
+      "notes": "DNS diagnostics."
+    },
+    {
+      "path": "/usr/sbin/traceroute",
+      "action": "allow",
+      "scope": "process",
+      "notes": "Network path diagnostics."
+    },
+    {
+      "_comment": "=== EVERYTHING ELSE BLOCKED ===",
+      "_tier": "deny-all"
+    },
+    {
+      "path": "/Applications/Ollama.app",
+      "action": "block",
+      "scope": "process",
+      "notes": "BLOCK: No local AI egress during incidents."
+    },
+    {
+      "path": "/Applications/Slack.app",
+      "action": "block",
+      "scope": "process",
+      "notes": "BLOCK: Use separate device for comms during incident to isolate attack surface."
+    },
+    {
+      "path": "/Applications/Microsoft Teams.app",
+      "action": "block",
+      "scope": "process",
+      "notes": "BLOCK: Use separate device for comms during incident."
+    },
+    {
+      "path": "/Applications/Google Chrome.app",
+      "action": "block",
+      "scope": "process",
+      "notes": "BLOCK: Browser is a huge attack surface. Use Safari (Apple-signed) if web access needed."
+    },
+    {
+      "path": "/Applications/WebStorm.app",
+      "action": "block",
+      "scope": "process",
+      "notes": "BLOCK: No IDE telemetry during lockdown."
+    },
+    {
+      "path": "/Applications/Docker.app",
+      "action": "block",
+      "scope": "process",
+      "notes": "BLOCK: No container registry pulls during lockdown unless explicitly needed."
+    }
+  ]
+}
