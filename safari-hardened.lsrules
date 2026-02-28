@@ -1,57 +1,123 @@
-# Little Snitch Rules: Safari Hardened Security Posture
-# Enforces network boundaries for Safari per the hardened plist config
-# Created: 2026-02-27
-# Purpose: Allow only essential Safari operations, deny tracking/telemetry
-
-# === DENY RULES (Explicit block) ===
-
-# Block Safari telemetry & crash reporting
-(deny (process "Safari") (remote (host "*.apple.com")) (process-status "process-executable" "Safari"))
-(deny (process "Safari") (remote (host "*analytics*")) (process-status "process-executable" "Safari"))
-(deny (process "Safari") (remote (host "*telemetry*")) (process-status "process-executable" "Safari"))
-(deny (process "Safari") (remote (host "*sentry*")) (process-status "process-executable" "Safari"))
-
-# Block Safari from connecting to Google, Meta, Amazon tracking endpoints
-(deny (process "Safari") (remote (host "*google-analytics*")) (process-status "process-executable" "Safari"))
-(deny (process "Safari") (remote (host "*facebook.com")) (process-status "process-executable" "Safari"))
-(deny (process "Safari") (remote (host "*.doubleclick.net")) (process-status "process-executable" "Safari"))
-(deny (process "Safari") (remote (host "*.amazon-adsystem.com")) (process-status "process-executable" "Safari"))
-
-# Block tracking pixels and ad exchanges
-(deny (process "Safari") (remote (host "*ads.google*")) (process-status "process-executable" "Safari"))
-(deny (process "Safari") (remote (host "*adservice*")) (process-status "process-executable" "Safari"))
-(deny (process "Safari") (remote (host "*criteo*")) (process-status "process-executable" "Safari"))
-
-# Block Siri & iCloud connections (disabled in hardened config, but block anyway)
-(deny (process "Safari") (remote (host "*siri.apple.com")) (process-status "process-executable" "Safari"))
-(deny (process "Safari") (remote (host "*icloud.com")) (process-status "process-executable" "Safari"))
-
-# === ALLOW RULES (Only necessary traffic) ===
-
-# Allow DNS queries (should be 127.0.0.1 → Quad9 locally)
-(allow (process "Safari") (remote (host "localhost")) (ports "53"))
-(allow (process "Safari") (remote (host "127.0.0.1")) (ports "53"))
-
-# Allow HTTPS browsing (general rule)
-(allow (process "Safari") (remote (ports "443")))
-
-# Allow HTTP (will be redirected to HTTPS by Safari)
-(allow (process "Safari") (remote (ports "80")) (direction "outgoing"))
-
-# Allow common secure update/feature checks (minimal trust)
-(allow (process "Safari") (remote (host "www.apple.com")) (ports "443"))
-(allow (process "Safari") (remote (host "updates.apple.com")) (ports "443"))
-
-# Allow WebKit engine updates
-(allow (process "Safari") (remote (host "secure*.apple.com")) (ports "443"))
-
-# === MONITORING RULES ===
-
-# Alert on any Safari DNS queries (verify they go through 127.0.0.1 → Quad9)
-(alert (process "Safari") (remote (ports "53")) (direction "outgoing"))
-
-# Alert on any Safari connection to unknown domains (investigate unusual traffic)
-(alert (process "Safari") (remote) (not (host "*apple.com" "*.google.com" "*.cloudflare.com")))
-
-# Alert on Safari using non-standard ports (may indicate exfiltration)
-(alert (process "Safari") (remote) (not (ports "53" "80" "443" "8080" "8443")))
+{
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
+  "name": "Tony Fortress — Safari Hardened",
+  "description": "Safari network hardening. Allows HTTPS/HTTP browsing and essential Apple services. Blocks analytics, telemetry, iCloud sync, Siri suggestions, and ad networks.",
+  "rules": [
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "protocol": "tcp",
+      "ports": "80,443",
+      "notes": "Safari — general HTTPS/HTTP browsing"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "protocol": "tcp",
+      "ports": "80,443",
+      "notes": "WebKit networking XPC — page loads and resource fetching"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": ["www.apple.com", "updates.apple.com", "swscan.apple.com"],
+      "protocol": "tcp",
+      "ports": "443",
+      "notes": "Safari — essential Apple update endpoints only"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": [
+        "bag.itunes.apple.com",
+        "safebrowsing.apple.com",
+        "swcd.apple.com",
+        "xp.apple.com",
+        "feedbackws.apple.com"
+      ],
+      "notes": "Safari — block Apple telemetry and feedback endpoints"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": [
+        "api.smoot.apple.com",
+        "suggestions.siri.apple.com",
+        "guzzoni.apple.com"
+      ],
+      "notes": "Safari — block Siri suggestions and cloud intelligence"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": [
+        "p19-buy.itunes.apple.com",
+        "p72-buy.itunes.apple.com",
+        "commerce.apple.com"
+      ],
+      "notes": "Safari — block iCloud commerce and buy endpoints"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": [
+        "*.google-analytics.com",
+        "*.googletagmanager.com",
+        "*.doubleclick.net",
+        "*.googlesyndication.com"
+      ],
+      "notes": "Safari — block Google tracking and ad infrastructure"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": [
+        "*.segment.com",
+        "*.mixpanel.com",
+        "*.amplitude.com",
+        "*.hotjar.com",
+        "*.heap.io",
+        "*.fullstory.com",
+        "*.logrocket.com"
+      ],
+      "notes": "Safari — block third-party analytics and session recording"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": [
+        "*.criteo.com",
+        "*.criteo.net",
+        "*.amazon-adsystem.com",
+        "*.moatads.com",
+        "*.casalemedia.com",
+        "*.pubmatic.com",
+        "*.rubiconproject.com",
+        "*.openx.net",
+        "*.adnxs.com"
+      ],
+      "notes": "Safari — block ad exchanges and retargeting networks"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": [
+        "*.facebook.com",
+        "*.facebook.net",
+        "connect.facebook.net",
+        "graph.facebook.com"
+      ],
+      "notes": "Safari — block Facebook tracking pixels and graph API"
+    }
+  ]
+}
