@@ -1419,140 +1419,252 @@
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/analyticsd",
-        "/usr/libexec/adprivacyd",
-        "/System/Library/PrivateFrameworks/TelephonyUtilities.framework/callservicesd"
-      ],
+      "process": "/usr/libexec/analyticsd",
       "remote": "any",
       "notes": "Block analytics and telemetry daemons"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/coreduetd",
-        "/usr/libexec/contextstored",
-        "/usr/libexec/suggestd"
-      ],
+      "process": "/usr/libexec/adprivacyd",
+      "remote": "any",
+      "notes": "Block analytics and telemetry daemons"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/TelephonyUtilities.framework/callservicesd",
+      "remote": "any",
+      "notes": "Block analytics and telemetry daemons"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/coreduetd",
       "remote": "any",
       "notes": "Block prediction and suggestion services"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/rapportd",
-        "/usr/libexec/nearbyd",
-        "/usr/libexec/sharingd"
-      ],
+      "process": "/usr/libexec/contextstored",
+      "remote": "any",
+      "notes": "Block prediction and suggestion services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/suggestd",
+      "remote": "any",
+      "notes": "Block prediction and suggestion services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/rapportd",
       "remote": "any",
       "notes": "Block device discovery and sharing services"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/imagent",
-        "/usr/libexec/identityservicesd",
-        "/usr/libexec/IMTransferAgent"
-      ],
+      "process": "/usr/libexec/nearbyd",
+      "remote": "any",
+      "notes": "Block device discovery and sharing services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/sharingd",
+      "remote": "any",
+      "notes": "Block device discovery and sharing services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/imagent",
       "remote": "any",
       "notes": "Block iMessage and FaceTime services"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/CoreServices/CloudDocs.app/Contents/MacOS/CloudDocs",
-        "/System/Library/PrivateFrameworks/CloudDocs.framework/Versions/A/Support/clouddocs",
-        "/usr/libexec/bird"
-      ],
+      "process": "/usr/libexec/identityservicesd",
+      "remote": "any",
+      "notes": "Block iMessage and FaceTime services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/IMTransferAgent",
+      "remote": "any",
+      "notes": "Block iMessage and FaceTime services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/CloudDocs.app/Contents/MacOS/CloudDocs",
       "remote": "any",
       "notes": "Block iCloud Drive"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/PrivateFrameworks/CloudServices.framework/Helpers/com.apple.sbd",
-        "/usr/libexec/accountsd"
-      ],
+      "process": "/System/Library/PrivateFrameworks/CloudDocs.framework/Versions/A/Support/clouddocs",
+      "remote": "any",
+      "notes": "Block iCloud Drive"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/bird",
+      "remote": "any",
+      "notes": "Block iCloud Drive"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CloudServices.framework/Helpers/com.apple.sbd",
       "remote": "any",
       "notes": "Block iCloud services"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/CoreServices/TimeMachine/backupd",
-        "/System/Library/CoreServices/TimeMachine/backupd-helper"
-      ],
+      "process": "/usr/libexec/accountsd",
+      "remote": "any",
+      "notes": "Block iCloud services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/TimeMachine/backupd",
       "remote": "any",
       "notes": "Block Time Machine"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/CoreServices/Siri.app/Contents/MacOS/Siri",
-        "/System/Library/PrivateFrameworks/AssistantServices.framework/assistantd",
-        "/usr/libexec/siriknowledged",
-        "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd",
-        "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd"
-      ],
+      "process": "/System/Library/CoreServices/TimeMachine/backupd-helper",
+      "remote": "any",
+      "notes": "Block Time Machine"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/Siri.app/Contents/MacOS/Siri",
       "remote": "any",
       "notes": "Block Siri and voice services"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/findmydeviced",
-        "/usr/libexec/findmybeaconingd",
-        "/usr/libexec/findmylocateagent"
-      ],
+      "process": "/System/Library/PrivateFrameworks/AssistantServices.framework/assistantd",
+      "remote": "any",
+      "notes": "Block Siri and voice services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/siriknowledged",
+      "remote": "any",
+      "notes": "Block Siri and voice services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd",
+      "remote": "any",
+      "notes": "Block Siri and voice services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd",
+      "remote": "any",
+      "notes": "Block Siri and voice services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/findmydeviced",
       "remote": "any",
       "notes": "Block Find My services"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent",
-        "/usr/libexec/AirPlayXPCHelper"
-      ],
+      "process": "/usr/libexec/findmybeaconingd",
+      "remote": "any",
+      "notes": "Block Find My services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/findmylocateagent",
+      "remote": "any",
+      "notes": "Block Find My services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent",
       "remote": "any",
       "notes": "Block AirPlay"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/ContinuityCaptureAgent",
-        "/System/Library/CoreServices/controlstrip.app/Contents/MacOS/controlstrip"
-      ],
+      "process": "/usr/libexec/AirPlayXPCHelper",
+      "remote": "any",
+      "notes": "Block AirPlay"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/ContinuityCaptureAgent",
       "remote": "any",
       "notes": "Block Continuity features"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/sbin/bluetoothd",
-        "/System/Library/ExtensionKit/Extensions/Bluetooth.appex/Contents/MacOS/Bluetooth"
-      ],
+      "process": "/System/Library/CoreServices/controlstrip.app/Contents/MacOS/controlstrip",
+      "remote": "any",
+      "notes": "Block Continuity features"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/sbin/bluetoothd",
       "remote": "any",
       "notes": "Block Bluetooth daemon network connections"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/wifip2pd",
-        "/usr/libexec/wifianalyticsd",
-        "/usr/libexec/WiFiVelocityAgent"
-      ],
+      "process": "/System/Library/ExtensionKit/Extensions/Bluetooth.appex/Contents/MacOS/Bluetooth",
+      "remote": "any",
+      "notes": "Block Bluetooth daemon network connections"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/wifip2pd",
+      "remote": "any",
+      "notes": "Block WiFi analytics and peer-to-peer"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/wifianalyticsd",
+      "remote": "any",
+      "notes": "Block WiFi analytics and peer-to-peer"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/WiFiVelocityAgent",
       "remote": "any",
       "notes": "Block WiFi analytics and peer-to-peer"
     },
@@ -1570,157 +1682,318 @@
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/mobileassetd",
-        "/System/Library/PrivateFrameworks/MobileAccessoryUpdater.framework/Support/accessoryupdaterd"
-      ],
+      "process": "/usr/libexec/mobileassetd",
       "remote": "any",
       "notes": "Block mobile asset updates"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/biomesyncd",
-        "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed"
-      ],
+      "process": "/System/Library/PrivateFrameworks/MobileAccessoryUpdater.framework/Support/accessoryupdaterd",
+      "remote": "any",
+      "notes": "Block mobile asset updates"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/biomesyncd",
       "remote": "any",
       "notes": "Block biome telemetry"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/replayd",
-        "/usr/libexec/gamepolicyd"
-      ],
+      "process": "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed",
+      "remote": "any",
+      "notes": "Block biome telemetry"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/replayd",
       "remote": "any",
       "notes": "Block game center and replay services"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/PrivateFrameworks/CalendarDaemon.framework/Support/calaccessd",
-        "/usr/libexec/remindd"
-      ],
+      "process": "/usr/libexec/gamepolicyd",
+      "remote": "any",
+      "notes": "Block game center and replay services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CalendarDaemon.framework/Support/calaccessd",
       "remote": "any",
       "notes": "Block calendar and reminders sync"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/PrivateFrameworks/FamilyCircle.framework/Versions/A/Resources/familycircled",
-        "/usr/libexec/parentalcontrolsd"
-      ],
+      "process": "/usr/libexec/remindd",
+      "remote": "any",
+      "notes": "Block calendar and reminders sync"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/FamilyCircle.framework/Versions/A/Resources/familycircled",
       "remote": "any",
       "notes": "Block family and parental control services"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd",
-        "/usr/libexec/photoanalysisd"
-      ],
+      "process": "/usr/libexec/parentalcontrolsd",
+      "remote": "any",
+      "notes": "Block family and parental control services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd",
       "remote": "any",
       "notes": "Block media and photo analysis"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/PrivateFrameworks/iTunesCloud.framework/Support/itunescloudd",
-        "/System/Library/PrivateFrameworks/CommerceKit.framework/Resources/storeaccountd"
-      ],
+      "process": "/usr/libexec/photoanalysisd",
+      "remote": "any",
+      "notes": "Block media and photo analysis"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/iTunesCloud.framework/Support/itunescloudd",
       "remote": "any",
       "notes": "Block iTunes and App Store cloud services - excluding software updates"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/Image Capture/Support/icdd",
-        "/usr/libexec/cameracaptured"
-      ],
+      "process": "/System/Library/PrivateFrameworks/CommerceKit.framework/Resources/storeaccountd",
+      "remote": "any",
+      "notes": "Block iTunes and App Store cloud services - excluding software updates"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/Image Capture/Support/icdd",
       "remote": "any",
       "notes": "Block image capture services"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/audioanalyticsd",
-        "/System/Library/PrivateFrameworks/HearingCore.framework/heard"
-      ],
+      "process": "/usr/libexec/cameracaptured",
+      "remote": "any",
+      "notes": "Block image capture services"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/audioanalyticsd",
       "remote": "any",
       "notes": "Block audio analytics"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/triald",
-        "/usr/libexec/triald_system"
-      ],
+      "process": "/System/Library/PrivateFrameworks/HearingCore.framework/heard",
+      "remote": "any",
+      "notes": "Block audio analytics"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/triald",
       "remote": "any",
       "notes": "Block trial and experimentation daemons"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/networkserviceproxy",
-        "/usr/libexec/intelligentroutingd"
-      ],
+      "process": "/usr/libexec/triald_system",
+      "remote": "any",
+      "notes": "Block trial and experimentation daemons"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/networkserviceproxy",
       "remote": "any",
       "notes": "Block network service proxying"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/PrivateFrameworks/SyncedDefaults.framework/Support/syncdefaultsd",
-        "/usr/libexec/containermanagerd"
-      ],
+      "process": "/usr/libexec/intelligentroutingd",
+      "remote": "any",
+      "notes": "Block network service proxying"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/SyncedDefaults.framework/Support/syncdefaultsd",
       "remote": "any",
       "notes": "Block synced defaults"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Applications/News.app/Contents/MacOS/News",
-        "/System/Applications/Stocks.app/Contents/MacOS/Stocks",
-        "/System/Applications/Home.app/Contents/MacOS/Home",
-        "/System/Applications/TV.app/Contents/MacOS/TV",
-        "/System/Applications/Music.app/Contents/MacOS/Music",
-        "/System/Applications/Podcasts.app/Contents/MacOS/Podcasts",
-        "/System/Applications/Books.app/Contents/MacOS/Books",
-        "/System/Applications/Weather.app/Contents/MacOS/Weather",
-        "/System/Applications/Maps.app/Contents/MacOS/Maps",
-        "/System/Applications/Mail.app/Contents/MacOS/Mail",
-        "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
-        "/System/Applications/Contacts.app/Contents/MacOS/Contacts",
-        "/System/Applications/Reminders.app/Contents/MacOS/Reminders",
-        "/System/Applications/Notes.app/Contents/MacOS/Notes",
-        "/System/Applications/Photos.app/Contents/MacOS/Photos",
-        "/System/Applications/FaceTime.app/Contents/MacOS/FaceTime",
-        "/System/Applications/Messages.app/Contents/MacOS/Messages",
-        "/System/Applications/VoiceMemos.app/Contents/MacOS/VoiceMemos",
-        "/System/Applications/Journal.app/Contents/MacOS/Journal"
-      ],
+      "process": "/usr/libexec/containermanagerd",
+      "remote": "any",
+      "notes": "Block synced defaults"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/News.app/Contents/MacOS/News",
       "remote": "any",
       "notes": "Block all stock macOS applications"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Library/CoreServices/Software Update.app/Contents/MacOS/Software Update",
-        "/System/Applications/App Store.app/Contents/MacOS/App Store"
+      "process": "/System/Applications/Stocks.app/Contents/MacOS/Stocks",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Home.app/Contents/MacOS/Home",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/TV.app/Contents/MacOS/TV",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Music.app/Contents/MacOS/Music",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Podcasts.app/Contents/MacOS/Podcasts",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Books.app/Contents/MacOS/Books",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Weather.app/Contents/MacOS/Weather",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Maps.app/Contents/MacOS/Maps",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Contacts.app/Contents/MacOS/Contacts",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Reminders.app/Contents/MacOS/Reminders",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Notes.app/Contents/MacOS/Notes",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Photos.app/Contents/MacOS/Photos",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/FaceTime.app/Contents/MacOS/FaceTime",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/VoiceMemos.app/Contents/MacOS/VoiceMemos",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Journal.app/Contents/MacOS/Journal",
+      "remote": "any",
+      "notes": "Block all stock macOS applications"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/Software Update.app/Contents/MacOS/Software Update",
+      "remote-domains": [
+        "*.mzstatic.com",
+        "*.itunes.apple.com"
       ],
+      "notes": "Block App Store UI - updates handled by softwareupdated"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/App Store.app/Contents/MacOS/App Store",
       "remote-domains": [
         "*.mzstatic.com",
         "*.itunes.apple.com"

@@ -95,10 +95,7 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/ssh",
-        "/opt/homebrew/bin/ssh"
-      ],
+      "process": "/usr/bin/ssh",
       "protocol": "tcp",
       "ports": "22",
       "remote": "any",
@@ -107,10 +104,16 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/ssh",
-        "/opt/homebrew/bin/ssh"
-      ],
+      "process": "/opt/homebrew/bin/ssh",
+      "protocol": "tcp",
+      "ports": "22",
+      "remote": "any",
+      "notes": "SSH client (plain + HTTPS-tunneled SSH)"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/ssh",
       "protocol": "tcp",
       "ports": "443",
       "remote": "any",
@@ -119,10 +122,16 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/git",
-        "/opt/homebrew/bin/git"
-      ],
+      "process": "/opt/homebrew/bin/ssh",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any",
+      "notes": "SSH client (plain + HTTPS-tunneled SSH)"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/git",
       "protocol": "tcp",
       "ports": "22",
       "remote": "any",
@@ -131,10 +140,16 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/git",
-        "/opt/homebrew/bin/git"
-      ],
+      "process": "/opt/homebrew/bin/git",
+      "protocol": "tcp",
+      "ports": "22",
+      "remote": "any",
+      "notes": "Git over SSH/HTTPS/git protocol"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/git",
       "protocol": "tcp",
       "ports": "443",
       "remote": "any",
@@ -143,10 +158,16 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/git",
-        "/opt/homebrew/bin/git"
-      ],
+      "process": "/opt/homebrew/bin/git",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Git over SSH/HTTPS/git protocol"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/git",
       "protocol": "tcp",
       "ports": "9418",
       "remote": "any",
@@ -155,11 +176,16 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/curl",
-        "/opt/homebrew/bin/curl",
-        "/usr/bin/wget"
-      ],
+      "process": "/opt/homebrew/bin/git",
+      "protocol": "tcp",
+      "ports": "9418",
+      "remote": "any",
+      "notes": "Git over SSH/HTTPS/git protocol"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/curl",
       "protocol": "tcp",
       "ports": "80",
       "remote": "any",
@@ -168,11 +194,25 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/curl",
-        "/opt/homebrew/bin/curl",
-        "/usr/bin/wget"
-      ],
+      "process": "/opt/homebrew/bin/curl",
+      "protocol": "tcp",
+      "ports": "80",
+      "remote": "any",
+      "notes": "curl / wget - HTTP(S) only"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/wget",
+      "protocol": "tcp",
+      "ports": "80",
+      "remote": "any",
+      "notes": "curl / wget - HTTP(S) only"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/curl",
       "protocol": "tcp",
       "ports": "443",
       "remote": "any",
@@ -181,10 +221,25 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/local/bin/brew",
-        "/opt/homebrew/bin/brew"
-      ],
+      "process": "/opt/homebrew/bin/curl",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any",
+      "notes": "curl / wget - HTTP(S) only"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/wget",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any",
+      "notes": "curl / wget - HTTP(S) only"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/local/bin/brew",
       "protocol": "tcp",
       "ports": "80",
       "remote": "any",
@@ -193,10 +248,16 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/local/bin/brew",
-        "/opt/homebrew/bin/brew"
-      ],
+      "process": "/opt/homebrew/bin/brew",
+      "protocol": "tcp",
+      "ports": "80",
+      "remote": "any",
+      "notes": "Homebrew package manager"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/local/bin/brew",
       "protocol": "tcp",
       "ports": "443",
       "remote": "any",
@@ -205,11 +266,16 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/python3",
-        "/usr/local/bin/python3",
-        "/opt/homebrew/bin/python3"
-      ],
+      "process": "/opt/homebrew/bin/brew",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Homebrew package manager"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/python3",
       "protocol": "tcp",
       "ports": "80",
       "remote": "any",
@@ -218,11 +284,25 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/python3",
-        "/usr/local/bin/python3",
-        "/opt/homebrew/bin/python3"
-      ],
+      "process": "/usr/local/bin/python3",
+      "protocol": "tcp",
+      "ports": "80",
+      "remote": "any",
+      "notes": "Python 3 - pip and scripts reaching internet"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/opt/homebrew/bin/python3",
+      "protocol": "tcp",
+      "ports": "80",
+      "remote": "any",
+      "notes": "Python 3 - pip and scripts reaching internet"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/python3",
       "protocol": "tcp",
       "ports": "443",
       "remote": "any",
@@ -231,11 +311,25 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/node",
-        "/usr/local/bin/node",
-        "/opt/homebrew/bin/node"
-      ],
+      "process": "/usr/local/bin/python3",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Python 3 - pip and scripts reaching internet"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/opt/homebrew/bin/python3",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Python 3 - pip and scripts reaching internet"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/node",
       "protocol": "tcp",
       "ports": "80",
       "remote": "any",
@@ -244,11 +338,43 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/bin/node",
-        "/usr/local/bin/node",
-        "/opt/homebrew/bin/node"
-      ],
+      "process": "/usr/local/bin/node",
+      "protocol": "tcp",
+      "ports": "80",
+      "remote": "any",
+      "notes": "Node.js - npm/yarn tooling"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/opt/homebrew/bin/node",
+      "protocol": "tcp",
+      "ports": "80",
+      "remote": "any",
+      "notes": "Node.js - npm/yarn tooling"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/node",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Node.js - npm/yarn tooling"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/local/bin/node",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any",
+      "notes": "Node.js - npm/yarn tooling"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/opt/homebrew/bin/node",
       "protocol": "tcp",
       "ports": "443",
       "remote": "any",
@@ -462,10 +588,16 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/Applications/1Password.app/Contents/MacOS/1Password",
-        "/Applications/1Password CLI.app/Contents/MacOS/op"
-      ],
+      "process": "/Applications/1Password.app/Contents/MacOS/1Password",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any",
+      "notes": "1Password desktop + CLI"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/Applications/1Password CLI.app/Contents/MacOS/op",
       "protocol": "tcp",
       "ports": "443",
       "remote": "any",
@@ -1054,90 +1186,518 @@
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/analyticsd",
-        "/usr/libexec/adprivacyd",
-        "/usr/libexec/coreduetd",
-        "/usr/libexec/contextstored",
-        "/usr/libexec/suggestd",
-        "/usr/libexec/rapportd",
-        "/usr/libexec/nearbyd",
-        "/usr/libexec/sharingd",
-        "/usr/libexec/mobileactivationd",
-        "/usr/libexec/mobileassetd",
-        "/usr/libexec/findmydeviced",
-        "/usr/libexec/findmybeaconingd",
-        "/usr/libexec/findmylocateagent",
-        "/usr/libexec/replayd",
-        "/usr/libexec/biomesyncd",
-        "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed",
-        "/usr/libexec/gamepolicyd",
-        "/usr/libexec/audioanalyticsd",
-        "/usr/libexec/intelligentroutingd",
-        "/usr/libexec/networkserviceproxy",
-        "/usr/libexec/wifip2pd",
-        "/usr/libexec/wifianalyticsd",
-        "/usr/sbin/bluetoothd",
-        "/System/Library/ExtensionKit/Extensions/Bluetooth.appex/Contents/MacOS/Bluetooth",
-        "/usr/libexec/imagent",
-        "/usr/libexec/identityservicesd",
-        "/usr/libexec/IMTransferAgent",
-        "/System/Library/CoreServices/CloudDocs.app/Contents/MacOS/CloudDocs",
-        "/System/Library/PrivateFrameworks/CloudDocs.framework/Versions/A/Support/clouddocs",
-        "/usr/libexec/bird",
-        "/System/Library/PrivateFrameworks/CloudServices.framework/Helpers/com.apple.sbd",
-        "/usr/libexec/accountsd",
-        "/System/Library/CoreServices/TimeMachine/backupd",
-        "/System/Library/CoreServices/TimeMachine/backupd-helper",
-        "/System/Library/CoreServices/Siri.app/Contents/MacOS/Siri",
-        "/System/Library/PrivateFrameworks/AssistantServices.framework/assistantd",
-        "/usr/libexec/siriknowledged",
-        "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd",
-        "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd",
-        "/System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent",
-        "/usr/libexec/AirPlayXPCHelper",
-        "/usr/libexec/ContinuityCaptureAgent",
-        "/usr/libexec/nsurlsessiond",
-        "/System/Library/PrivateFrameworks/MobileAccessoryUpdater.framework/Support/accessoryupdaterd",
-        "/System/Library/PrivateFrameworks/CalendarDaemon.framework/Support/calaccessd",
-        "/usr/libexec/remindd",
-        "/System/Library/PrivateFrameworks/FamilyCircle.framework/Versions/A/Resources/familycircled",
-        "/usr/libexec/parentalcontrolsd",
-        "/System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd",
-        "/usr/libexec/photoanalysisd",
-        "/System/Library/PrivateFrameworks/iTunesCloud.framework/Support/itunescloudd",
-        "/System/Library/Image Capture/Support/icdd",
-        "/usr/libexec/cameracaptured",
-        "/usr/libexec/triald",
-        "/usr/libexec/triald_system",
-        "/usr/libexec/usermanagerd",
-        "/usr/libexec/opendirectoryd",
-        "/usr/libexec/loginitemregisterd",
-        "/usr/libexec/aslmanager",
-        "/usr/libexec/eligibilityd",
-        "/usr/libexec/smd"
-      ],
+      "process": "/usr/libexec/analyticsd",
       "remote": "any",
       "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/System/Applications/Mail.app/Contents/MacOS/Mail",
-        "/System/Applications/Messages.app/Contents/MacOS/Messages",
-        "/System/Applications/Photos.app/Contents/MacOS/Photos",
-        "/System/Applications/News.app/Contents/MacOS/News",
-        "/System/Applications/Stocks.app/Contents/MacOS/Stocks",
-        "/System/Applications/TV.app/Contents/MacOS/TV",
-        "/System/Applications/Home.app/Contents/MacOS/Home",
-        "/System/Applications/Podcasts.app/Contents/MacOS/Podcasts",
-        "/System/Applications/FaceTime.app/Contents/MacOS/FaceTime",
-        "/System/Applications/Maps.app/Contents/MacOS/Maps",
-        "/System/Applications/Contacts.app/Contents/MacOS/Contacts",
-        "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
-        "/System/Applications/Reminders.app/Contents/MacOS/Reminders"
-      ],
+      "process": "/usr/libexec/adprivacyd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/coreduetd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/contextstored",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/suggestd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/rapportd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/nearbyd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/sharingd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/mobileactivationd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/mobileassetd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/findmydeviced",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/findmybeaconingd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/findmylocateagent",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/replayd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/biomesyncd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/gamepolicyd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/audioanalyticsd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/intelligentroutingd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/networkserviceproxy",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/wifip2pd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/wifianalyticsd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/sbin/bluetoothd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/ExtensionKit/Extensions/Bluetooth.appex/Contents/MacOS/Bluetooth",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/imagent",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/identityservicesd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/IMTransferAgent",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/CloudDocs.app/Contents/MacOS/CloudDocs",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CloudDocs.framework/Versions/A/Support/clouddocs",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/bird",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CloudServices.framework/Helpers/com.apple.sbd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/accountsd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/TimeMachine/backupd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/TimeMachine/backupd-helper",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/Siri.app/Contents/MacOS/Siri",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/AssistantServices.framework/assistantd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/siriknowledged",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/AirPlayXPCHelper",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/ContinuityCaptureAgent",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/nsurlsessiond",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/MobileAccessoryUpdater.framework/Support/accessoryupdaterd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CalendarDaemon.framework/Support/calaccessd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/remindd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/FamilyCircle.framework/Versions/A/Resources/familycircled",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/parentalcontrolsd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/photoanalysisd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/iTunesCloud.framework/Support/itunescloudd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/Image Capture/Support/icdd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/cameracaptured",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/triald",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/triald_system",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/usermanagerd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/opendirectoryd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/loginitemregisterd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/aslmanager",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/eligibilityd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/smd",
+      "remote": "any",
+      "notes": "Hard kill macOS analytics, suggestions, continuity, iCloud, Siri, Find My, Time Machine, media analysis, trial/experiments, WiFi analytics, etc."
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Mail.app/Contents/MacOS/Mail",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Messages.app/Contents/MacOS/Messages",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Photos.app/Contents/MacOS/Photos",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/News.app/Contents/MacOS/News",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Stocks.app/Contents/MacOS/Stocks",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/TV.app/Contents/MacOS/TV",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Home.app/Contents/MacOS/Home",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Podcasts.app/Contents/MacOS/Podcasts",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/FaceTime.app/Contents/MacOS/FaceTime",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Maps.app/Contents/MacOS/Maps",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Contacts.app/Contents/MacOS/Contacts",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
+      "remote": "any",
+      "notes": "Block all stock consumer apps you consider trash"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Reminders.app/Contents/MacOS/Reminders",
       "remote": "any",
       "notes": "Block all stock consumer apps you consider trash"
     },

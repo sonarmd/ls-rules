@@ -38,12 +38,31 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/trustd",
-        "/usr/sbin/softwareupdated",
-        "/System/Library/PrivateFrameworks/CommerceKit.framework/Resources/storeaccountd",
-        "/System/Library/PrivateFrameworks/SoftwareUpdate.framework/Resources/softwareupdateservicesd"
-      ],
+      "process": "/usr/libexec/trustd",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote-addresses": "17.0.0.0/8"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/sbin/softwareupdated",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote-addresses": "17.0.0.0/8"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CommerceKit.framework/Resources/storeaccountd",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote-addresses": "17.0.0.0/8"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/SoftwareUpdate.framework/Resources/softwareupdateservicesd",
       "protocol": "tcp",
       "ports": "443",
       "remote-addresses": "17.0.0.0/8"
@@ -59,11 +78,7 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/local/bin/brew",
-        "/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Renderer).app/Contents/MacOS/Code Helper (Renderer)",
-        "/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
-      ],
+      "process": "/usr/local/bin/brew",
       "protocol": "tcp",
       "ports": "22",
       "remote": "any"
@@ -71,11 +86,39 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": [
-        "/usr/local/bin/brew",
-        "/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Renderer).app/Contents/MacOS/Code Helper (Renderer)",
-        "/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
-      ],
+      "process": "/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Renderer).app/Contents/MacOS/Code Helper (Renderer)",
+      "protocol": "tcp",
+      "ports": "22",
+      "remote": "any"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/Applications/Visual Studio Code.app/Contents/MacOS/Electron",
+      "protocol": "tcp",
+      "ports": "22",
+      "remote": "any"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/local/bin/brew",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper (Renderer).app/Contents/MacOS/Code Helper (Renderer)",
+      "protocol": "tcp",
+      "ports": "443",
+      "remote": "any"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/Applications/Visual Studio Code.app/Contents/MacOS/Electron",
       "protocol": "tcp",
       "ports": "443",
       "remote": "any"
@@ -83,67 +126,355 @@
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": [
-        "/usr/libexec/analyticsd",
-        "/usr/libexec/adprivacyd",
-        "/usr/libexec/coreduetd",
-        "/usr/libexec/contextstored",
-        "/usr/libexec/suggestd",
-        "/usr/libexec/rapportd",
-        "/usr/libexec/nearbyd",
-        "/usr/libexec/imagent",
-        "/usr/sbin/appleh16camerad",
-        "/usr/libexec/mobileactivationd",
-        "/System/Library/CoreServices/TimeMachine/backupd-helper",
-        "/usr/libexec/ContinuityCaptureAgent",
-        "/usr/libexec/networkserviceproxy",
-        "/usr/libexec/containermanagerd",
-        "/System/Library/ExtensionKit/Extensions/Bluetooth.appex/Contents/MacOS/Bluetooth",
-        "/usr/libexec/biomesyncd",
-        "/usr/libexec/remoted",
-        "/usr/libexec/opendirectoryd",
-        "/usr/libexec/mobileassetd",
-        "/usr/libexec/findmybeaconingd",
-        "/System/Library/CoreServices/TimeMachine/backupd",
-        "/usr/libexec/cameracaptured",
-        "/usr/libexec/audioanalyticsd",
-        "/usr/libexec/intelligentroutingd",
-        "/usr/libexec/wifip2pd",
-        "/usr/libexec/findmylocateagent",
-        "/usr/libexec/replayd",
-        "/System/Library/PrivateFrameworks/CalendarDaemon.framework/Support/calaccessd",
-        "/System/Library/PrivateFrameworks/SyncedDefaults.framework/Support/syncdefaultsd",
-        "/System/Library/PrivateFrameworks/HearingCore.framework/heard",
-        "/System/Library/PrivateFrameworks/FamilyCircle.framework/Versions/A/Resources/familycircled",
-        "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd",
-        "/System/Library/PrivateFrameworks/SoftwareUpdate.framework/Resources/SoftwareUpdateNotificationManager.app/Contents/MacOS/SoftwareUpdateNotificationManager",
-        "/usr/libexec/sharingd",
-        "/System/Library/Image Capture/Support/icdd",
-        "/usr/libexec/gamepolicyd",
-        "/usr/libexec/mobilerepaird",
-        "/usr/libexec/siriknowledged",
-        "/System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd",
-        "/System/Library/Frameworks/NetFS.framework/Versions/A/XPCServices/PlugInLibraryService.xpc/Contents/MacOS/PlugInLibraryService",
-        "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd",
-        "/System/Library/PrivateFrameworks/iTunesCloud.framework/Support/itunescloudd",
-        "/usr/libexec/wifianalyticsd",
-        "/usr/libexec/loginitemregisterd",
-        "/usr/sbin/bluetoothd",
-        "/System/Applications/Journal.app/Contents/PlugIns/JournalWidgets.appex/Contents/MacOS/JournalWidgets",
-        "/System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/XPCServices/SetStoreUpdateService.xpc/Contents/MacOS/SetStoreUpdateService",
-        "/usr/libexec/remindd",
-        "/usr/libexec/eligibilityd",
-        "/usr/libexec/nsurlsessiond",
-        "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed",
-        "/usr/libexec/smd",
-        "/usr/libexec/usermanagerd",
-        "/usr/libexec/aslmanager",
-        "/System/Library/PrivateFrameworks/MobileAccessoryUpdater.framework/Support/accessoryupdaterd",
-        "/usr/libexec/triald_system",
-        "/usr/bin/ssh",
-        "/usr/bin/git",
-        "/usr/bin/curl"
-      ],
+      "process": "/usr/libexec/analyticsd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/adprivacyd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/coreduetd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/contextstored",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/suggestd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/rapportd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/nearbyd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/imagent",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/sbin/appleh16camerad",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/mobileactivationd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/TimeMachine/backupd-helper",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/ContinuityCaptureAgent",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/networkserviceproxy",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/containermanagerd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/ExtensionKit/Extensions/Bluetooth.appex/Contents/MacOS/Bluetooth",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/biomesyncd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/remoted",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/opendirectoryd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/mobileassetd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/findmybeaconingd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/CoreServices/TimeMachine/backupd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/cameracaptured",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/audioanalyticsd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/intelligentroutingd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/wifip2pd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/findmylocateagent",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/replayd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CalendarDaemon.framework/Support/calaccessd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/SyncedDefaults.framework/Support/syncdefaultsd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/HearingCore.framework/heard",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/FamilyCircle.framework/Versions/A/Resources/familycircled",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/SoftwareUpdate.framework/Resources/SoftwareUpdateNotificationManager.app/Contents/MacOS/SoftwareUpdateNotificationManager",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/sharingd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/Image Capture/Support/icdd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/gamepolicyd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/mobilerepaird",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/siriknowledged",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/Frameworks/NetFS.framework/Versions/A/XPCServices/PlugInLibraryService.xpc/Contents/MacOS/PlugInLibraryService",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/iTunesCloud.framework/Support/itunescloudd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/wifianalyticsd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/loginitemregisterd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/sbin/bluetoothd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Applications/Journal.app/Contents/PlugIns/JournalWidgets.appex/Contents/MacOS/JournalWidgets",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/XPCServices/SetStoreUpdateService.xpc/Contents/MacOS/SetStoreUpdateService",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/remindd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/eligibilityd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/nsurlsessiond",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/smd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/usermanagerd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/aslmanager",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/System/Library/PrivateFrameworks/MobileAccessoryUpdater.framework/Support/accessoryupdaterd",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/libexec/triald_system",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/bin/ssh",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/bin/git",
+      "remote": "any"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/usr/bin/curl",
       "remote": "any"
     },
     {
