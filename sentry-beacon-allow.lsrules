@@ -8,8 +8,10 @@
       "direction": "outgoing",
       "process": "/usr/bin/curl",
       "protocol": "tcp",
-      "ports": [443],
-      "remote-domains": ["o363493.ingest.us.sentry.io"],
+      "ports": "443",
+      "remote-domains": [
+        "o363493.ingest.us.sentry.io"
+      ],
       "notes": "sentry-beacon: security event reporting only"
     },
     {
@@ -17,8 +19,10 @@
       "direction": "outgoing",
       "process": "/opt/homebrew/bin/curl",
       "protocol": "tcp",
-      "ports": [443],
-      "remote-domains": ["o363493.ingest.us.sentry.io"],
+      "ports": "443",
+      "remote-domains": [
+        "o363493.ingest.us.sentry.io"
+      ],
       "notes": "sentry-beacon: Homebrew curl — security event reporting only"
     }
   ]
