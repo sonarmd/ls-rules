@@ -8,28 +8,27 @@
       "direction": "outgoing",
       "process": "/usr/libexec/configd",
       "protocol": "udp",
-      "ports": [
-        67,
-        68
-      ]
+      "ports": [67, 68],
+      "remote": "AnyServer"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/sbin/mDNSResponder",
       "protocol": "udp",
-      "ports": [
-        53,
-        853
-      ]
+      "ports": [53, 853],
+      "remote": "AnyServer"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/libexec/trustd",
       "protocol": "tcp",
-      "ports": [
-        80
+      "ports": [80],
+      "remote": [
+        "17.248.0.0/15",
+        "17.250.0.0/16",
+        "17.253.0.0/16"
       ]
     },
     {
@@ -42,18 +41,16 @@
         "/System/Library/PrivateFrameworks/SoftwareUpdate.framework/Resources/softwareupdateservicesd"
       ],
       "protocol": "tcp",
-      "ports": [
-        443
-      ]
+      "ports": [443],
+      "remote": "17.0.0.0/8"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/sbin/ntpd",
       "protocol": "udp",
-      "ports": [
-        123
-      ]
+      "ports": [123],
+      "remote": "AnyServer"
     },
     {
       "action": "allow",
@@ -64,10 +61,8 @@
         "/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
       ],
       "protocol": "tcp",
-      "ports": [
-        22,
-        443
-      ]
+      "ports": [22, 443],
+      "remote": "AnyServer"
     },
     {
       "action": "deny",
@@ -132,33 +127,45 @@
         "/usr/bin/ssh",
         "/usr/bin/git",
         "/usr/bin/curl"
-      ]
-    },
-    {
-      "action": "deny",
-      "direction": "both",
-      "process": "AnyProcess"
+      ],
+      "remote": "AnyServer"
     },
     {
       "action": "deny",
       "direction": "both",
       "process": "AnyProcess",
-      "protocol": "icmp"
+      "remote": "local-net"
+    },
+    {
+      "action": "deny",
+      "direction": "both",
+      "process": "AnyProcess",
+      "protocol": "icmp",
+      "remote": "AnyServer"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": "AnyProcess"
+      "process": "AnyProcess",
+      "remote": [
+        "224.0.0.0/4",
+        "239.0.0.0/8",
+        "ff00::/8",
+        "169.254.0.0/16",
+        "17.0.0.0/8"
+      ]
     },
     {
       "action": "deny",
       "direction": "incoming",
-      "process": "AnyProcess"
+      "process": "AnyProcess",
+      "remote": "AnyServer"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": "AnyProcess"
+      "process": "AnyProcess",
+      "remote": "AnyServer"
     }
   ]
 }

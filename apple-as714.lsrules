@@ -1,5 +1,5 @@
 {
-  "name": "Apple AS714 \u2014 DNS Spoofing Protection",
+  "name": "Apple AS714 — DNS Spoofing Protection",
   "description": "Ensures connections to apple.com and related domains only reach Apple's actual IP ranges (AS714). If DNS is poisoned, the connection is denied at the network layer before TLS even negotiates. Apple has NOT deployed DNSSEC on apple.com, making this rule set the primary DNS-spoofing defense for Apple traffic.",
   "rules": [
     {
@@ -9,7 +9,7 @@
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Apple primary IP range (AS714) \u2014 covers apple.com, icloud.com, cdn infrastructure"
+      "notes": "Apple primary IP range (AS714) — covers apple.com, icloud.com, cdn infrastructure"
     },
     {
       "action": "allow",
@@ -18,7 +18,7 @@
       "ports": "80",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Apple primary IP range \u2014 HTTP (for redirects to HTTPS)"
+      "notes": "Apple primary IP range — HTTP (for redirects to HTTPS)"
     },
     {
       "action": "allow",
@@ -59,24 +59,28 @@
     {
       "action": "deny",
       "process": "any",
+      "remote-domains": "apple.com",
       "direction": "outgoing",
-      "notes": "DENY apple.com connections to non-Apple IPs \u2014 catches poisoned DNS resolution"
+      "notes": "DENY apple.com connections to non-Apple IPs — catches poisoned DNS resolution"
     },
     {
       "action": "deny",
       "process": "any",
+      "remote-domains": "icloud.com",
       "direction": "outgoing",
       "notes": "DENY icloud.com connections to non-Apple IPs"
     },
     {
       "action": "deny",
       "process": "any",
+      "remote-domains": "apple-cloudkit.com",
       "direction": "outgoing",
       "notes": "DENY CloudKit connections to non-Apple IPs"
     },
     {
       "action": "deny",
       "process": "any",
+      "remote-domains": "mzstatic.com",
       "direction": "outgoing",
       "notes": "DENY App Store CDN connections to non-Apple IPs"
     }

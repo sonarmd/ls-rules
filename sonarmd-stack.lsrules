@@ -1,62 +1,69 @@
 {
-  "name": "SonarMD Stack \u2014 Project Infrastructure",
-  "description": "Allow connections to SonarMD's project infrastructure: Atlassian (Jira/Confluence), MongoDB Atlas, CircleCI, GitHub sonarmd org, and Docker. These are broad-process allow rules \u2014 the destination is the control, not the process.",
+  "name": "SonarMD Stack — Project Infrastructure",
+  "description": "Allow connections to SonarMD's project infrastructure: Atlassian (Jira/Confluence), MongoDB Atlas, CircleCI, GitHub sonarmd org, and Docker. These are broad-process allow rules — the destination is the control, not the process.",
   "rules": [
     {
       "action": "allow",
       "process": "any",
+      "remote-domains": "atlassian.net",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Atlassian \u2014 Jira (sonarmd.atlassian.net), Confluence"
+      "notes": "Atlassian — Jira (sonarmd.atlassian.net), Confluence"
     },
     {
       "action": "allow",
       "process": "any",
+      "remote-domains": "atlassian.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Atlassian \u2014 account, admin, downloads"
+      "notes": "Atlassian — account, admin, downloads"
     },
     {
       "action": "allow",
       "process": "any",
+      "remote-domains": "mongodb.net",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "MongoDB Atlas \u2014 cluster connections (HTTPS API)"
+      "notes": "MongoDB Atlas — cluster connections (HTTPS API)"
     },
     {
       "action": "allow",
       "process": "any",
+      "remote-domains": "mongodb.net",
       "ports": "27017",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "MongoDB Atlas \u2014 native wire protocol port"
+      "notes": "MongoDB Atlas — native wire protocol port"
     },
     {
       "action": "allow",
       "process": "any",
+      "remote-domains": "mongodb.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "MongoDB \u2014 Atlas UI, documentation, downloads"
+      "notes": "MongoDB — Atlas UI, documentation, downloads"
     },
     {
       "action": "allow",
       "process": "any",
+      "remote-domains": "circleci.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "CircleCI \u2014 CI/CD pipeline, webhooks, API"
+      "notes": "CircleCI — CI/CD pipeline, webhooks, API"
     },
     {
       "action": "allow",
       "process": "any",
+      "remote-domains": "github.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "GitHub \u2014 sonarmd org repos, PR reviews, Actions"
+      "notes": "GitHub — sonarmd org repos, PR reviews, Actions"
     },
     {
       "action": "allow",
@@ -70,18 +77,20 @@
     {
       "action": "allow",
       "process": "com.docker.docker",
+      "remote-domains": "docker.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Docker Desktop \u2192 Docker Hub, registry"
+      "notes": "Docker Desktop → Docker Hub, registry"
     },
     {
       "action": "allow",
       "process": "com.docker.docker",
+      "remote-domains": "docker.io",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Docker Desktop \u2192 registry.docker.io (image pulls)"
+      "notes": "Docker Desktop → registry.docker.io (image pulls)"
     },
     {
       "action": "allow",
@@ -90,15 +99,16 @@
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Docker Desktop \u2192 Apple notarization, updates"
+      "notes": "Docker Desktop → Apple notarization, updates"
     },
     {
       "action": "allow",
       "process": "com.docker.docker",
+      "remote-domains": "amazonaws.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Docker Desktop \u2192 Docker Hub CDN (stored on S3)"
+      "notes": "Docker Desktop → Docker Hub CDN (stored on S3)"
     }
   ]
 }

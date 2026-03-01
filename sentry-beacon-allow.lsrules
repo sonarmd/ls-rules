@@ -1,16 +1,15 @@
 {
   "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
-  "name": "Tony Fortress \u2014 Sentry Beacon Allow",
-  "description": "Allows outbound curl connections to the Sentry ingest endpoint used by sentry-beacon for security event reporting. Scoped to the specific ingest host only \u2014 does NOT unblock sentry.io broadly. Import this on top of your existing ruleset.",
+  "name": "Tony Fortress — Sentry Beacon Allow",
+  "description": "Allows outbound curl connections to the Sentry ingest endpoint used by sentry-beacon for security event reporting. Scoped to the specific ingest host only — does NOT unblock sentry.io broadly. Import this on top of your existing ruleset.",
   "rules": [
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/bin/curl",
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
+      "ports": [443],
+      "remote-domains": ["o363493.ingest.us.sentry.io"],
       "notes": "sentry-beacon: security event reporting only"
     },
     {
@@ -18,10 +17,9 @@
       "direction": "outgoing",
       "process": "/opt/homebrew/bin/curl",
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
-      "notes": "sentry-beacon: Homebrew curl \u2014 security event reporting only"
+      "ports": [443],
+      "remote-domains": ["o363493.ingest.us.sentry.io"],
+      "notes": "sentry-beacon: Homebrew curl — security event reporting only"
     }
   ]
 }

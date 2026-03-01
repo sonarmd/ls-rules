@@ -1,68 +1,76 @@
 {
-  "name": "Security Tools \u2014 Scoped Destinations",
+  "name": "Security Tools — Scoped Destinations",
   "description": "Allow security tools to reach their update and sync infrastructure only. 1Password is scoped to 1Password's infrastructure. Malwarebytes to Malwarebytes update servers. Little Snitch to Objective Development.",
   "rules": [
     {
       "action": "allow",
       "process": "com.1password.1password",
+      "remote-domains": "1password.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "1Password \u2192 sync, account, API"
+      "notes": "1Password → sync, account, API"
     },
     {
       "action": "allow",
       "process": "com.1password.1password",
+      "remote-domains": "b.1password.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "1Password \u2192 primary sync endpoint"
+      "notes": "1Password → primary sync endpoint"
     },
     {
       "action": "allow",
       "process": "com.1password.1password",
+      "remote-domains": "events.1password.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "1Password \u2192 event telemetry (required for usage/security auditing)"
+      "notes": "1Password → event telemetry (required for usage/security auditing)"
     },
     {
       "action": "deny",
       "process": "com.1password.1password",
+      "remote": "any",
       "direction": "outgoing",
       "notes": "1Password must not connect to unknown destinations"
     },
     {
       "action": "allow",
       "process": "com.malwarebytes.mbam.frontend.application",
+      "remote-domains": "malwarebytes.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Malwarebytes \u2192 update server, threat intel"
+      "notes": "Malwarebytes → update server, threat intel"
     },
     {
       "action": "allow",
       "process": "com.malwarebytes.mbam.frontend.application",
+      "remote-domains": "mwbsys.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Malwarebytes \u2192 backend infrastructure (mwbsys.com)"
+      "notes": "Malwarebytes → backend infrastructure (mwbsys.com)"
     },
     {
       "action": "allow",
       "process": "at.obdev.littlesnitch",
+      "remote-domains": "obdev.at",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Little Snitch \u2192 license verification, update checks"
+      "notes": "Little Snitch → license verification, update checks"
     },
     {
       "action": "allow",
       "process": "at.obdev.littlesnitch",
+      "remote-domains": "netlify.app",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Little Snitch \u2192 help documentation (hosted on Netlify)"
+      "notes": "Little Snitch → help documentation (hosted on Netlify)"
     }
   ]
 }
