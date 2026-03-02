@@ -1,0 +1,223 @@
+{
+  "/usr/bin/ssh": [
+    {
+      "key": "/usr/bin/ssh",
+      "uuid": "A9F704F1-9527-4793-9C36-1D92E4D09DB8",
+      "path": "/usr/bin/ssh",
+      "name": "ssh",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/local/bin/aws": [
+    {
+      "key": "/usr/local/bin/aws",
+      "uuid": "9507934E-A266-48B0-A811-30C03013C4B0",
+      "path": "/usr/local/bin/aws",
+      "name": "aws",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/opt/homebrew/bin/aws": [
+    {
+      "key": "/opt/homebrew/bin/aws",
+      "uuid": "3C5EF837-ECE7-4D2E-A9BA-405CCB962955",
+      "path": "/opt/homebrew/bin/aws",
+      "name": "aws",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/1Password.app": [
+    {
+      "key": "/Applications/1Password.app",
+      "uuid": "16857A9C-8678-4725-8CDB-B38B827C8E84",
+      "path": "/Applications/1Password.app",
+      "name": "1Password",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/bin/curl": [
+    {
+      "key": "/usr/bin/curl",
+      "uuid": "AC660D31-9660-487B-9BBF-9915B10DF5D6",
+      "path": "/usr/bin/curl",
+      "name": "curl",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/bin/dig": [
+    {
+      "key": "/usr/bin/dig",
+      "uuid": "62AFFBE0-C159-444F-9AB3-7D48124F398E",
+      "path": "/usr/bin/dig",
+      "name": "dig",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/sbin/traceroute": [
+    {
+      "key": "/usr/sbin/traceroute",
+      "uuid": "CA422A53-E26D-43A2-B5E5-4B174CA05C54",
+      "path": "/usr/sbin/traceroute",
+      "name": "traceroute",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Ollama.app": [
+    {
+      "key": "/Applications/Ollama.app",
+      "uuid": "3EFDAA8D-574C-4DD6-BDAF-E0C983B7122D",
+      "path": "/Applications/Ollama.app",
+      "name": "Ollama",
+      "action": 0,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Slack.app": [
+    {
+      "key": "/Applications/Slack.app",
+      "uuid": "02DBB687-2598-4978-8E5B-B8F4E9704A9A",
+      "path": "/Applications/Slack.app",
+      "name": "Slack",
+      "action": 0,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Microsoft Teams.app": [
+    {
+      "key": "/Applications/Microsoft Teams.app",
+      "uuid": "800D1EC6-3483-433E-838D-DD09A9A1F90F",
+      "path": "/Applications/Microsoft Teams.app",
+      "name": "Microsoft Teams",
+      "action": 0,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Google Chrome.app": [
+    {
+      "key": "/Applications/Google Chrome.app",
+      "uuid": "218FC5D1-0288-47E3-99B7-04A3BFADF052",
+      "path": "/Applications/Google Chrome.app",
+      "name": "Google Chrome",
+      "action": 0,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/WebStorm.app": [
+    {
+      "key": "/Applications/WebStorm.app",
+      "uuid": "6ACCE40F-793D-43FC-8352-2EB4F863C637",
+      "path": "/Applications/WebStorm.app",
+      "name": "WebStorm",
+      "action": 0,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Docker.app": [
+    {
+      "key": "/Applications/Docker.app",
+      "uuid": "71F55047-9C59-4955-B5F1-7DC0676DF0EE",
+      "path": "/Applications/Docker.app",
+      "name": "Docker",
+      "action": 0,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ]
+}

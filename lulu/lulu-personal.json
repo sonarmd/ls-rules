@@ -1,0 +1,132 @@
+{
+  "/Applications/Ollama.app": [
+    {
+      "key": "/Applications/Ollama.app",
+      "uuid": "ED28C221-C482-40D9-8EF6-C27FE6C90055",
+      "path": "/Applications/Ollama.app",
+      "name": "Ollama",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Spotify.app": [
+    {
+      "key": "/Applications/Spotify.app",
+      "uuid": "D57E8E5F-9536-4DB4-9C8E-27E3185D2A1A",
+      "path": "/Applications/Spotify.app",
+      "name": "Spotify",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Discord.app": [
+    {
+      "key": "/Applications/Discord.app",
+      "uuid": "71A438A9-D8F9-4F93-8335-CD71893F9494",
+      "path": "/Applications/Discord.app",
+      "name": "Discord",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Firefox.app": [
+    {
+      "key": "/Applications/Firefox.app",
+      "uuid": "E64F5609-53C6-4559-903E-541723824A78",
+      "path": "/Applications/Firefox.app",
+      "name": "Firefox",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "*": [
+    {
+      "key": "*",
+      "uuid": "FB7E66A1-3EB1-4F95-A7EE-172F97C81590",
+      "path": "*",
+      "name": "*",
+      "action": 0,
+      "type": 3,
+      "scope": 1,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "*.doubleclick.net",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    },
+    {
+      "key": "*",
+      "uuid": "992A298C-59EC-4DA4-96EF-488A56EF4F64",
+      "path": "*",
+      "name": "*",
+      "action": 0,
+      "type": 3,
+      "scope": 1,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "*.facebook.com",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    },
+    {
+      "key": "*",
+      "uuid": "27B51238-D1F8-49E9-8313-99CB1BF524C8",
+      "path": "*",
+      "name": "*",
+      "action": 0,
+      "type": 3,
+      "scope": 1,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "*.app-measurement.com",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    },
+    {
+      "key": "*",
+      "uuid": "4E8F065A-4152-4F21-A54D-72DED0AD9B34",
+      "path": "*",
+      "name": "*",
+      "action": 0,
+      "type": 3,
+      "scope": 1,
+      "creation": "2026-03-02T00:10:17+0000",
+      "endpointAddr": "*.crashlytics.com",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ]
+}
