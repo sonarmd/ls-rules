@@ -1,0 +1,557 @@
+{
+  "/Applications/1Password.app": [
+    {
+      "key": "/Applications/1Password.app",
+      "uuid": "8DB4FAE1-539B-465A-920B-A0446A2135E7",
+      "path": "/Applications/1Password.app",
+      "name": "1Password",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/1Password.app/Contents/Frameworks/1Password*.framework": [
+    {
+      "key": "/Applications/1Password.app/Contents/Frameworks/1Password*.framework",
+      "uuid": "B90D522E-AE1D-459D-A458-F73F723B3213",
+      "path": "/Applications/1Password.app/Contents/Frameworks/1Password*.framework",
+      "name": "1Password*.framework",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Keeper Password Manager.app": [
+    {
+      "key": "/Applications/Keeper Password Manager.app",
+      "uuid": "691F2D64-B433-43E5-9216-E3DCD05B5947",
+      "path": "/Applications/Keeper Password Manager.app",
+      "name": "Keeper Password Manager",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/WebStorm.app": [
+    {
+      "key": "/Applications/WebStorm.app",
+      "uuid": "A02F6138-B61E-4E9B-9443-658DD1DD002F",
+      "path": "/Applications/WebStorm.app",
+      "name": "WebStorm",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Visual Studio Code.app": [
+    {
+      "key": "/Applications/Visual Studio Code.app",
+      "uuid": "014683AC-420C-4F80-91A2-6CA10C3EE089",
+      "path": "/Applications/Visual Studio Code.app",
+      "name": "Visual Studio Code",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/bin/git": [
+    {
+      "key": "/usr/bin/git",
+      "uuid": "92DC4B34-77F1-4BAB-B576-75806566286F",
+      "path": "/usr/bin/git",
+      "name": "git",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/local/bin/git": [
+    {
+      "key": "/usr/local/bin/git",
+      "uuid": "B07897F1-1F62-446C-8231-C1A982331A96",
+      "path": "/usr/local/bin/git",
+      "name": "git",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/opt/homebrew/bin/git": [
+    {
+      "key": "/opt/homebrew/bin/git",
+      "uuid": "CC0A14BB-4A8B-447E-B382-67CF7FD19222",
+      "path": "/opt/homebrew/bin/git",
+      "name": "git",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/local/bin/node": [
+    {
+      "key": "/usr/local/bin/node",
+      "uuid": "3B27549B-B972-4132-9CAD-0B6FB4174AB1",
+      "path": "/usr/local/bin/node",
+      "name": "node",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/opt/homebrew/bin/node": [
+    {
+      "key": "/opt/homebrew/bin/node",
+      "uuid": "87FCB88C-35D2-4AA4-A608-74E9CB6D23D7",
+      "path": "/opt/homebrew/bin/node",
+      "name": "node",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/local/bin/npm": [
+    {
+      "key": "/usr/local/bin/npm",
+      "uuid": "84ECD89A-42C0-421D-82CD-596C07A82E1F",
+      "path": "/usr/local/bin/npm",
+      "name": "npm",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/opt/homebrew/bin/npm": [
+    {
+      "key": "/opt/homebrew/bin/npm",
+      "uuid": "5EAF8CB0-6DC2-4938-969C-52B24DD09A37",
+      "path": "/opt/homebrew/bin/npm",
+      "name": "npm",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/local/bin/aws": [
+    {
+      "key": "/usr/local/bin/aws",
+      "uuid": "C99024F0-DF40-46C5-9412-AB7FAFD7601B",
+      "path": "/usr/local/bin/aws",
+      "name": "aws",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/opt/homebrew/bin/aws": [
+    {
+      "key": "/opt/homebrew/bin/aws",
+      "uuid": "AFBA47E8-F805-4047-9794-2EAFCE272CEF",
+      "path": "/opt/homebrew/bin/aws",
+      "name": "aws",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/local/bin/ansible": [
+    {
+      "key": "/usr/local/bin/ansible",
+      "uuid": "6E430E53-78DC-4B6A-A93D-F9CCCEB57514",
+      "path": "/usr/local/bin/ansible",
+      "name": "ansible",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/opt/homebrew/bin/ansible": [
+    {
+      "key": "/opt/homebrew/bin/ansible",
+      "uuid": "89B1860B-A62D-4699-B409-C7FC7D4A8E62",
+      "path": "/opt/homebrew/bin/ansible",
+      "name": "ansible",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/local/bin/ansible-playbook": [
+    {
+      "key": "/usr/local/bin/ansible-playbook",
+      "uuid": "128E283F-D523-4016-A470-BC4E8D9657E4",
+      "path": "/usr/local/bin/ansible-playbook",
+      "name": "ansible-playbook",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/bin/ssh": [
+    {
+      "key": "/usr/bin/ssh",
+      "uuid": "42B7A853-0465-4A03-BF6B-9ECA91681256",
+      "path": "/usr/bin/ssh",
+      "name": "ssh",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/bin/scp": [
+    {
+      "key": "/usr/bin/scp",
+      "uuid": "B9A5F513-B2DD-47A9-9337-3370ABABC227",
+      "path": "/usr/bin/scp",
+      "name": "scp",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/usr/local/bin/docker": [
+    {
+      "key": "/usr/local/bin/docker",
+      "uuid": "AB68FA1E-26B0-4F3D-87E0-C070255B5952",
+      "path": "/usr/local/bin/docker",
+      "name": "docker",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Docker.app": [
+    {
+      "key": "/Applications/Docker.app",
+      "uuid": "59906897-F631-4927-8943-D65CDDC9E2CC",
+      "path": "/Applications/Docker.app",
+      "name": "Docker",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Microsoft Teams.app": [
+    {
+      "key": "/Applications/Microsoft Teams.app",
+      "uuid": "9C616AE8-DD15-494D-A618-5C2F86D433F7",
+      "path": "/Applications/Microsoft Teams.app",
+      "name": "Microsoft Teams",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Slack.app": [
+    {
+      "key": "/Applications/Slack.app",
+      "uuid": "A1A93306-40F6-4781-888E-C5CBA6B479B9",
+      "path": "/Applications/Slack.app",
+      "name": "Slack",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Google Chrome.app": [
+    {
+      "key": "/Applications/Google Chrome.app",
+      "uuid": "675243BC-C135-4D36-863A-4826F5B2408A",
+      "path": "/Applications/Google Chrome.app",
+      "name": "Google Chrome",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Safari.app": [
+    {
+      "key": "/Applications/Safari.app",
+      "uuid": "22C3E7D7-9330-4E08-8254-49924C0AA373",
+      "path": "/Applications/Safari.app",
+      "name": "Safari",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Ollama.app": [
+    {
+      "key": "/Applications/Ollama.app",
+      "uuid": "9E17E9CF-CA46-47DC-8CAE-363A9F9D4BB5",
+      "path": "/Applications/Ollama.app",
+      "name": "Ollama",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "*": [
+    {
+      "key": "*",
+      "uuid": "9CDE6EEA-8ED2-4FE1-9BB3-164A4B6D8620",
+      "path": "*",
+      "name": "*",
+      "action": 0,
+      "type": 3,
+      "scope": 1,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "*.doubleclick.net",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    },
+    {
+      "key": "*",
+      "uuid": "6E7504C3-B9D8-4B43-BCCD-D8024422B0A7",
+      "path": "*",
+      "name": "*",
+      "action": 0,
+      "type": 3,
+      "scope": 1,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "*.facebook.com",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    },
+    {
+      "key": "*",
+      "uuid": "2638FE85-8874-4A39-A2D7-1DC44211FD59",
+      "path": "*",
+      "name": "*",
+      "action": 0,
+      "type": 3,
+      "scope": 1,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "*.app-measurement.com",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    },
+    {
+      "key": "*",
+      "uuid": "65BD615A-EA95-4850-9232-20BF52A09747",
+      "path": "*",
+      "name": "*",
+      "action": 0,
+      "type": 3,
+      "scope": 1,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "*.crashlytics.com",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Spotify.app": [
+    {
+      "key": "/Applications/Spotify.app",
+      "uuid": "AFFEC28A-1C26-464F-A456-B162A1B45984",
+      "path": "/Applications/Spotify.app",
+      "name": "Spotify",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Discord.app": [
+    {
+      "key": "/Applications/Discord.app",
+      "uuid": "BD777351-4F4F-4355-BA59-550F2CE268F8",
+      "path": "/Applications/Discord.app",
+      "name": "Discord",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ],
+  "/Applications/Firefox.app": [
+    {
+      "key": "/Applications/Firefox.app",
+      "uuid": "63A577ED-43DE-40A4-BA02-45F835FEDF33",
+      "path": "/Applications/Firefox.app",
+      "name": "Firefox",
+      "action": 1,
+      "type": 3,
+      "scope": 0,
+      "creation": "2026-03-02T05:06:38+0000",
+      "endpointAddr": "",
+      "endpointHost": "",
+      "endpointPort": "",
+      "isEndpointAddrRegex": 0,
+      "isDisabled": 0
+    }
+  ]
+}
