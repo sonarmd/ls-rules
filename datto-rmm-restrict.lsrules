@@ -1,0 +1,48 @@
+{
+  "name": "Datto RMM Restriction",
+  "description": "Restrict CentraStage/Datto RMM outbound to known Datto endpoints only. Block all other outbound from RMM binaries.",
+  "rules": [
+    {
+      "action": "allow",
+      "process": "/Applications/AEM Agent.app/Contents/MacOS/CentraStage",
+      "remote-hosts": [
+        "*.centrastage.net",
+        "*.datto.com",
+        "*.dattobackup.com"
+      ],
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Allow RMM agent to communicate with Datto cloud over HTTPS only"
+    },
+    {
+      "action": "deny",
+      "process": "/Applications/AEM Agent.app/Contents/MacOS/CentraStage",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "Deny all other outbound from CentraStage agent"
+    },
+    {
+      "action": "deny",
+      "process": "/usr/local/share/CentraStage/AEMAgent/AEMAgent",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "Deny outbound from AEMAgent helper — should tunnel through main agent"
+    },
+    {
+      "action": "deny",
+      "process": "/Applications/AEM Agent.app/Contents/MacOS/OSXvnc-server",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "Deny all outbound from VNC server"
+    },
+    {
+      "action": "deny",
+      "process": "/Applications/AEM Agent.app/Contents/MacOS/OSXvnc-server",
+      "remote": "any",
+      "direction": "incoming",
+      "ports": "45900-45901",
+      "notes": "Block inbound VNC connections — even though localhost-only, belt and suspenders"
+    }
+  ]
+}
