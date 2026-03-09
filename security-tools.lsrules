@@ -1,4 +1,5 @@
 {
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
   "name": "Security Tools — Scoped Destinations",
   "description": "Allow security tools to reach their update and sync infrastructure only. 1Password is scoped to 1Password's infrastructure. Malwarebytes to Malwarebytes update servers. Little Snitch to Objective Development.",
   "rules": [

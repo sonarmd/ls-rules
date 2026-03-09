@@ -1,4 +1,5 @@
 {
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
   "name": "SonarMD Stack — Project Infrastructure",
   "description": "Allow connections to SonarMD's project infrastructure: Atlassian (Jira/Confluence), MongoDB Atlas, CircleCI, GitHub sonarmd org, and Docker. These are broad-process allow rules — the destination is the control, not the process.",
   "rules": [

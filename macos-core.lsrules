@@ -1,4 +1,5 @@
 {
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
   "name": "macOS Core Daemons — Apple Infrastructure Only",
   "description": "Locks essential macOS system daemons to Apple's IP ranges only. These daemons have no legitimate reason to connect outside Apple's infrastructure. A daemon in this list connecting to a non-Apple IP is a compromise indicator.",
   "rules": [

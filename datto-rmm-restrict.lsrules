@@ -1,5 +1,6 @@
 {
-  "name": "Datto RMM Restriction",
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
+  "name": "Datto RMM — Endpoint Restriction",
   "description": "Restrict CentraStage/Datto RMM outbound to known Datto endpoints only. Block all other outbound from RMM binaries.",
   "rules": [
     {

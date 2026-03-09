@@ -1,4 +1,5 @@
 {
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
   "name": "Google Chrome — Browser Traffic",
   "description": "Chrome network access in two layers: (1) Chrome's own Google infrastructure regardless of what you browse — Quad9 DoH resolver, Safe Browsing, update checks, certificate revocation, connectivity probes; (2) General web browsing — any HTTPS/HTTP destination. Scoped to com.google.Chrome process. Quad9 IPs are address-based to avoid DNS bootstrapping dependency.",
   "rules": [

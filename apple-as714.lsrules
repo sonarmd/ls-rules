@@ -1,4 +1,5 @@
 {
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
   "name": "Apple AS714 — DNS Spoofing Protection",
   "description": "Ensures connections to apple.com and related domains only reach Apple's actual IP ranges (AS714). If DNS is poisoned, the connection is denied at the network layer before TLS even negotiates. Apple has NOT deployed DNSSEC on apple.com, making this rule set the primary DNS-spoofing defense for Apple traffic.",
   "rules": [

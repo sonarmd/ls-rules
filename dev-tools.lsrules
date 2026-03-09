@@ -1,4 +1,5 @@
 {
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
   "name": "Dev Tools — Scoped Destinations",
   "description": "Allow dev tools to reach their specific, known destinations. git/gh are IP-pinned to GitHub's published ASes. brew, npm, docker, terraform, gcloud, aws use domain rules. Volta shim covers all Node/npm/yarn traffic.",
   "rules": [

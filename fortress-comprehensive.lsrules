@@ -1,6 +1,6 @@
 {
   "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
-  "name": "Tony Fortress - Comprehensive Baseline",
+  "name": "Tony Fortress — Comprehensive Baseline",
   "description": "Fort Knox grade Little Snitch configuration for macOS. Blocks all telemetry, analytics, and unnecessary connections while maintaining full application functionality. Compatible with HIPAA/SOC2 security requirements.",
   "rules": [
     {

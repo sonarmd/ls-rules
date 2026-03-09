@@ -1,6 +1,6 @@
 {
   "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
-  "name": "Tony Fortress Ghost Baseline",
+  "name": "Tony Fortress — Ghost Baseline",
   "description": "Outbound whitelist for hardened macOS endpoint; block known telemetry and LAN noise. Import in Little Snitch 6.2.x after PF is applied.",
   "rules": [
     {

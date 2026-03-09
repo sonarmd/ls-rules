@@ -1,0 +1,95 @@
+{
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
+  "name": "Claude Code — Telemetry Block",
+  "description": "Block Claude Code telemetry, feature flags, and analytics endpoints. Allow only LLM inference (api.anthropic.com) and MCP proxy. Env vars CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 and CLAUDE_CODE_ENABLE_TELEMETRY=0 handle the application layer; these rules are belt-and-suspenders at the network layer.",
+  "rules": [
+    {
+      "action": "deny",
+      "process": "/Users/avespoli/.local/bin/claude",
+      "remote-domains": "cdn.growthbook.io",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Block GrowthBook feature flags — source of tengu_disable_bypass_permissions_mode gate"
+    },
+    {
+      "action": "deny",
+      "process": "/Users/avespoli/.local/bin/claude",
+      "remote-domains": "http-intake.logs.us5.datadoghq.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Block Datadog log ingestion (US5 region)"
+    },
+    {
+      "action": "deny",
+      "process": "/Users/avespoli/.local/bin/claude",
+      "remote-domains": "datadoghq.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Block all Datadog endpoints (catch-all)"
+    },
+    {
+      "action": "deny",
+      "process": "/Users/avespoli/.local/bin/claude",
+      "remote-domains": "api.segment.io",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Block Segment analytics"
+    },
+    {
+      "action": "deny",
+      "process": "/Users/avespoli/.local/bin/claude",
+      "remote-domains": "beacon.claude-ai.staging.ant.dev",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Block staging beacon"
+    },
+    {
+      "action": "allow",
+      "process": "/Users/avespoli/.local/bin/claude",
+      "remote-domains": "api.anthropic.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Allow LLM inference + essential API (messages, oauth, domain_info)"
+    },
+    {
+      "action": "allow",
+      "process": "/Users/avespoli/.local/bin/claude",
+      "remote-domains": "mcp-proxy.anthropic.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Allow MCP server proxy (Atlassian, Slack, etc.)"
+    },
+    {
+      "action": "allow",
+      "process": "/Users/avespoli/.local/bin/claude",
+      "remote-domains": "storage.googleapis.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Allow auto-update distribution bucket"
+    },
+    {
+      "action": "allow",
+      "process": "/Users/avespoli/.local/bin/claude",
+      "remote-domains": "registry.npmjs.org",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Allow npx package fetching (MCP servers installed via npx)"
+    },
+    {
+      "action": "allow",
+      "process": "/Users/avespoli/.local/bin/claude",
+      "remote": "local-net",
+      "direction": "outgoing",
+      "notes": "Allow localhost/LAN (Ollama, MCP servers, dev servers)"
+    }
+  ]
+}
