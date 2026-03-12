@@ -1,15 +1,17 @@
 {
   "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
-  "name": "Paranoid — Full System Lockdown",
-  "description": "Maximum restriction baseline. Whitelists only essential OS daemons (DHCP, DNS, NTP, trustd, OCSP, software update), dev tools on constrained ports, browsers with telemetry blocked, and password managers. Hard-kills 50+ macOS analytics/telemetry daemons, all stock consumer apps, multicast/broadcast, and all unsolicited inbound. If it's not explicitly allowed here, it doesn't talk to the network.",
+  "name": "Tony Fortress \u2014 Paranoid",
+  "description": "Maximum restriction ruleset. Allowlists only essential OS processes, CLI dev tooling, and core apps. Blocks all macOS telemetry, analytics, iCloud, Siri, Find My, stock consumer apps, and unsolicited inbound. Designed to be layered on top of ghost-baseline.",
   "rules": [
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/libexec/configd",
       "protocol": "udp",
-      "ports": "67-68",
-      "remote": "any",
+      "ports": [
+        67,
+        68
+      ],
       "notes": "DHCP client: get IP address and gateway"
     },
     {
@@ -17,43 +19,53 @@
       "direction": "outgoing",
       "process": "/usr/sbin/mDNSResponder",
       "protocol": "udp",
-      "ports": "53,853",
-      "remote": "any",
-      "notes": "DNS (UDP) — classic and DNS-over-TLS"
+      "ports": [
+        53,
+        853
+      ],
+      "notes": "DNS (UDP) - allow classic and DNS-over-TLS"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/sbin/mDNSResponder",
       "protocol": "tcp",
-      "ports": "53,853",
-      "remote": "any",
-      "notes": "DNS (TCP) — fallback, large answers"
+      "ports": [
+        53,
+        853
+      ],
+      "notes": "DNS (TCP) - fallback, large answers"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/libexec/trustd",
       "protocol": "tcp",
-      "ports": "80",
+      "ports": [
+        80
+      ],
       "remote-addresses": "17.248.0.0/15,17.250.0.0/16,17.253.0.0/16",
-      "notes": "Apple trustd — certificate revocation / trust lists"
+      "notes": "Apple trustd - certificate revocation / trust lists"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/sbin/ocspd",
       "protocol": "tcp",
-      "ports": "80",
+      "ports": [
+        80
+      ],
       "remote-addresses": "17.248.0.0/15,17.250.0.0/16,17.253.0.0/16",
-      "notes": "OCSP daemon — certificate status"
+      "notes": "OCSP daemon - certificate status"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/sbin/softwareupdated",
       "protocol": "tcp",
-      "ports": "443",
+      "ports": [
+        443
+      ],
       "remote-addresses": "17.0.0.0/8",
       "notes": "macOS software updates (system + XProtect)"
     },
@@ -62,7 +74,9 @@
       "direction": "outgoing",
       "process": "/System/Library/PrivateFrameworks/CommerceKit.framework/Resources/storeaccountd",
       "protocol": "tcp",
-      "ports": "443",
+      "ports": [
+        443
+      ],
       "remote-addresses": "17.0.0.0/8",
       "notes": "App Store account for update entitlements only"
     },
@@ -71,98 +85,130 @@
       "direction": "outgoing",
       "process": "/usr/sbin/ntpd",
       "protocol": "udp",
-      "ports": "123",
-      "remote": "any",
-      "notes": "NTP — system time sync"
+      "ports": [
+        123
+      ],
+      "notes": "NTP - system time sync"
     },
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/usr/bin/ssh",
+      "process": [
+        "/usr/bin/ssh",
+        "/opt/homebrew/bin/ssh"
+      ],
       "protocol": "tcp",
-      "ports": "22,443",
-      "remote": "any",
-      "notes": "SSH client (plain + HTTPS-tunneled)"
+      "ports": [
+        22,
+        443
+      ],
+      "notes": "SSH client (plain + HTTPS-tunneled SSH)"
     },
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/opt/homebrew/bin/ssh",
+      "process": [
+        "/usr/bin/git",
+        "/opt/homebrew/bin/git"
+      ],
       "protocol": "tcp",
-      "ports": "22,443",
-      "remote": "any",
-      "notes": "SSH client — Homebrew install"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/usr/bin/git",
-      "protocol": "tcp",
-      "ports": "22,443,9418",
-      "remote": "any",
+      "ports": [
+        22,
+        443,
+        9418
+      ],
       "notes": "Git over SSH/HTTPS/git protocol"
     },
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/opt/homebrew/bin/git",
+      "process": [
+        "/usr/bin/curl",
+        "/opt/homebrew/bin/curl",
+        "/usr/bin/wget"
+      ],
       "protocol": "tcp",
-      "ports": "22,443,9418",
-      "remote": "any",
-      "notes": "Git — Homebrew install"
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "curl / wget - HTTP(S) only"
     },
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/usr/bin/curl",
+      "process": [
+        "/usr/local/bin/brew",
+        "/opt/homebrew/bin/brew"
+      ],
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "curl — HTTP(S) only"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/opt/homebrew/bin/curl",
-      "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "curl — Homebrew install"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/opt/homebrew/bin/brew",
-      "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
+      "ports": [
+        80,
+        443
+      ],
       "notes": "Homebrew package manager"
     },
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/opt/homebrew/bin/python3",
+      "process": [
+        "/usr/bin/python3",
+        "/usr/local/bin/python3",
+        "/opt/homebrew/bin/python3"
+      ],
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "Python 3 — pip and scripts"
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "Python 3 - pip and scripts reaching internet"
     },
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/opt/homebrew/bin/node",
+      "process": [
+        "/usr/bin/node",
+        "/usr/local/bin/node",
+        "/opt/homebrew/bin/node"
+      ],
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "Node.js — npm/yarn tooling"
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "Node.js - npm/yarn tooling"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/local/bin/npm",
+      "protocol": "tcp",
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "npm - JS package manager"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "/usr/bin/go",
+      "protocol": "tcp",
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "Go tooling"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/local/bin/docker",
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
+      "ports": [
+        80,
+        443
+      ],
       "notes": "Docker CLI"
     },
     {
@@ -170,25 +216,32 @@
       "direction": "outgoing",
       "process": "/Applications/Xcode.app/Contents/MacOS/Xcode",
       "protocol": "tcp",
-      "ports": "22,80,443",
-      "remote": "any",
-      "notes": "Xcode IDE — package downloads, documentation, Git"
+      "ports": [
+        22,
+        80,
+        443
+      ],
+      "notes": "Xcode IDE - package downloads, documentation, Git"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild",
       "protocol": "tcp",
-      "ports": "443",
+      "ports": [
+        443
+      ],
       "remote-addresses": "17.0.0.0/8",
-      "notes": "Xcode build tools — Apple services only"
+      "notes": "Xcode build tools - Apple services only"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/usr/bin/codesign",
       "protocol": "tcp",
-      "ports": "443",
+      "ports": [
+        443
+      ],
       "remote-addresses": "17.0.0.0/8",
       "notes": "Code signing with Apple"
     },
@@ -197,33 +250,38 @@
       "direction": "outgoing",
       "process": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "Chrome — main browser traffic"
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "Chrome - main browser traffic"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper",
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "Chrome Helper — page workers"
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "Chrome Helper - page workers"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-      "remote-domains": "google-analytics.com,googletagmanager.com,doubleclick.net,googlesyndication.com",
-      "notes": "Chrome — block Google analytics and ad networks"
+      "notes": "Chrome - block analytics, safe-browsing, auto-update and connectivity checks"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/DuckDuckGo.app/Contents/MacOS/DuckDuckGo",
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
+      "ports": [
+        80,
+        443
+      ],
       "notes": "DuckDuckGo browser"
     },
     {
@@ -231,407 +289,318 @@
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
+      "ports": [
+        80,
+        443
+      ],
       "notes": "Safari browser"
     },
     {
-      "action": "allow",
+      "action": "deny",
       "direction": "outgoing",
-      "process": "com.1password.1password",
-      "protocol": "tcp",
-      "ports": "443",
-      "remote": "any",
-      "notes": "1Password desktop"
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "notes": "Safari - block Apple analytics"
     },
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/Applications/Keeper Password Manager.app/Contents/MacOS/Keeper Password Manager",
+      "process": [
+        "/Applications/1Password.app/Contents/MacOS/1Password",
+        "/Applications/1Password CLI.app/Contents/MacOS/op"
+      ],
       "protocol": "tcp",
-      "ports": "443",
-      "remote": "any",
-      "notes": "Keeper"
+      "ports": [
+        443
+      ],
+      "notes": "1Password desktop + CLI"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Microsoft Teams.app/Contents/MacOS/Teams",
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "Teams — meetings/chat"
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "Teams - meetings/chat"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Microsoft Teams.app/Contents/MacOS/Teams",
-      "remote-domains": "aria.microsoft.com,events.data.microsoft.com,vortex.data.microsoft.com,telemetry.microsoft.com,watson.telemetry.microsoft.com",
-      "notes": "Teams — block telemetry"
+      "notes": "Teams - block telemetry"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Microsoft Word.app/Contents/MacOS/Microsoft Word",
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "Word — documents and licensing"
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "Word - documents and licensing"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Microsoft Word.app/Contents/MacOS/Microsoft Word",
-      "remote-domains": "aria.microsoft.com,events.data.microsoft.com,vortex.data.microsoft.com,telemetry.microsoft.com,watson.telemetry.microsoft.com",
-      "notes": "Word — block telemetry"
+      "notes": "Word - block telemetry"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Microsoft Excel.app/Contents/MacOS/Microsoft Excel",
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "Excel — spreadsheets and licensing"
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "Excel - spreadsheets and licensing"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Microsoft Excel.app/Contents/MacOS/Microsoft Excel",
-      "remote-domains": "aria.microsoft.com,events.data.microsoft.com,vortex.data.microsoft.com,telemetry.microsoft.com,watson.telemetry.microsoft.com",
-      "notes": "Excel — block telemetry"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/Applications/Microsoft PowerPoint.app/Contents/MacOS/Microsoft PowerPoint",
-      "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "PowerPoint — presentations and licensing"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/Applications/Microsoft PowerPoint.app/Contents/MacOS/Microsoft PowerPoint",
-      "remote-domains": "aria.microsoft.com,events.data.microsoft.com,vortex.data.microsoft.com,telemetry.microsoft.com,watson.telemetry.microsoft.com",
-      "notes": "PowerPoint — block telemetry"
+      "notes": "Excel - block telemetry"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Microsoft Outlook.app/Contents/MacOS/Microsoft Outlook",
       "protocol": "tcp",
-      "ports": "443,587,993,995,465",
-      "remote": "any",
-      "notes": "Outlook — email + calendar (IMAP/SMTP/Exchange)"
+      "ports": [
+        443,
+        587,
+        993,
+        995,
+        465
+      ],
+      "notes": "Outlook - email + calendar (IMAP/SMTP/Exchange)"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Microsoft Outlook.app/Contents/MacOS/Microsoft Outlook",
-      "remote-domains": "aria.microsoft.com,events.data.microsoft.com,vortex.data.microsoft.com,telemetry.microsoft.com,watson.telemetry.microsoft.com",
-      "notes": "Outlook — block telemetry"
+      "notes": "Outlook - block telemetry"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/OneDrive.app/Contents/MacOS/OneDrive",
       "protocol": "tcp",
-      "ports": "443",
-      "remote": "any",
-      "notes": "OneDrive — file sync"
+      "ports": [
+        443
+      ],
+      "notes": "OneDrive - file sync"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/OneDrive.app/Contents/MacOS/OneDrive",
-      "remote-domains": "aria.microsoft.com,events.data.microsoft.com,vortex.data.microsoft.com,telemetry.microsoft.com",
-      "notes": "OneDrive — block telemetry"
+      "notes": "OneDrive - block telemetry"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Visual Studio Code.app/Contents/MacOS/Electron",
       "protocol": "tcp",
-      "ports": "22,80,443,9418",
-      "remote": "any",
-      "notes": "VSCode — SSH, git, extensions, marketplace"
+      "ports": [
+        22,
+        80,
+        443,
+        9418
+      ],
+      "notes": "VSCode - SSH, git, extensions, marketplace"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Visual Studio Code.app/Contents/MacOS/Electron",
-      "remote-domains": "dc.services.visualstudio.com,events.data.microsoft.com,vortex.data.microsoft.com,mobile.events.data.microsoft.com",
-      "notes": "VSCode — block telemetry (set telemetry.telemetryLevel=off too)"
+      "notes": "VSCode - block telemetry"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Sublime Text.app/Contents/MacOS/sublime_text",
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "Sublime Text — package control and updates"
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "Sublime Text - package control and updates"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/iTerm.app/Contents/MacOS/iTerm2",
       "protocol": "tcp",
-      "ports": "22,80,443",
-      "remote": "any",
-      "notes": "iTerm2 — shells, SSH, HTTP(S)"
+      "ports": [
+        22,
+        80,
+        443
+      ],
+      "notes": "iTerm2 - shells, SSH, HTTP(S)"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/iTerm.app/Contents/MacOS/iTerm2",
-      "remote-domains": "google-analytics.com,googletagmanager.com",
-      "notes": "iTerm2 — block analytics"
+      "notes": "iTerm2 - block analytics"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal",
       "protocol": "tcp",
-      "ports": "22,80,443",
-      "remote": "any",
-      "notes": "Terminal — SSH and HTTP(S) tools"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/Applications/GitKraken.app/Contents/MacOS/GitKraken",
-      "protocol": "tcp",
-      "ports": "22,80,443,9418",
-      "remote": "any",
-      "notes": "GitKraken — Git GUI"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/Applications/GitKraken.app/Contents/MacOS/GitKraken",
-      "remote-domains": "mixpanel.com,segment.com,segment.io,analytics.gitkraken.com",
-      "notes": "GitKraken — block telemetry"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/Applications/MongoDB Compass.app/Contents/MacOS/MongoDB Compass",
-      "protocol": "tcp",
-      "ports": "27017-27019,443",
-      "remote": "any",
-      "notes": "MongoDB Compass — database access"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/Applications/MongoDB Compass.app/Contents/MacOS/MongoDB Compass",
-      "remote-domains": "segment.com,segment.io,analytics.mongodb.com",
-      "notes": "MongoDB Compass — block telemetry"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/Applications/UTM.app/Contents/MacOS/UTM",
-      "protocol": "tcp",
-      "ports": "22,80,443,3389",
-      "remote": "any",
-      "notes": "UTM — VM networking / RDP"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/Applications/Icon Composer.app/Contents/MacOS/Icon Composer",
-      "protocol": "tcp",
-      "ports": "443",
-      "remote": "any",
-      "notes": "Icon Composer"
+      "ports": [
+        22,
+        80,
+        443
+      ],
+      "notes": "Terminal - SSH and HTTP(S) tools"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Slack.app/Contents/MacOS/Slack",
       "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "Slack — messaging and calls"
+      "ports": [
+        80,
+        443
+      ],
+      "notes": "Slack - messaging and calls"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Slack.app/Contents/MacOS/Slack",
-      "remote-domains": "bugsnag.com,segment.com,segment.io",
-      "notes": "Slack — block telemetry + error reporting"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/Applications/Postman.app/Contents/MacOS/Postman",
-      "protocol": "tcp",
-      "ports": "80,443",
-      "remote": "any",
-      "notes": "Postman — API testing"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/Applications/Postman.app/Contents/MacOS/Postman",
-      "remote-domains": "segment.com,segment.io,bugsnag.com,mixpanel.com",
-      "notes": "Postman — block telemetry"
+      "notes": "Slack - block telemetry"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/ChatGPT.app/Contents/MacOS/ChatGPT",
       "protocol": "tcp",
-      "ports": "443",
-      "remote": "any",
+      "ports": [
+        443
+      ],
       "notes": "ChatGPT desktop app"
     },
     {
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/ChatGPT.app/Contents/MacOS/ChatGPT",
-      "remote-domains": "browser-intake-datadoghq.com,sentry.io,datadog.com",
-      "notes": "ChatGPT — block telemetry/monitoring"
+      "notes": "ChatGPT - block telemetry/monitoring providers"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Little Snitch.app/Contents/MacOS/Little Snitch",
       "protocol": "tcp",
-      "ports": "443",
-      "remote": "any",
-      "notes": "Little Snitch — updates / license"
+      "ports": [
+        443
+      ],
+      "notes": "Little Snitch app - updates / license"
     },
     {
       "action": "allow",
       "direction": "outgoing",
       "process": "/Applications/Utilities/Little Snitch Network Monitor.app/Contents/MacOS/Little Snitch Network Monitor",
       "protocol": "tcp",
-      "ports": "443",
-      "remote": "any",
+      "ports": [
+        443
+      ],
       "notes": "Little Snitch Network Monitor UI"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": "/usr/libexec/analyticsd",
-      "remote": "any",
-      "notes": "Block macOS analytics daemon"
+      "process": [
+        "/usr/libexec/analyticsd",
+        "/usr/libexec/adprivacyd",
+        "/usr/libexec/coreduetd",
+        "/usr/libexec/contextstored",
+        "/usr/libexec/suggestd",
+        "/usr/libexec/rapportd",
+        "/usr/libexec/nearbyd",
+        "/usr/libexec/sharingd",
+        "/usr/libexec/mobileactivationd",
+        "/usr/libexec/mobileassetd",
+        "/usr/libexec/findmydeviced",
+        "/usr/libexec/findmybeaconingd",
+        "/usr/libexec/findmylocateagent",
+        "/usr/libexec/replayd",
+        "/usr/libexec/biomesyncd",
+        "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed",
+        "/usr/libexec/gamepolicyd",
+        "/usr/libexec/audioanalyticsd",
+        "/usr/libexec/intelligentroutingd",
+        "/usr/libexec/networkserviceproxy",
+        "/usr/libexec/wifip2pd",
+        "/usr/libexec/wifianalyticsd",
+        "/usr/sbin/bluetoothd",
+        "/usr/libexec/imagent",
+        "/usr/libexec/identityservicesd",
+        "/usr/libexec/IMTransferAgent",
+        "/System/Library/CoreServices/CloudDocs.app/Contents/MacOS/CloudDocs",
+        "/System/Library/PrivateFrameworks/CloudDocs.framework/Versions/A/Support/clouddocs",
+        "/usr/libexec/bird",
+        "/System/Library/PrivateFrameworks/CloudServices.framework/Helpers/com.apple.sbd",
+        "/usr/libexec/accountsd",
+        "/System/Library/CoreServices/TimeMachine/backupd",
+        "/System/Library/CoreServices/TimeMachine/backupd-helper",
+        "/System/Library/CoreServices/Siri.app/Contents/MacOS/Siri",
+        "/System/Library/PrivateFrameworks/AssistantServices.framework/assistantd",
+        "/usr/libexec/siriknowledged",
+        "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd",
+        "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd",
+        "/System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent",
+        "/usr/libexec/AirPlayXPCHelper",
+        "/usr/libexec/ContinuityCaptureAgent",
+        "/usr/libexec/nsurlsessiond",
+        "/usr/libexec/remindd",
+        "/usr/libexec/photoanalysisd",
+        "/usr/libexec/triald",
+        "/usr/libexec/triald_system",
+        "/usr/libexec/usermanagerd",
+        "/usr/libexec/eligibilityd",
+        "/usr/libexec/smd"
+      ],
+      "notes": "Hard kill: macOS analytics, Siri, iCloud, Find My, Continuity, WiFi analytics, TimeMachine, media analysis, experiments"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": "/usr/libexec/adprivacyd",
-      "remote": "any",
-      "notes": "Block ad privacy daemon"
+      "process": [
+        "/System/Applications/Mail.app/Contents/MacOS/Mail",
+        "/System/Applications/Messages.app/Contents/MacOS/Messages",
+        "/System/Applications/Photos.app/Contents/MacOS/Photos",
+        "/System/Applications/News.app/Contents/MacOS/News",
+        "/System/Applications/Stocks.app/Contents/MacOS/Stocks",
+        "/System/Applications/TV.app/Contents/MacOS/TV",
+        "/System/Applications/Home.app/Contents/MacOS/Home",
+        "/System/Applications/Podcasts.app/Contents/MacOS/Podcasts",
+        "/System/Applications/FaceTime.app/Contents/MacOS/FaceTime",
+        "/System/Applications/Maps.app/Contents/MacOS/Maps",
+        "/System/Applications/Contacts.app/Contents/MacOS/Contacts",
+        "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
+        "/System/Applications/Reminders.app/Contents/MacOS/Reminders"
+      ],
+      "notes": "Block all stock consumer apps"
     },
     {
       "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/rapportd",
-      "remote": "any",
-      "notes": "Block Rapport (device proximity/Handoff)"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/sharingd",
-      "remote": "any",
-      "notes": "Block AirDrop/sharing daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/nearbyd",
-      "remote": "any",
-      "notes": "Block Nearby Interaction daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/triald",
-      "remote": "any",
-      "notes": "Block Apple A/B experiment daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/triald_system",
-      "remote": "any",
-      "notes": "Block Apple system experiment daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/wifianalyticsd",
-      "remote": "any",
-      "notes": "Block WiFi analytics"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/CoreServices/Siri.app/Contents/MacOS/Siri",
-      "remote": "any",
-      "notes": "Block Siri"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/PrivateFrameworks/AssistantServices.framework/assistantd",
-      "remote": "any",
-      "notes": "Block Siri assistant daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/siriknowledged",
-      "remote": "any",
-      "notes": "Block Siri knowledge daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Mail.app/Contents/MacOS/Mail",
-      "remote": "any",
-      "notes": "Block Apple Mail"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Messages.app/Contents/MacOS/Messages",
-      "remote": "any",
-      "notes": "Block Apple Messages"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Photos.app/Contents/MacOS/Photos",
-      "remote": "any",
-      "notes": "Block Apple Photos"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/News.app/Contents/MacOS/News",
-      "remote": "any",
-      "notes": "Block Apple News"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/FaceTime.app/Contents/MacOS/FaceTime",
-      "remote": "any",
-      "notes": "Block FaceTime"
+      "direction": "both",
+      "process": "AnyProcess",
+      "remote-addresses": "224.0.0.0/4,239.0.0.0/8,ff00::/8,169.254.0.0/16,255.255.255.255",
+      "notes": "Block multicast, broadcast, link-local \u2014 stay invisible on LAN"
     },
     {
       "action": "deny",
       "direction": "incoming",
-      "process": "any",
-      "remote": "any",
+      "process": "AnyProcess",
       "notes": "No unsolicited inbound connections"
     }
   ]
