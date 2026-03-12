@@ -640,17 +640,9 @@
         "*.googlesyndication.com",
         "*.gstatic.com/recaptcha",
         "safebrowsing.google.com",
-        "clients2.google.com",
-        "clients3.google.com",
-        "clients4.google.com",
-        "clients5.google.com",
-        "clients6.google.com",
-        "connectivitycheck.gstatic.com",
-        "www.google.com/chrome/update2",
-        "update.googleapis.com",
-        "clientservices.googleapis.com"
+        "connectivitycheck.gstatic.com"
       ],
-      "notes": "Block Google telemetry, analytics, safe browsing, and auto-update"
+      "notes": "Block Google telemetry and analytics. Update domains (update.googleapis.com, clients*.google.com, clientservices.googleapis.com) removed — allowed via chrome-updates.lsrules"
     },
     {
       "action": "allow",

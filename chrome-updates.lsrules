@@ -1,0 +1,43 @@
+{
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
+  "name": "Google Chrome — Update Service",
+  "description": "Allows the Google Updater process to reach Chrome update infrastructure. Required because fortress-comprehensive.lsrules blocks these domains globally. The updater is a standalone binary separate from the Chrome browser process.",
+  "rules": [
+    {
+      "action": "allow",
+      "process": "/Users/avespoli/Library/Application Support/Google/GoogleUpdater/Current/GoogleUpdater.app/Contents/MacOS/GoogleUpdater",
+      "remote-domains": "googleapis.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "update.googleapis.com — primary update check endpoint"
+    },
+    {
+      "action": "allow",
+      "process": "/Users/avespoli/Library/Application Support/Google/GoogleUpdater/Current/GoogleUpdater.app/Contents/MacOS/GoogleUpdater",
+      "remote-domains": "google.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "www.google.com/chrome/update2 — Omaha update protocol endpoint, clients*.google.com"
+    },
+    {
+      "action": "allow",
+      "process": "/Users/avespoli/Library/Application Support/Google/GoogleUpdater/Current/GoogleUpdater.app/Contents/MacOS/GoogleUpdater",
+      "remote-domains": "gvt1.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Google CDN — binary download for Chrome updates (redirects.gvt1.com, edgedl.me.gvt1.com)"
+    },
+    {
+      "action": "allow",
+      "process": "/Users/avespoli/Library/Application Support/Google/GoogleUpdater/Current/GoogleUpdater.app/Contents/MacOS/GoogleUpdater",
+      "remote-domains": "dl.google.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Google download server — alternate binary download path"
+    }
+  ]
+}
