@@ -1,0 +1,79 @@
+{
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
+  "name": "Inbox Sentinel — Python3 Scoped Destinations",
+  "description": "Allow Homebrew Python3 (inbox-sentinel daemon) to reach Microsoft Graph, Microsoft login, Slack API, and localhost Ollama. Both symlink and real Framework binary paths included — LS resolves symlinks to real binary. Update real path after brew upgrade python.",
+  "rules": [
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/python3",
+      "remote-domains": "login.microsoftonline.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Inbox Sentinel → Microsoft OAuth device flow + token refresh (symlink path)"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "remote-domains": "login.microsoftonline.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Inbox Sentinel → Microsoft OAuth (real binary path)"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/python3",
+      "remote-domains": "graph.microsoft.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Inbox Sentinel → Microsoft Graph API (email + Teams)"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "remote-domains": "graph.microsoft.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Inbox Sentinel → Microsoft Graph API (real binary path)"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/python3",
+      "remote-domains": "slack.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Inbox Sentinel → Slack Web API"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "remote-domains": "slack.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Inbox Sentinel → Slack Web API (real binary path)"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/python3",
+      "remote-addresses": "127.0.0.1",
+      "ports": "11434",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Inbox Sentinel → localhost Ollama for classification"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/Cellar/python@3.14/3.14.3_1/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "remote-addresses": "127.0.0.1",
+      "ports": "11434",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Inbox Sentinel → localhost Ollama (real binary path)"
+    }
+  ]
+}
