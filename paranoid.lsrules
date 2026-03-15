@@ -1,6 +1,6 @@
 {
   "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
-  "name": "Tony Fortress \u2014 Paranoid",
+  "name": "Tony Fortress — Paranoid",
   "description": "Maximum restriction ruleset. Allowlists only essential OS processes, CLI dev tooling, and core apps. Blocks all macOS telemetry, analytics, iCloud, Siri, Find My, stock consumer apps, and unsolicited inbound. Designed to be layered on top of ghost-baseline.",
   "rules": [
     {
@@ -8,10 +8,7 @@
       "direction": "outgoing",
       "process": "/usr/libexec/configd",
       "protocol": "udp",
-      "ports": [
-        67,
-        68
-      ],
+      "ports": "67,68",
       "notes": "DHCP client: get IP address and gateway"
     },
     {
@@ -19,10 +16,7 @@
       "direction": "outgoing",
       "process": "/usr/sbin/mDNSResponder",
       "protocol": "udp",
-      "ports": [
-        53,
-        853
-      ],
+      "ports": "53,853",
       "notes": "DNS (UDP) - allow classic and DNS-over-TLS"
     },
     {
@@ -30,10 +24,7 @@
       "direction": "outgoing",
       "process": "/usr/sbin/mDNSResponder",
       "protocol": "tcp",
-      "ports": [
-        53,
-        853
-      ],
+      "ports": "53,853",
       "notes": "DNS (TCP) - fallback, large answers"
     },
     {
@@ -41,9 +32,7 @@
       "direction": "outgoing",
       "process": "/usr/libexec/trustd",
       "protocol": "tcp",
-      "ports": [
-        80
-      ],
+      "ports": "80",
       "remote-addresses": "17.248.0.0/15,17.250.0.0/16,17.253.0.0/16",
       "notes": "Apple trustd - certificate revocation / trust lists"
     },
@@ -52,9 +41,7 @@
       "direction": "outgoing",
       "process": "/usr/sbin/ocspd",
       "protocol": "tcp",
-      "ports": [
-        80
-      ],
+      "ports": "80",
       "remote-addresses": "17.248.0.0/15,17.250.0.0/16,17.253.0.0/16",
       "notes": "OCSP daemon - certificate status"
     },
@@ -63,9 +50,7 @@
       "direction": "outgoing",
       "process": "/usr/sbin/softwareupdated",
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
+      "ports": "443",
       "remote-addresses": "17.0.0.0/8",
       "notes": "macOS software updates (system + XProtect)"
     },
@@ -74,9 +59,7 @@
       "direction": "outgoing",
       "process": "/System/Library/PrivateFrameworks/CommerceKit.framework/Resources/storeaccountd",
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
+      "ports": "443",
       "remote-addresses": "17.0.0.0/8",
       "notes": "App Store account for update entitlements only"
     },
@@ -85,9 +68,7 @@
       "direction": "outgoing",
       "process": "/usr/sbin/ntpd",
       "protocol": "udp",
-      "ports": [
-        123
-      ],
+      "ports": "123",
       "notes": "NTP - system time sync"
     },
     {
@@ -98,10 +79,7 @@
         "/opt/homebrew/bin/ssh"
       ],
       "protocol": "tcp",
-      "ports": [
-        22,
-        443
-      ],
+      "ports": "22,443",
       "notes": "SSH client (plain + HTTPS-tunneled SSH)"
     },
     {
@@ -112,11 +90,7 @@
         "/opt/homebrew/bin/git"
       ],
       "protocol": "tcp",
-      "ports": [
-        22,
-        443,
-        9418
-      ],
+      "ports": "22,443,9418",
       "notes": "Git over SSH/HTTPS/git protocol"
     },
     {
@@ -128,10 +102,7 @@
         "/usr/bin/wget"
       ],
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "curl / wget - HTTP(S) only"
     },
     {
@@ -142,10 +113,7 @@
         "/opt/homebrew/bin/brew"
       ],
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Homebrew package manager"
     },
     {
@@ -157,10 +125,7 @@
         "/opt/homebrew/bin/python3"
       ],
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Python 3 - pip and scripts reaching internet"
     },
     {
@@ -172,10 +137,7 @@
         "/opt/homebrew/bin/node"
       ],
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Node.js - npm/yarn tooling"
     },
     {
@@ -183,10 +145,7 @@
       "direction": "outgoing",
       "process": "/usr/local/bin/npm",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "npm - JS package manager"
     },
     {
@@ -194,10 +153,7 @@
       "direction": "outgoing",
       "process": "/usr/bin/go",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Go tooling"
     },
     {
@@ -205,10 +161,7 @@
       "direction": "outgoing",
       "process": "/usr/local/bin/docker",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Docker CLI"
     },
     {
@@ -216,11 +169,7 @@
       "direction": "outgoing",
       "process": "/Applications/Xcode.app/Contents/MacOS/Xcode",
       "protocol": "tcp",
-      "ports": [
-        22,
-        80,
-        443
-      ],
+      "ports": "22,80,443",
       "notes": "Xcode IDE - package downloads, documentation, Git"
     },
     {
@@ -228,9 +177,7 @@
       "direction": "outgoing",
       "process": "/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild",
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
+      "ports": "443",
       "remote-addresses": "17.0.0.0/8",
       "notes": "Xcode build tools - Apple services only"
     },
@@ -239,9 +186,7 @@
       "direction": "outgoing",
       "process": "/usr/bin/codesign",
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
+      "ports": "443",
       "remote-addresses": "17.0.0.0/8",
       "notes": "Code signing with Apple"
     },
@@ -250,10 +195,7 @@
       "direction": "outgoing",
       "process": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Chrome - main browser traffic"
     },
     {
@@ -261,10 +203,7 @@
       "direction": "outgoing",
       "process": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Chrome Helper - page workers"
     },
     {
@@ -278,10 +217,7 @@
       "direction": "outgoing",
       "process": "/Applications/DuckDuckGo.app/Contents/MacOS/DuckDuckGo",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "DuckDuckGo browser"
     },
     {
@@ -289,10 +225,7 @@
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Safari browser"
     },
     {
@@ -309,9 +242,7 @@
         "/Applications/1Password CLI.app/Contents/MacOS/op"
       ],
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
+      "ports": "443",
       "notes": "1Password desktop + CLI"
     },
     {
@@ -319,10 +250,7 @@
       "direction": "outgoing",
       "process": "/Applications/Microsoft Teams.app/Contents/MacOS/Teams",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Teams - meetings/chat"
     },
     {
@@ -336,10 +264,7 @@
       "direction": "outgoing",
       "process": "/Applications/Microsoft Word.app/Contents/MacOS/Microsoft Word",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Word - documents and licensing"
     },
     {
@@ -353,10 +278,7 @@
       "direction": "outgoing",
       "process": "/Applications/Microsoft Excel.app/Contents/MacOS/Microsoft Excel",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Excel - spreadsheets and licensing"
     },
     {
@@ -370,13 +292,7 @@
       "direction": "outgoing",
       "process": "/Applications/Microsoft Outlook.app/Contents/MacOS/Microsoft Outlook",
       "protocol": "tcp",
-      "ports": [
-        443,
-        587,
-        993,
-        995,
-        465
-      ],
+      "ports": "443,465,587,993,995",
       "notes": "Outlook - email + calendar (IMAP/SMTP/Exchange)"
     },
     {
@@ -390,9 +306,7 @@
       "direction": "outgoing",
       "process": "/Applications/OneDrive.app/Contents/MacOS/OneDrive",
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
+      "ports": "443",
       "notes": "OneDrive - file sync"
     },
     {
@@ -406,12 +320,7 @@
       "direction": "outgoing",
       "process": "/Applications/Visual Studio Code.app/Contents/MacOS/Electron",
       "protocol": "tcp",
-      "ports": [
-        22,
-        80,
-        443,
-        9418
-      ],
+      "ports": "22,80,443,9418",
       "notes": "VSCode - SSH, git, extensions, marketplace"
     },
     {
@@ -425,10 +334,7 @@
       "direction": "outgoing",
       "process": "/Applications/Sublime Text.app/Contents/MacOS/sublime_text",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Sublime Text - package control and updates"
     },
     {
@@ -436,11 +342,7 @@
       "direction": "outgoing",
       "process": "/Applications/iTerm.app/Contents/MacOS/iTerm2",
       "protocol": "tcp",
-      "ports": [
-        22,
-        80,
-        443
-      ],
+      "ports": "22,80,443",
       "notes": "iTerm2 - shells, SSH, HTTP(S)"
     },
     {
@@ -454,11 +356,7 @@
       "direction": "outgoing",
       "process": "/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal",
       "protocol": "tcp",
-      "ports": [
-        22,
-        80,
-        443
-      ],
+      "ports": "22,80,443",
       "notes": "Terminal - SSH and HTTP(S) tools"
     },
     {
@@ -466,10 +364,7 @@
       "direction": "outgoing",
       "process": "/Applications/Slack.app/Contents/MacOS/Slack",
       "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
+      "ports": "80,443",
       "notes": "Slack - messaging and calls"
     },
     {
@@ -483,9 +378,7 @@
       "direction": "outgoing",
       "process": "/Applications/ChatGPT.app/Contents/MacOS/ChatGPT",
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
+      "ports": "443",
       "notes": "ChatGPT desktop app"
     },
     {
@@ -499,9 +392,7 @@
       "direction": "outgoing",
       "process": "/Applications/Little Snitch.app/Contents/MacOS/Little Snitch",
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
+      "ports": "443",
       "notes": "Little Snitch app - updates / license"
     },
     {
@@ -509,9 +400,7 @@
       "direction": "outgoing",
       "process": "/Applications/Utilities/Little Snitch Network Monitor.app/Contents/MacOS/Little Snitch Network Monitor",
       "protocol": "tcp",
-      "ports": [
-        443
-      ],
+      "ports": "443",
       "notes": "Little Snitch Network Monitor UI"
     },
     {
@@ -595,7 +484,7 @@
       "direction": "both",
       "process": "AnyProcess",
       "remote-addresses": "224.0.0.0/4,239.0.0.0/8,ff00::/8,169.254.0.0/16,255.255.255.255",
-      "notes": "Block multicast, broadcast, link-local \u2014 stay invisible on LAN"
+      "notes": "Block multicast, broadcast, link-local — stay invisible on LAN"
     },
     {
       "action": "deny",
