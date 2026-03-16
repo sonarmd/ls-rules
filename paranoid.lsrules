@@ -93,7 +93,10 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/usr/bin/ssh",
+      "process": [
+        "/usr/bin/ssh",
+        "/opt/homebrew/bin/ssh"
+      ],
       "protocol": "tcp",
       "ports": [
         22,
@@ -104,18 +107,10 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/opt/homebrew/bin/ssh",
-      "protocol": "tcp",
-      "ports": [
-        22,
-        443
+      "process": [
+        "/usr/bin/git",
+        "/opt/homebrew/bin/git"
       ],
-      "notes": "SSH client (plain + HTTPS-tunneled SSH)"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/usr/bin/git",
       "protocol": "tcp",
       "ports": [
         22,
@@ -127,52 +122,25 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/opt/homebrew/bin/git",
-      "protocol": "tcp",
-      "ports": [
-        22,
-        443,
-        9418
+      "process": [
+        "/usr/bin/curl",
+        "/opt/homebrew/bin/curl",
+        "/usr/bin/wget"
       ],
-      "notes": "Git over SSH/HTTPS/git protocol"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/usr/bin/curl",
       "protocol": "tcp",
       "ports": [
         80,
         443
       ],
-      "notes": "curl - HTTP(S) only"
+      "notes": "curl / wget - HTTP(S) only"
     },
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/opt/homebrew/bin/curl",
-      "protocol": "tcp",
-      "ports": [
-        80,
-        443
+      "process": [
+        "/usr/local/bin/brew",
+        "/opt/homebrew/bin/brew"
       ],
-      "notes": "curl - HTTP(S) only"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/usr/bin/wget",
-      "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
-      "notes": "wget - HTTP(S) only"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/usr/local/bin/brew",
       "protocol": "tcp",
       "ports": [
         80,
@@ -183,18 +151,11 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/opt/homebrew/bin/brew",
-      "protocol": "tcp",
-      "ports": [
-        80,
-        443
+      "process": [
+        "/usr/bin/python3",
+        "/usr/local/bin/python3",
+        "/opt/homebrew/bin/python3"
       ],
-      "notes": "Homebrew package manager"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/usr/bin/python3",
       "protocol": "tcp",
       "ports": [
         80,
@@ -205,51 +166,11 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/usr/local/bin/python3",
-      "protocol": "tcp",
-      "ports": [
-        80,
-        443
+      "process": [
+        "/usr/bin/node",
+        "/usr/local/bin/node",
+        "/opt/homebrew/bin/node"
       ],
-      "notes": "Python 3 - pip and scripts reaching internet"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/opt/homebrew/bin/python3",
-      "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
-      "notes": "Python 3 - pip and scripts reaching internet"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/usr/bin/node",
-      "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
-      "notes": "Node.js - npm/yarn tooling"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/usr/local/bin/node",
-      "protocol": "tcp",
-      "ports": [
-        80,
-        443
-      ],
-      "notes": "Node.js - npm/yarn tooling"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/opt/homebrew/bin/node",
       "protocol": "tcp",
       "ports": [
         80,
@@ -383,22 +304,15 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/Applications/1Password.app/Contents/MacOS/1Password",
+      "process": [
+        "/Applications/1Password.app/Contents/MacOS/1Password",
+        "/Applications/1Password CLI.app/Contents/MacOS/op"
+      ],
       "protocol": "tcp",
       "ports": [
         443
       ],
-      "notes": "1Password desktop"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
-      "process": "/Applications/1Password CLI.app/Contents/MacOS/op",
-      "protocol": "tcp",
-      "ports": [
-        443
-      ],
-      "notes": "1Password CLI"
+      "notes": "1Password desktop + CLI"
     },
     {
       "action": "allow",
@@ -603,374 +517,78 @@
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": "/usr/libexec/analyticsd",
-      "notes": "Hard kill: macOS analytics"
+      "process": [
+        "/usr/libexec/analyticsd",
+        "/usr/libexec/adprivacyd",
+        "/usr/libexec/coreduetd",
+        "/usr/libexec/contextstored",
+        "/usr/libexec/suggestd",
+        "/usr/libexec/rapportd",
+        "/usr/libexec/nearbyd",
+        "/usr/libexec/sharingd",
+        "/usr/libexec/mobileactivationd",
+        "/usr/libexec/mobileassetd",
+        "/usr/libexec/findmydeviced",
+        "/usr/libexec/findmybeaconingd",
+        "/usr/libexec/findmylocateagent",
+        "/usr/libexec/replayd",
+        "/usr/libexec/biomesyncd",
+        "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed",
+        "/usr/libexec/gamepolicyd",
+        "/usr/libexec/audioanalyticsd",
+        "/usr/libexec/intelligentroutingd",
+        "/usr/libexec/networkserviceproxy",
+        "/usr/libexec/wifip2pd",
+        "/usr/libexec/wifianalyticsd",
+        "/usr/sbin/bluetoothd",
+        "/usr/libexec/imagent",
+        "/usr/libexec/identityservicesd",
+        "/usr/libexec/IMTransferAgent",
+        "/System/Library/CoreServices/CloudDocs.app/Contents/MacOS/CloudDocs",
+        "/System/Library/PrivateFrameworks/CloudDocs.framework/Versions/A/Support/clouddocs",
+        "/usr/libexec/bird",
+        "/System/Library/PrivateFrameworks/CloudServices.framework/Helpers/com.apple.sbd",
+        "/usr/libexec/accountsd",
+        "/System/Library/CoreServices/TimeMachine/backupd",
+        "/System/Library/CoreServices/TimeMachine/backupd-helper",
+        "/System/Library/CoreServices/Siri.app/Contents/MacOS/Siri",
+        "/System/Library/PrivateFrameworks/AssistantServices.framework/assistantd",
+        "/usr/libexec/siriknowledged",
+        "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd",
+        "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd",
+        "/System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent",
+        "/usr/libexec/AirPlayXPCHelper",
+        "/usr/libexec/ContinuityCaptureAgent",
+        "/usr/libexec/nsurlsessiond",
+        "/usr/libexec/remindd",
+        "/usr/libexec/photoanalysisd",
+        "/usr/libexec/triald",
+        "/usr/libexec/triald_system",
+        "/usr/libexec/usermanagerd",
+        "/usr/libexec/eligibilityd",
+        "/usr/libexec/smd"
+      ],
+      "notes": "Hard kill: macOS analytics, Siri, iCloud, Find My, Continuity, WiFi analytics, TimeMachine, media analysis, experiments"
     },
     {
       "action": "deny",
       "direction": "outgoing",
-      "process": "/usr/libexec/adprivacyd",
-      "notes": "Hard kill: ad privacy daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/coreduetd",
-      "notes": "Hard kill: CoreDuet usage tracking"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/contextstored",
-      "notes": "Hard kill: context store"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/suggestd",
-      "notes": "Hard kill: Siri suggestions"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/rapportd",
-      "notes": "Hard kill: Continuity rapport"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/nearbyd",
-      "notes": "Hard kill: Nearby interactions"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/sharingd",
-      "notes": "Hard kill: AirDrop/sharing"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/mobileactivationd",
-      "notes": "Hard kill: mobile activation"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/mobileassetd",
-      "notes": "Hard kill: mobile asset downloads"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/findmydeviced",
-      "notes": "Hard kill: Find My device"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/findmybeaconingd",
-      "notes": "Hard kill: Find My beaconing"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/findmylocateagent",
-      "notes": "Hard kill: Find My locate agent"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/replayd",
-      "notes": "Hard kill: replay daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/biomesyncd",
-      "notes": "Hard kill: biome sync"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed",
-      "notes": "Hard kill: biome streams"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/gamepolicyd",
-      "notes": "Hard kill: Game Center policy"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/audioanalyticsd",
-      "notes": "Hard kill: audio analytics"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/intelligentroutingd",
-      "notes": "Hard kill: intelligent routing"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/networkserviceproxy",
-      "notes": "Hard kill: network service proxy"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/wifip2pd",
-      "notes": "Hard kill: WiFi P2P"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/wifianalyticsd",
-      "notes": "Hard kill: WiFi analytics"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/sbin/bluetoothd",
-      "notes": "Hard kill: Bluetooth daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/imagent",
-      "notes": "Hard kill: iMessage agent"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/identityservicesd",
-      "notes": "Hard kill: identity services"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/IMTransferAgent",
-      "notes": "Hard kill: iMessage transfer"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/CoreServices/CloudDocs.app/Contents/MacOS/CloudDocs",
-      "notes": "Hard kill: iCloud Docs app"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/PrivateFrameworks/CloudDocs.framework/Versions/A/Support/clouddocs",
-      "notes": "Hard kill: iCloud Docs framework"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/bird",
-      "notes": "Hard kill: iCloud bird daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/PrivateFrameworks/CloudServices.framework/Helpers/com.apple.sbd",
-      "notes": "Hard kill: iCloud sync"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/accountsd",
-      "notes": "Hard kill: accounts daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/CoreServices/TimeMachine/backupd",
-      "notes": "Hard kill: TimeMachine backup"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/CoreServices/TimeMachine/backupd-helper",
-      "notes": "Hard kill: TimeMachine helper"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/CoreServices/Siri.app/Contents/MacOS/Siri",
-      "notes": "Hard kill: Siri"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/PrivateFrameworks/AssistantServices.framework/assistantd",
-      "notes": "Hard kill: Siri assistant"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/siriknowledged",
-      "notes": "Hard kill: Siri knowledge"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd",
-      "notes": "Hard kill: CoreSpeech"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd",
-      "notes": "Hard kill: Siri TTS"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent",
-      "notes": "Hard kill: AirPlay UI"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/AirPlayXPCHelper",
-      "notes": "Hard kill: AirPlay XPC"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/ContinuityCaptureAgent",
-      "notes": "Hard kill: Continuity Capture"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/nsurlsessiond",
-      "notes": "Hard kill: NSURLSession background transfers"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/remindd",
-      "notes": "Hard kill: Reminders daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/photoanalysisd",
-      "notes": "Hard kill: photo analysis"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/triald",
-      "notes": "Hard kill: experiments/trials"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/triald_system",
-      "notes": "Hard kill: system experiments/trials"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/usermanagerd",
-      "notes": "Hard kill: user manager"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/eligibilityd",
-      "notes": "Hard kill: eligibility daemon"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/usr/libexec/smd",
-      "notes": "Hard kill: service management"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Mail.app/Contents/MacOS/Mail",
-      "notes": "Block stock consumer app: Mail"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Messages.app/Contents/MacOS/Messages",
-      "notes": "Block stock consumer app: Messages"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Photos.app/Contents/MacOS/Photos",
-      "notes": "Block stock consumer app: Photos"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/News.app/Contents/MacOS/News",
-      "notes": "Block stock consumer app: News"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Stocks.app/Contents/MacOS/Stocks",
-      "notes": "Block stock consumer app: Stocks"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/TV.app/Contents/MacOS/TV",
-      "notes": "Block stock consumer app: TV"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Home.app/Contents/MacOS/Home",
-      "notes": "Block stock consumer app: Home"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Podcasts.app/Contents/MacOS/Podcasts",
-      "notes": "Block stock consumer app: Podcasts"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/FaceTime.app/Contents/MacOS/FaceTime",
-      "notes": "Block stock consumer app: FaceTime"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Maps.app/Contents/MacOS/Maps",
-      "notes": "Block stock consumer app: Maps"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Contacts.app/Contents/MacOS/Contacts",
-      "notes": "Block stock consumer app: Contacts"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
-      "notes": "Block stock consumer app: Calendar"
-    },
-    {
-      "action": "deny",
-      "direction": "outgoing",
-      "process": "/System/Applications/Reminders.app/Contents/MacOS/Reminders",
-      "notes": "Block stock consumer app: Reminders"
+      "process": [
+        "/System/Applications/Mail.app/Contents/MacOS/Mail",
+        "/System/Applications/Messages.app/Contents/MacOS/Messages",
+        "/System/Applications/Photos.app/Contents/MacOS/Photos",
+        "/System/Applications/News.app/Contents/MacOS/News",
+        "/System/Applications/Stocks.app/Contents/MacOS/Stocks",
+        "/System/Applications/TV.app/Contents/MacOS/TV",
+        "/System/Applications/Home.app/Contents/MacOS/Home",
+        "/System/Applications/Podcasts.app/Contents/MacOS/Podcasts",
+        "/System/Applications/FaceTime.app/Contents/MacOS/FaceTime",
+        "/System/Applications/Maps.app/Contents/MacOS/Maps",
+        "/System/Applications/Contacts.app/Contents/MacOS/Contacts",
+        "/System/Applications/Calendar.app/Contents/MacOS/Calendar",
+        "/System/Applications/Reminders.app/Contents/MacOS/Reminders"
+      ],
+      "notes": "Block all stock consumer apps"
     },
     {
       "action": "deny",

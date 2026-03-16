@@ -844,15 +844,6 @@
     {
       "action": "allow",
       "direction": "outgoing",
-      "process": "/opt/homebrew/bin/python3",
-      "protocol": "tcp",
-      "ports": [443, 80],
-      "remote": "AnyServer",
-      "notes": "Python 3 Homebrew ARM"
-    },
-    {
-      "action": "allow",
-      "direction": "outgoing",
       "process": "/usr/bin/node",
       "protocol": "tcp",
       "ports": [443, 80],
