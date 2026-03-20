@@ -290,6 +290,150 @@
       "process": "Wispr Flow",
       "remote-domains": "model-v31pl413.grpc.api.baseten.co",
       "ports": "443"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-deny: Process 'Claude' lacks path, parent PID, and codesigning metadata (all 'unavailable'). Legitimate Claude apps (com.anthropic.claude-code, com.anthropic.claudefordesktop) have full paths (e.g., /Applic (2026-03-20)",
+      "process": "Claude",
+      "remote-addresses": "160.79.104.10",
+      "ports": "443"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-deny: Process 'Wispr Flow' has no parent PID (should be launchd/PID 1), lacks code signing information, and is not in authorized software list. Destination IP 54.193.158.132 (AWS EC2) is unknown and not aut (2026-03-20)",
+      "process": "Wispr Flow",
+      "remote-addresses": "54.193.158.132",
+      "ports": "443"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-deny: Process 'Wispr Flow' has no parent PID (abnormal on macOS - all processes must descend from launchd/PID 1), no signing information, and is not a known authorized process. Connection to baseten.co (Bas (2026-03-20)",
+      "process": "Wispr Flow",
+      "remote-domains": "model-v31pl413.grpc.api.baseten.co",
+      "ports": "443"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-deny: Process /usr/libexec/syspolicyd is a legitimate Apple system process (parent PID should be launchd/PID 1, though reported as 'None'\u2014likely monitoring artifact). However, it is connecting to api.apple- (2026-03-20)",
+      "process": "/usr/libexec/syspolicyd",
+      "remote-domains": "api.apple-cloudkit.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "Google Chrome",
+      "remote-addresses": "13.227.180.4",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "/usr/local/bin/snap-agent",
+      "remote-addresses": "3.223.171.128",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "52.112.86.160",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-20)",
+      "process": "/opt/homebrew/Cellar/dnscrypt-proxy/*/sbin/dnscrypt-proxy",
+      "remote-addresses": "9.9.9.11",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "Wispr Flow",
+      "remote-addresses": "34.69.45.22",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-20)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "pub-ent-uswe-14-t.trouter.teams.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "/usr/local/bin/snap-agent",
+      "remote-addresses": "52.45.223.5",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "Claude",
+      "remote-domains": "bridge.claudeusercontent.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "1Password",
+      "remote-domains": "b5n.1password.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "/usr/local/bin/snap-agent",
+      "remote-addresses": "3.230.221.12",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-20)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "pub-ent-usea-03-t.trouter.teams.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "Wispr Flow",
+      "remote-addresses": "34.160.81.0",
+      "ports": "443"
     }
   ]
 }
