@@ -452,6 +452,24 @@
       "process": "Keeper Password Manager",
       "remote-addresses": "44.196.106.212",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "Google Chrome",
+      "remote-addresses": "140.82.113.5",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "52.111.227.0",
+      "ports": "443"
     }
   ]
 }
