@@ -1,0 +1,295 @@
+{
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
+  "name": "Netmind Auto-Generated Rules",
+  "description": "ML-generated rules from connection pattern analysis. Security-first: minimum access, auto-allow only after repeated user overrides confirm intent.",
+  "rules": [
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/usr/local/share/CentraStage/AEMAgent/AEMAgent",
+      "remote-domains": "concord-agent-notifications.centrastage.net",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "Microsoft Outlook",
+      "remote-domains": "outlook.office365.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/opt/homebrew/Cellar/dnscrypt-proxy/*/sbin/dnscrypt-proxy",
+      "remote-addresses": "9.9.9.9",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "Microsoft Intune Agent",
+      "remote-domains": "self.events.data.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/usr/local/share/CentraStage/AEMAgent/AEMAgent",
+      "remote-domains": "concord-monitoring.centrastage.net",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "AEM Agent",
+      "remote-domains": "concordcc.centrastage.net",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "Microsoft Outlook",
+      "remote-domains": "teams.cloud.microsoft",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "augloop.svc.cloud.microsoft",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/usr/libexec/syspolicyd",
+      "remote-domains": "api.apple-cloudkit.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/opt/homebrew/Cellar/dnscrypt-proxy/*/sbin/dnscrypt-proxy",
+      "remote-addresses": "149.112.112.11",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-18)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.36.128.54",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "Python",
+      "remote-domains": "api.github.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/opt/homebrew/Cellar/openssh/*/bin/ssh",
+      "remote-domains": "github.com",
+      "ports": "22"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "nleditor.osi.office.net",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "Weather",
+      "remote-domains": "weatherkit.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/usr/libexec/trustd",
+      "remote-domains": "ocsp2.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/opt/homebrew/Cellar/gh/*/bin/gh",
+      "remote-domains": "api.github.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/System/Library/PrivateFrameworks/iTunesCloud.framework/Support/itunescloudd",
+      "remote-domains": "bag.itunes.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "centralus-pa01.augloop.svc.cloud.microsoft",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "Google Chrome",
+      "remote-addresses": "140.82.113.3",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-18)",
+      "process": "1Password",
+      "remote-domains": "sonarmd.1password.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-19)",
+      "process": "Microsoft Outlook",
+      "remote-domains": "outlook.office.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-19)",
+      "process": "versions",
+      "remote-addresses": "160.79.104.10",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-19)",
+      "process": "versions",
+      "remote-domains": "api.anthropic.com",
+      "ports": "443"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-deny: Process 'versions' is not a known legitimate binary on this machine (no path, no signing, no authority). Parent PID 'None' is abnormal (all user processes must have a valid parent like Terminal). Conn (2026-03-19)",
+      "process": "versions",
+      "remote-addresses": "160.79.104.10",
+      "ports": "443"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-deny: Process 'versions' is not a known authorized application (no signing info, path unresolved, not in known list). Connection to api.anthropic.com is legitimate for Anthropic services, but the process ch (2026-03-19)",
+      "process": "versions",
+      "remote-domains": "api.anthropic.com",
+      "ports": "443"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-deny: Process 'Keeper Password Manager' is not authorized (only 1Password is permitted per policy). Critical red flags: missing signing info (Authority/CDHash/Flags unavailable), abnormal process chain with (2026-03-19)",
+      "process": "Keeper Password Manager",
+      "remote-addresses": "54.161.210.56",
+      "ports": "443"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-deny: Process 'Wispr Flow' has no parent PID (highly suspicious for user process - should have shell/app parent), not in authorized software list. Destination api.wisprflow.ai (AWS EC2) is unauthorized. No  (2026-03-19)",
+      "process": "Wispr Flow",
+      "remote-domains": "api.wisprflow.ai",
+      "ports": "443"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-deny: Process has Parent PID: None (should be PID 1 for legitimate system service). On macOS, all processes must have a parent (typically launchd/PID 1). This anomaly indicates reparenting (common in rootki (2026-03-19)",
+      "process": "/usr/local/share/CentraStage/AEMAgent/AEMAgent",
+      "remote-domains": "concord-agent-notifications.centrastage.net",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-19)",
+      "process": "Claude",
+      "remote-addresses": "160.79.104.10",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-19)",
+      "process": "Wispr Flow",
+      "remote-addresses": "54.193.158.132",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-19)",
+      "process": "Wispr Flow",
+      "remote-domains": "model-v31pl413.grpc.api.baseten.co",
+      "ports": "443"
+    }
+  ]
+}
