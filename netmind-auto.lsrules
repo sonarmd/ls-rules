@@ -470,6 +470,15 @@
       "process": "Microsoft Teams",
       "remote-addresses": "52.111.227.0",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-20)",
+      "process": "/usr/bin/curl",
+      "remote-domains": "tenant-agent-update-production-black.s3.us-east-1.amazonaws.com",
+      "ports": "443"
     }
   ]
 }
