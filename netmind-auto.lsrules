@@ -443,6 +443,15 @@
       "process": "/usr/libexec/timed",
       "remote-domains": "time.apple.com",
       "ports": "123"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-20)",
+      "process": "Keeper Password Manager",
+      "remote-addresses": "44.196.106.212",
+      "ports": "443"
     }
   ]
 }
