@@ -434,6 +434,15 @@
       "process": "Wispr Flow",
       "remote-addresses": "34.160.81.0",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-20)",
+      "process": "/usr/libexec/timed",
+      "remote-domains": "time.apple.com",
+      "ports": "123"
     }
   ]
 }
