@@ -1,0 +1,25 @@
+{
+  "$schema": "https://obdev.at/littlesnitch/lsrules-schema.json",
+  "name": "VPN Gateway — Lightsail vpn-gateway",
+  "description": "Allow SSH management and WireGuard tunnel traffic to the Lightsail VPN gateway at 3.23.236.83 (us-east-2). Update remote-addresses if the instance IP changes.",
+  "rules": [
+    {
+      "action": "allow",
+      "process": "/usr/bin/ssh",
+      "remote-addresses": "3.23.236.83",
+      "ports": "22",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "SSH management → vpn-gateway Lightsail instance (vpn deploy, vpn get-server-key, peer registration)"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/wireguard-go",
+      "remote-addresses": "3.23.236.83",
+      "ports": "51820",
+      "protocol": "udp",
+      "direction": "outgoing",
+      "notes": "WireGuard tunnel → vpn-gateway:51820 (split-tunnel VPN, 10.8.0.0/24)"
+    }
+  ]
+}
