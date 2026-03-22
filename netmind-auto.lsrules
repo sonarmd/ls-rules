@@ -2414,6 +2414,24 @@
       "process": "Software Update",
       "remote-domains": "xp.apple.com",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "142.251.210.202",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Software Update",
+      "remote-domains": "swscan.apple.com",
+      "ports": "443"
     }
   ]
 }
