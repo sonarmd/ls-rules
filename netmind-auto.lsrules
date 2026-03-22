@@ -2819,6 +2819,51 @@
       "process": "Microsoft Teams",
       "remote-addresses": "9.9.9.9",
       "ports": "53"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-domains": "github.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-22)",
+      "process": "Microsoft Teams",
+      "remote-domains": "pub-ent-ussc-10-t.trouter.teams.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "52.112.84.183",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "/usr/local/bin/snap-agent",
+      "remote-domains": "agent.sega.production.snap.bpcyber.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-22)",
+      "process": "/usr/sbin/mDNSResponder",
+      "remote-domains": "mask.icloud.com",
+      "ports": "443"
     }
   ]
 }
