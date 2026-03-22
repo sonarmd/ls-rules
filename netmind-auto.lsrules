@@ -2324,6 +2324,15 @@
       "process": "Google Chrome",
       "remote-addresses": "16.58.183.42",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Wispr Flow",
+      "remote-domains": "dl.wisprflow.com",
+      "ports": "443"
     }
   ]
 }
