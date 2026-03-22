@@ -2081,6 +2081,24 @@
       "process": "Google Chrome",
       "remote-addresses": "108.156.91.116",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/usr/local/share/CentraStage/AEMAgent/AEMAgent",
+      "remote-domains": "update-concord.centrastage.net",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Outlook",
+      "remote-domains": "roaming.officeapps.live.com",
+      "ports": "443"
     }
   ]
 }
