@@ -2153,6 +2153,87 @@
       "process": "Google Chrome",
       "remote-addresses": "52.108.36.40",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "142.250.217.97",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "142.251.210.99",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "16.58.57.67",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "150.171.109.184",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "142.250.177.66",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "104.18.32.137",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod",
+      "remote-domains": "gspe35-ssl.ls.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "Microsoft Word",
+      "remote-domains": "login.microsoftonline.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/opt/homebrew/Cellar/node/*/bin/node",
+      "remote-domains": "registry.npmjs.org",
+      "ports": "443"
     }
   ]
 }
