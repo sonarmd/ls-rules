@@ -191,6 +191,24 @@
       "protocol": "tcp",
       "direction": "outgoing",
       "notes": "AWS CLI → AWS management console/SSO"
+    },
+    {
+      "action": "allow",
+      "process": "/usr/bin/ssh",
+      "remote-addresses": "3.23.236.83",
+      "ports": "22",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "SSH → vpn-gateway Lightsail (vpn deploy, get-server-key, peer registration). Update IP if instance changes."
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/wireguard-go",
+      "remote-addresses": "3.23.236.83",
+      "ports": "51820",
+      "protocol": "udp",
+      "direction": "outgoing",
+      "notes": "WireGuard tunnel → vpn-gateway:51820 (split-tunnel, 10.8.0.0/24). Update IP if instance changes."
     }
   ]
 }
