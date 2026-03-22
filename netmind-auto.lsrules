@@ -2765,6 +2765,60 @@
       "process": "Claude",
       "remote-addresses": "18.97.36.76",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-22)",
+      "process": "Microsoft Teams",
+      "remote-domains": "teams.events.data.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "140.82.112.3",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-22)",
+      "process": "/usr/sbin/mDNSResponder",
+      "remote-addresses": "9.9.9.9",
+      "ports": "53"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "/opt/homebrew/Cellar/wireguard-go/*/bin/wireguard-go",
+      "remote-addresses": "3.23.236.83",
+      "ports": "51820"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "9.9.9.9",
+      "ports": "53"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "9.9.9.9",
+      "ports": "53"
     }
   ]
 }
