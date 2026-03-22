@@ -2117,6 +2117,24 @@
       "process": "Microsoft Teams",
       "remote-addresses": "20.189.173.9",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "52.111.227.4",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.146.218.82",
+      "ports": "443"
     }
   ]
 }
