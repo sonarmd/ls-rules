@@ -2684,6 +2684,33 @@
       "process": "Google Chrome",
       "remote-addresses": "142.250.177.234",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-22)",
+      "process": "/usr/libexec/swcd",
+      "remote-domains": "app-site-association.cdn-apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Claude",
+      "remote-addresses": "18.97.36.60",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.97.36.60",
+      "ports": "443"
     }
   ]
 }
