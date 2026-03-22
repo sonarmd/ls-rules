@@ -983,6 +983,1104 @@
       "process": "Google Chrome",
       "remote-addresses": "18.97.36.46",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Wispr Flow",
+      "remote-addresses": "98.84.203.188",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "140.82.114.26",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "13.59.112.133",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.218.29.81",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "AEM Agent",
+      "remote-domains": "features.concord.rmm.datto.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "34.249.148.160",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.18.126.14",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Claude",
+      "remote-addresses": "18.97.36.54",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "140.82.112.4",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Keeper Password Manager",
+      "remote-addresses": "54.161.210.56",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "AEM Agent",
+      "remote-addresses": "15.197.219.241",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/usr/local/share/CentraStage/AEMAgent/AEMAgent",
+      "remote-domains": "concord-agent-comms.centrastage.net",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.110.7.17",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "Microsoft Teams",
+      "remote-domains": "pub-ent-ussc-01-t.trouter.teams.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.160.213.59",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Teams",
+      "remote-domains": "login.microsoftonline.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.170.103.107",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.97.36.68",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "208.85.41.78",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "Microsoft Intune Agent",
+      "remote-domains": "agents.manage.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Outlook",
+      "remote-domains": "nam.loki.delve.office.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.146.231.75",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.146.8.119",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/usr/libexec/rtcreportingd",
+      "remote-domains": "pancake.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "108.156.107.96",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/usr/libexec/nsurlsessiond",
+      "remote-domains": "mesu.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.150.44.187",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.172.122.59",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "34.8.38.243",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.36.64.228",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod",
+      "remote-domains": "gspe19-2-ssl.ls.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "54.214.144.241",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "13.225.47.85",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/opt/homebrew/Cellar/curl/*/bin/curl",
+      "remote-domains": "downloads.slack-edge.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/usr/libexec/networkserviceproxy",
+      "remote-domains": "mask-api.icloud.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/usr/libexec/mobileassetd",
+      "remote-domains": "xp.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/usr/sbin/mDNSResponder",
+      "remote-domains": "dns.quad9.net",
+      "ports": "853"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.35.149.158",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod",
+      "remote-domains": "gspe19-ssl.ls.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "/System/Library/PrivateFrameworks/ApplePushService.framework/apsd",
+      "remote-domains": "14-courier.push.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "13.225.47.24",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/usr/sbin/mDNSResponder",
+      "remote-domains": "dns.quad9.net",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/PrivateFrameworks/WebPrivacy.framework/Versions/A/webprivacyd",
+      "remote-domains": "wps.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/PrivateFrameworks/ApplePushService.framework/apsd",
+      "remote-domains": "30-courier.push.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Claude",
+      "remote-addresses": "18.97.36.70",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.233.158.24",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Keeper Password Manager",
+      "remote-addresses": "44.214.127.40",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "52.112.84.182",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Wispr Flow",
+      "remote-domains": "api.wisprflow.ai",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.160.213.117",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "155.226.156.135",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Wispr Flow",
+      "remote-addresses": "32.193.160.107",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.172.122.95",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.97.36.65",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "155.226.156.134",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.21.138.228",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "13.225.47.81",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.148.101.124",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.233.158.114",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "go.trouter.teams.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "Microsoft Outlook",
+      "remote-domains": "sonarmd-my.sharepoint.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "admin.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "54.81.104.77",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "35.163.146.4",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "Microsoft Excel",
+      "remote-domains": "sonarmd-my.sharepoint.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Claude",
+      "remote-addresses": "18.97.36.17",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Wispr Flow",
+      "remote-addresses": "52.53.42.191",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.116.127.87",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.218.121.236",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.97.36.17",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "20.57.85.160",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "/usr/bin/curl",
+      "remote-domains": "bpc-deploy-scripts.s3.amazonaws.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.108.9.12",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "52.111.227.3",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Wispr Flow",
+      "remote-addresses": "34.193.58.232",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "pub-ent-uswe-12-t.trouter.teams.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Claude",
+      "remote-addresses": "18.97.36.46",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.190.182.174",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "184.73.37.85",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "51.116.253.169",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "13.107.138.10",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.212.243.116",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.108.8.12",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "34.234.62.127",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.108.186.5",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/Frameworks/ManagedAppDistribution.framework/Support/managedappdistributiond",
+      "remote-domains": "bag.itunes.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.14.78.60",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Intune Agent",
+      "remote-domains": "config.edge.skype.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "34.107.204.85",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "/usr/bin/curl",
+      "remote-domains": "agent-sega-production-snap.bpcyber.net",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Claude",
+      "remote-addresses": "34.54.194.141",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.97.36.78",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "34.194.188.104",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "52.109.16.2",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.109.16.2",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.14.112.249",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "104.208.16.88",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "substrate.office.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Ollama",
+      "remote-domains": "ollama.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "142.251.210.106",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Claude",
+      "remote-domains": "desktopcommander.app",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "104.208.16.91",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "160.79.104.10",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.97.36.16",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.84.150.35",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.14.14.157",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Claude",
+      "remote-addresses": "18.97.36.16",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "teams.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "52.123.189.227",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.233.158.111",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "config.edge.skype.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking",
+      "remote-domains": "pub-ent-uswe-01-t.trouter.teams.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "Microsoft Outlook",
+      "remote-domains": "login.microsoftonline.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/usr/libexec/mobileassetd",
+      "remote-domains": "gdmf.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "versions",
+      "remote-domains": "platform.claude.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "3.149.61.172",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "/usr/local/share/CentraStage/AEMAgent/AEMAgent",
+      "remote-domains": "features.concord.rmm.datto.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Wispr Flow",
+      "remote-addresses": "35.85.3.169",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "142.251.150.119",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "13.107.138.10",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-21)",
+      "process": "Xcode",
+      "remote-domains": "playgrounds-cdn.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "108.156.91.116",
+      "ports": "443"
     }
   ]
 }
