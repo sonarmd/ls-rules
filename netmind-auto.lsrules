@@ -2603,6 +2603,87 @@
       "process": "/Users/avespoli/.local/share/fnm/node-versions/v22.22.0/installation/bin/node",
       "remote-domains": "registry.npmjs.org",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "18.97.36.14",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Microsoft Teams",
+      "remote-addresses": "2.21.9.40",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "142.250.188.174",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "72.152.5.186",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "/Library/Application Support/Objective Development/Little Snitch/Components/at.obdev.littlesnitch.daemon.bundle/Contents/XPCServices/at.obdev.littlesnitch.networking.xpc/Contents/MacOS/at.obdev.littlesnitch.networking",
+      "remote-domains": "raw.githubusercontent.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "140.82.112.26",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "140.82.114.4",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Claude",
+      "remote-addresses": "142.251.41.132",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "142.250.177.234",
+      "ports": "443"
     }
   ]
 }
