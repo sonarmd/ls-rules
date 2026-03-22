@@ -2099,6 +2099,15 @@
       "process": "Microsoft Outlook",
       "remote-domains": "roaming.officeapps.live.com",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-21)",
+      "process": "Google Chrome",
+      "remote-addresses": "52.205.168.61",
+      "ports": "443"
     }
   ]
 }
