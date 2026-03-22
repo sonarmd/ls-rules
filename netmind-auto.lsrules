@@ -2306,6 +2306,24 @@
       "process": "/System/Library/PrivateFrameworks/HelpData.framework/Versions/A/Resources/helpd",
       "remote-domains": "help.apple.com",
       "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-22)",
+      "process": "/opt/homebrew/Cellar/openssh/*/bin/ssh",
+      "remote-addresses": "3.23.236.83",
+      "ports": "22"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-22)",
+      "process": "Google Chrome",
+      "remote-addresses": "16.58.183.42",
+      "ports": "443"
     }
   ]
 }
