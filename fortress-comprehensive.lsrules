@@ -11,6 +11,13 @@
       "notes": "Block ALL incoming connections - no exceptions"
     },
     {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "any",
+      "remote": "192.168.8.1",
+      "notes": "GL.iNet router (192.168.8.1) - admin access"
+    },
+    {
       "action": "deny",
       "direction": "both",
       "process": "any",
