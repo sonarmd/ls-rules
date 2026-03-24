@@ -3295,6 +3295,123 @@
       "process": "Google Chrome",
       "remote-addresses": "192.168.8.1",
       "ports": "80"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-23)",
+      "process": "/usr/bin/curl",
+      "remote-domains": "api.github.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-23)",
+      "process": "Microsoft Teams",
+      "remote-domains": "us-prod.asyncgw.teams.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-23)",
+      "process": "Microsoft AutoUpdate",
+      "remote-domains": "mobile.events.data.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-23)",
+      "process": "/System/Library/PrivateFrameworks/ApplePushService.framework/apsd",
+      "remote-domains": "13-courier.push.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-23)",
+      "process": "/System/Library/PrivateFrameworks/AppleMediaServicesUI.framework/amsengagementd",
+      "remote-domains": "apps.mzstatic.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-23)",
+      "process": "/usr/libexec/nsurlsessiond",
+      "remote-domains": "configuration.apple.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-23)",
+      "process": "Microsoft Teams",
+      "remote-domains": "52-115-173-75.relay.teams.microsoft.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-23)",
+      "process": "Google Chrome",
+      "remote-domains": "android.clients.google.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] gwen-ruling (2026-03-23)",
+      "process": "Google Chrome",
+      "remote-domains": "optimizationguide-pa.googleapis.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-23)",
+      "process": "/usr/local/share/CentraStage/AEMAgent/AEMAgent",
+      "remote-domains": "agent-gateway.concord.rmm.datto.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-23)",
+      "process": "Google Chrome",
+      "remote-domains": "us-east-2.console.aws.amazon.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-23)",
+      "process": "Google Chrome",
+      "remote-domains": "alive.github.com",
+      "ports": "443"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "protocol": "tcp",
+      "notes": "[netmind auto] auto-override (3x) (2026-03-23)",
+      "process": "Google Chrome",
+      "remote-domains": "cell-0.us-east-2.prod.telemetry.console.api.aws",
+      "ports": "443"
     }
   ]
 }
