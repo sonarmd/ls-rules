@@ -15,7 +15,21 @@
       "direction": "outgoing",
       "process": "any",
       "remote": "192.168.8.1",
-      "notes": "GL.iNet router (192.168.8.1) - admin access"
+      "notes": "GL.iNet travel router (192.168.8.1) — ssh/dns/https admin access"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "any",
+      "remote": "192.168.1.1",
+      "notes": "Home/ISP router (192.168.1.1) — ssh/dns/https admin access"
+    },
+    {
+      "action": "allow",
+      "direction": "outgoing",
+      "process": "any",
+      "remote": "172.20.0.1",
+      "notes": "Local gateway (172.20.0.1) — captive portal/Docker/VPN split (dns/http/https)"
     },
     {
       "action": "deny",
