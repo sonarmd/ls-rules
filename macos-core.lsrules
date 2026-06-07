@@ -85,22 +85,11 @@
       "notes": "apsd must never connect outside Apple infrastructure"
     },
     {
-      "action": "allow",
+      "action": "deny",
       "process": "/usr/libexec/nsurlsessiond",
-      "remote-addresses": "17.0.0.0/8",
-      "ports": "443",
-      "protocol": "tcp",
+      "remote": "any",
       "direction": "outgoing",
-      "notes": "nsurlsessiond — Background URL sessions for Apple services"
-    },
-    {
-      "action": "allow",
-      "process": "/usr/libexec/nsurlsessiond",
-      "remote-addresses": "139.178.128.0/18",
-      "ports": "443",
-      "protocol": "tcp",
-      "direction": "outgoing",
-      "notes": "nsurlsessiond — Apple edge/CDN range"
+      "notes": "nsurlsessiond — BLOCKED. Shared background URL session daemon used as telemetry pipe. Critical Apple services (softwareupdated, storedownloadd, cloudd, bird) have their own explicit rules and don't need this proxy."
     },
     {
       "action": "allow",

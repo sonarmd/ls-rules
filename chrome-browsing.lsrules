@@ -75,13 +75,125 @@
       "notes": "Google PKI — OCSP and CRL certificate revocation checks. Required by EnableOnlineRevocationChecks: true in Chrome policy."
     },
     {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "google-analytics.com",
+      "direction": "outgoing",
+      "notes": "Block Google Analytics — tracking pixel and event collection"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "googletagmanager.com",
+      "direction": "outgoing",
+      "notes": "Block Google Tag Manager — third-party tag injection"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "googlesyndication.com",
+      "direction": "outgoing",
+      "notes": "Block Google ad syndication network"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "doubleclick.net",
+      "direction": "outgoing",
+      "notes": "Block DoubleClick ad network"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "facebook.com",
+      "direction": "outgoing",
+      "notes": "Block Facebook tracking pixels and SDK"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "fbcdn.net",
+      "direction": "outgoing",
+      "notes": "Block Facebook CDN tracking"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "amazon-adsystem.com",
+      "direction": "outgoing",
+      "notes": "Block Amazon ad system"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "criteo.com",
+      "direction": "outgoing",
+      "notes": "Block Criteo retargeting network"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "scorecardresearch.com",
+      "direction": "outgoing",
+      "notes": "Block ScorecardResearch tracking"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "quantserve.com",
+      "direction": "outgoing",
+      "notes": "Block Quantcast tracking"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "demdex.net",
+      "direction": "outgoing",
+      "notes": "Block Adobe Audience Manager (Demdex)"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "app-measurement.com",
+      "direction": "outgoing",
+      "notes": "Block Firebase/Google app measurement"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "ads-twitter.com",
+      "direction": "outgoing",
+      "notes": "Block Twitter/X ad tracking"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "adnxs.com",
+      "direction": "outgoing",
+      "notes": "Block AppNexus/Xandr ad exchange"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "taboola.com",
+      "direction": "outgoing",
+      "notes": "Block Taboola content recommendation ads"
+    },
+    {
+      "action": "deny",
+      "process": "com.google.Chrome",
+      "remote-domains": "outbrain.com",
+      "direction": "outgoing",
+      "notes": "Block Outbrain content recommendation ads"
+    },
+    {
       "action": "allow",
       "process": "com.google.Chrome",
       "remote": "any",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "General HTTPS browsing — Chrome must reach any web server. Process-scoped to com.google.Chrome only."
+      "notes": "General HTTPS browsing — Chrome must reach any web server. Process-scoped to com.google.Chrome only. Deny rules above take priority."
     },
     {
       "action": "allow",

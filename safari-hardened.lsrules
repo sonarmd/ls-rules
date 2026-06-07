@@ -90,6 +90,34 @@
       "action": "deny",
       "direction": "outgoing",
       "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": "ads-twitter.com",
+      "notes": "Block Twitter/X ad tracking"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": "adnxs.com",
+      "notes": "Block AppNexus/Xandr ad exchange"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": "taboola.com",
+      "notes": "Block Taboola content recommendation ads"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": "outbrain.com",
+      "notes": "Block Outbrain content recommendation ads"
+    },
+    {
+      "action": "deny",
+      "direction": "outgoing",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
       "remote-domains": "siri.apple.com",
       "notes": "Block Siri connections (disabled in hardened plist)"
     },

@@ -1,78 +1,240 @@
 {
   "name": "SonarMD Stack — Project Infrastructure",
-  "description": "Allow connections to SonarMD's project infrastructure: Atlassian (Jira/Confluence), MongoDB Atlas, CircleCI, GitHub sonarmd org, and Docker. These are broad-process allow rules — the destination is the control, not the process.",
+  "description": "Process-scoped access to SonarMD project infrastructure: Atlassian (Jira/Confluence), MongoDB Atlas, CircleCI, GitHub, and Docker. Every rule is scoped to specific processes — no process:any wildcards.",
   "rules": [
     {
       "action": "allow",
-      "process": "any",
+      "process": "com.google.Chrome",
       "remote-domains": "atlassian.net",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Atlassian — Jira (sonarmd.atlassian.net), Confluence"
+      "notes": "Chrome → Jira (sonarmd.atlassian.net), Confluence"
     },
     {
       "action": "allow",
-      "process": "any",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": "atlassian.net",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Safari → Jira, Confluence"
+    },
+    {
+      "action": "allow",
+      "process": "com.jetbrains.WebStorm",
+      "remote-domains": "atlassian.net",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "WebStorm → Jira integration plugin"
+    },
+    {
+      "action": "allow",
+      "process": "/usr/bin/curl",
+      "remote-domains": "atlassian.net",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "curl → Jira REST API (CLI automation)"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome",
       "remote-domains": "atlassian.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "Atlassian — account, admin, downloads"
+      "notes": "Chrome → Atlassian account, admin"
     },
     {
       "action": "allow",
-      "process": "any",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": "atlassian.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Safari → Atlassian account, admin"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/node",
       "remote-domains": "mongodb.net",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "MongoDB Atlas — cluster connections (HTTPS API)"
+      "notes": "Node → MongoDB Atlas HTTPS API (triggr_api)"
     },
     {
       "action": "allow",
-      "process": "any",
+      "process": "/opt/homebrew/opt/volta/bin/volta-shim",
+      "remote-domains": "mongodb.net",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Node via Volta → MongoDB Atlas HTTPS API"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/node",
       "remote-domains": "mongodb.net",
       "ports": "27017",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "MongoDB Atlas — native wire protocol port"
+      "notes": "Node → MongoDB Atlas wire protocol (triggr_api connections)"
     },
     {
       "action": "allow",
-      "process": "any",
+      "process": "/opt/homebrew/opt/volta/bin/volta-shim",
+      "remote-domains": "mongodb.net",
+      "ports": "27017",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Node via Volta → MongoDB Atlas wire protocol"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome",
+      "remote-domains": "mongodb.net",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Chrome → MongoDB Atlas web UI"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome",
       "remote-domains": "mongodb.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "MongoDB — Atlas UI, documentation, downloads"
+      "notes": "Chrome → MongoDB Atlas UI, docs"
     },
     {
       "action": "allow",
-      "process": "any",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": "mongodb.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Safari → MongoDB docs"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome",
       "remote-domains": "circleci.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "CircleCI — CI/CD pipeline, webhooks, API"
+      "notes": "Chrome → CircleCI dashboard"
     },
     {
       "action": "allow",
-      "process": "any",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": "circleci.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Safari → CircleCI dashboard"
+    },
+    {
+      "action": "allow",
+      "process": "/usr/bin/curl",
+      "remote-domains": "circleci.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "curl → CircleCI API"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome",
       "remote-domains": "github.com",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "GitHub — sonarmd org repos, PR reviews, Actions"
+      "notes": "Chrome → GitHub web UI"
     },
     {
       "action": "allow",
-      "process": "any",
+      "process": "/Applications/Safari.app/Contents/MacOS/Safari",
+      "remote-domains": "github.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Safari → GitHub web UI"
+    },
+    {
+      "action": "allow",
+      "process": "com.jetbrains.WebStorm",
+      "remote-domains": "github.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "WebStorm → GitHub integration"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/git",
+      "remote-domains": "github.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "git → GitHub HTTPS (clone, fetch, push)"
+    },
+    {
+      "action": "allow",
+      "process": "/usr/bin/git",
+      "remote-domains": "github.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Xcode git → GitHub HTTPS"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/gh",
+      "remote-domains": "github.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "gh CLI → GitHub API"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/git",
       "remote-addresses": "185.199.108.0/22",
       "ports": "443",
       "protocol": "tcp",
       "direction": "outgoing",
-      "notes": "GitHub Pages/CDN (raw.githubusercontent.com, GitHub assets)"
+      "notes": "git → GitHub CDN (raw.githubusercontent.com, LFS)"
+    },
+    {
+      "action": "allow",
+      "process": "/opt/homebrew/bin/gh",
+      "remote-addresses": "185.199.108.0/22",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "gh CLI → GitHub CDN"
+    },
+    {
+      "action": "allow",
+      "process": "/usr/bin/curl",
+      "remote-addresses": "185.199.108.0/22",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "curl → GitHub raw content (Little Snitch rule subscriptions)"
+    },
+    {
+      "action": "allow",
+      "process": "com.google.Chrome",
+      "remote-addresses": "185.199.108.0/22",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Chrome → GitHub CDN assets"
     },
     {
       "action": "allow",

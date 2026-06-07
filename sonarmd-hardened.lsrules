@@ -67,6 +67,42 @@
     },
     {
       "action": "deny",
+      "process": "/usr/libexec/sensorkitd",
+      "direction": "outgoing",
+      "notes": "SensorKit daemon — collects accelerometer, ambient light, keyboard, and device usage metrics for Apple. No legitimate reason to phone home on a hardened machine."
+    },
+    {
+      "action": "deny",
+      "process": "/usr/libexec/eventtraced",
+      "direction": "outgoing",
+      "notes": "Event tracing daemon — Apple's CoreAnalytics event pipeline. Aggregates and uploads system usage events. Blocked."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared",
+      "direction": "outgoing",
+      "notes": "Spotlight mdworker_shared — Spotlight indexer has no reason to make outbound network connections. If it does, it's phoning home."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/SiriUI.framework/Versions/A/Support/SiriUIServer",
+      "direction": "outgoing",
+      "notes": "SiriUI Server — Siri UI rendering process. Siri is disabled on this machine; this should never reach the network."
+    },
+    {
+      "action": "deny",
+      "process": "/usr/libexec/ReportCrash",
+      "direction": "outgoing",
+      "notes": "ReportCrash — crash log uploader. Crash data stays local; Apple doesn't need our stack traces."
+    },
+    {
+      "action": "deny",
+      "process": "/usr/libexec/sensord",
+      "direction": "outgoing",
+      "notes": "Sensor daemon — hardware sensor data aggregation. No legitimate outbound network need."
+    },
+    {
+      "action": "deny",
       "process": "com.apple.assistantd",
       "protocol": "tcp",
       "direction": "outgoing",
@@ -78,6 +114,72 @@
       "protocol": "tcp",
       "direction": "outgoing",
       "notes": "Siri knowledge daemon — on-device Siri learning uploaded to Apple blocked"
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/IntelligencePlatformCore.framework/Versions/A/intelligenceplatformd",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Apple Intelligence platform daemon. Core orchestrator for all Apple Intelligence features. No cloud AI on this machine."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/IntelligenceFlowRuntime.framework/Versions/A/intelligenceflowd",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Apple Intelligence flow engine. Executes AI inference pipelines and model orchestration."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/IntelligenceFlowContextRuntime.framework/Versions/A/intelligencecontextd",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Apple Intelligence context daemon. Gathers contextual data for AI personalization."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/IntelligenceTasksEngine.framework/Support/intelligencetasksd",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Apple Intelligence tasks engine. Schedules and runs background AI processing tasks."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/IntelligencePlatformCore.framework/Versions/A/knowledgeconstructiond",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Knowledge construction daemon. Builds on-device knowledge graph from user data for Apple Intelligence."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/SiriInference.framework/Versions/A/siriinferenced",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Siri inference engine. Runs ML models for Siri suggestions and predictions. No cloud inference."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/VoiceShortcuts.framework/Versions/A/Support/siriactionsd",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Siri Actions daemon. Handles shortcut execution and Siri intent resolution."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/SiriTTSService.framework/sirittsd",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Siri text-to-speech service. Downloads voice models and sends usage telemetry."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/CallIntelligence.framework/callintelligenced",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Call Intelligence daemon. Analyzes call patterns and voicemail transcription via cloud."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/GenerativeExperiencesRuntime.framework/Versions/A/generativeexperiencesd",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Generative Experiences daemon. Apple's generative AI runtime — Image Playground, Writing Tools, Genmoji. Absolutely not."
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Spotlight Knowledge daemon. Builds search indexes and uploads search behavior analytics."
     },
     {
       "action": "deny",
@@ -144,10 +246,58 @@
     },
     {
       "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/CoreParsec.framework/parsec-fbf",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Parsec feedback framework (full path). Belt-and-suspenders with bundle ID rule above."
+    },
+    {
+      "action": "deny",
       "process": "com.apple.parsecd",
       "protocol": "tcp",
       "direction": "outgoing",
       "notes": "Parsed daemon — query analysis and search telemetry blocked"
+    },
+    {
+      "action": "deny",
+      "process": "/System/Library/PrivateFrameworks/CoreParsec.framework/parsecd",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Parsecd (full path). Belt-and-suspenders with bundle ID rule above."
+    },
+    {
+      "action": "deny",
+      "process": "/usr/sbin/netbiosd",
+      "direction": "outgoing",
+      "notes": "BLOCKED — NetBIOS name service daemon. Legacy Windows network discovery protocol. Zero legitimate use on a hardened machine. Broadcasts device name to the local network."
+    },
+    {
+      "action": "deny",
+      "process": "/usr/sbin/netbiosd",
+      "direction": "incoming",
+      "notes": "BLOCKED — NetBIOS inbound. Prevents discovery requests from reaching this machine."
+    },
+    {
+      "action": "deny",
+      "process": "/usr/sbin/smbd",
+      "direction": "outgoing",
+      "notes": "BLOCKED — SMB server daemon. File sharing over network. No reason to serve files from this machine."
+    },
+    {
+      "action": "deny",
+      "process": "/usr/sbin/smbd",
+      "direction": "incoming",
+      "notes": "BLOCKED — SMB server inbound. No one should be mounting shares from this machine."
+    },
+    {
+      "action": "deny",
+      "process": "/usr/libexec/smb-sync-preferences",
+      "direction": "outgoing",
+      "notes": "BLOCKED — SMB preferences sync. Propagates SMB config changes. No network access needed."
+    },
+    {
+      "action": "deny",
+      "process": "/usr/libexec/smb-migrate-preferences",
+      "direction": "outgoing",
+      "notes": "BLOCKED — SMB preferences migration. Legacy tool for SMB config migration. No network access needed."
     },
     {
       "action": "deny",
@@ -618,12 +768,10 @@
       "notes": "System SSH — outgoing SSH connections"
     },
     {
-      "action": "allow",
+      "action": "deny",
       "process": "com.apple.nsurlsessiond",
-      "protocol": "tcp",
       "direction": "outgoing",
-      "ports": "443",
-      "notes": "NSURLSession daemon — system-wide URL session for Apple background services"
+      "notes": "BLOCKED — nsurlsessiond is a network bypass. Any process can delegate URL sessions through it, circumventing per-process firewall rules. Critical services have their own explicit rules."
     },
     {
       "action": "allow",
@@ -762,12 +910,10 @@
       "notes": "Identity Services daemon — iMessage and FaceTime identity federation"
     },
     {
-      "action": "allow",
+      "action": "deny",
       "process": "com.apple.translationd",
-      "protocol": "tcp",
       "direction": "outgoing",
-      "ports": "443",
-      "notes": "Translation daemon — on-device and cloud translation API"
+      "notes": "BLOCKED — Apple Translation uses cloud API for generative AI. On-device mode still works without network. No phoning home."
     },
     {
       "action": "deny",
@@ -945,6 +1091,83 @@
       "protocol": "tcp",
       "direction": "outgoing",
       "notes": "Microsoft AutoUpdate v2: blocked — updates managed by IT via Centrastage RMM"
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.teams2",
+      "remote-domains": "dc.services.visualstudio.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft Application Insights telemetry endpoint. Teams sends usage analytics here."
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.teams2",
+      "remote-domains": "browser.events.data.msn.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft telemetry collector for Electron apps."
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.teams2",
+      "remote-domains": "self.events.data.microsoft.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft OneCollector telemetry pipeline."
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.teams2",
+      "remote-domains": "mobile.events.data.microsoft.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft mobile telemetry pipeline (Teams uses it on macOS too)."
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.teams2",
+      "remote-domains": "vortex.data.microsoft.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft Vortex telemetry ingestion service."
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.Word",
+      "remote-domains": "dc.services.visualstudio.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft Application Insights telemetry from Word."
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.Word",
+      "remote-domains": "self.events.data.microsoft.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft OneCollector telemetry from Word."
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.Excel",
+      "remote-domains": "dc.services.visualstudio.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft Application Insights telemetry from Excel."
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.Excel",
+      "remote-domains": "self.events.data.microsoft.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft OneCollector telemetry from Excel."
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.Outlook",
+      "remote-domains": "dc.services.visualstudio.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft Application Insights telemetry from Outlook."
+    },
+    {
+      "action": "deny",
+      "process": "com.microsoft.Outlook",
+      "remote-domains": "self.events.data.microsoft.com",
+      "direction": "outgoing",
+      "notes": "BLOCKED — Microsoft OneCollector telemetry from Outlook."
     },
     {
       "action": "deny",

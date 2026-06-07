@@ -55,6 +55,13 @@
       "notes": "Malwarebytes → backend infrastructure (mwbsys.com)"
     },
     {
+      "action": "deny",
+      "process": "com.malwarebytes.mbam.frontend.application",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "Malwarebytes must only reach Malwarebytes infrastructure — deny everything else"
+    },
+    {
       "action": "allow",
       "process": "at.obdev.littlesnitch",
       "remote-domains": "obdev.at",
@@ -71,6 +78,38 @@
       "protocol": "tcp",
       "direction": "outgoing",
       "notes": "Little Snitch → help documentation (hosted on Netlify)"
+    },
+    {
+      "action": "deny",
+      "process": "at.obdev.littlesnitch",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "Little Snitch must only reach Objective Development infrastructure — deny everything else"
+    },
+    {
+      "action": "allow",
+      "process": "com.keepersecurity.passwordmanager",
+      "remote-domains": "keepersecurity.com",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Keeper → vault sync, account management"
+    },
+    {
+      "action": "allow",
+      "process": "com.keepersecurity.passwordmanager",
+      "remote-domains": "keepersecurity.eu",
+      "ports": "443",
+      "protocol": "tcp",
+      "direction": "outgoing",
+      "notes": "Keeper → EU region vault sync"
+    },
+    {
+      "action": "deny",
+      "process": "com.keepersecurity.passwordmanager",
+      "remote": "any",
+      "direction": "outgoing",
+      "notes": "Keeper must only reach Keeper Security infrastructure"
     }
   ]
 }
